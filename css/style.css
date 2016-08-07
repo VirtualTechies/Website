@@ -95,6 +95,10 @@ body{
 	padding:7rem 0 2rem;
 }
 
+.site-pad{
+	padding:7rem 0 2rem;
+}
+
 #oursSection {
 	padding:5rem 0 8rem;
 	background-color: #3e3c36!important;
@@ -157,6 +161,10 @@ footer.page-footer form{
 {
 	margin-top:7rem;
 }
+#approachLines .top{
+	padding:5rem 0;
+	border-bottom: 2px solid #eee;
+}
 #connect .top{
 	margin-top:5rem;
 }
@@ -172,4 +180,28 @@ footer.page-footer form{
 }
 #introFeatures .top:last-child{
 	margin-bottom:7rem;
+}
+.brown-text{
+	color: #3e3c36!important;
+}
+
+.brown-bg{
+	background-color: #3e3c36!important;
+}
+.light-bl-bg{
+	background-color: #f5f8fa !important;
+}
+.no-pad{
+	padding:0!important;
+}
+.no-mar{
+	margin:0!important;
+}
+
+#tribeMembers img{
+	width:50%; 
+}
+
+#tribeMembers p{
+	margin-bottom:3em;
 }
