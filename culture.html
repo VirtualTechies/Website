@@ -10,50 +10,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="shortcut icon" href="img/favicon.png">
 	
-	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/extra.css">
-	<link rel="stylesheet" href="libs/materialize/css/materialize.min.css">
+	<link rel="stylesheet" href="js/libs/materialize/css/materialize.min.css">
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
 
-<body class="white">
+<body data-page="culture" class="white">
 	<div id="site-wrapper" role="main">
-		<header class="z-depth-1">
-			<nav class="white">
-				<div class="nav-wrapper container">
-					<a href="#" class="brand-logo black-text">
-						<img src="img/logo.png" class="respoonsive-img">						
-					</a>
-					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars cyan-text"></i></a>      
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a href="#Home">Home</a></li>
-						<li><a class="dropdown-button" href="#!" data-activates="products-dropdown">Products <i class="fa fa-caret-down"></i></a></li>
-						<li><a href="#Services">Services</a></li>
-						<li><a href="#Blog">Blog</a></li>
-						<li><a href="#Team">Team</a></li>
-						<li><a href="#Contact">Contact</a></li>
-					</ul>
-					<ul class="side-nav" id="mobile-demo">
-						<li><a href="#Home">Home</a></li>
-						<li><a href="#services">Products</a></li>
-						<li><a href="#Services">Services</a></li>
-						<li><a href="#Blog">Blog</a></li>
-						<li><a href="#Team">Team</a></li>
-						<li><a href="#Contact">Contact</a></li>
-					</ul>
-				</div>
-			</nav>
-
-			<ul id="products-dropdown" class="dropdown-content">
-				<li><a href="#!">Somatosensory Education </a></li>
-				<li><a href="#!">3D Somatosensory dressing mirror</a></li>
-				<li><a href="#!">Somatosensory try internet </a></li>
-				<li><a href="#!">Somatosensory advertising </a></li>
-			</ul>
-		</header>
+		<header class="z-depth-1"></header>
 
 		<section class="center-align site-pad">
 			<div class="container">
@@ -61,8 +29,8 @@
 					<div class="col s12 m12 l12">
 						<h1 class="c-intro__heading grey-text">Virtual Techies <span class="cyan-text">Culture</span> Explained</h1>
 						<strong class="black-text">A Brief Anthropology</strong>
-								<p class="black-text">Hidden in the depths of the steaming urban jungle, a young yet surprisingly advanced tribe of digital artists is gradually expanding its territory.<br><br><br></p>
-								<a href="#scroll-to" class="btn cyan js-smooth-scroll" title="Tribe Members">Tribe Members</a>
+						<p class="black-text">Hidden in the depths of the steaming urban jungle, a young yet surprisingly advanced tribe of digital artists is gradually expanding its territory.<br><br><br></p>
+						<a href="#scroll-to" class="btn cyan js-smooth-scroll" title="Tribe Members">Tribe Members</a>
 					</div>
 				</div>
 			</div>
@@ -128,57 +96,12 @@
 						<h3 class="c-intro__heading--sm grey-text">Contact The <span class="cyan-text">Tribe</span><br><br></h3>						
 					</div>
 				</div>
-				<div class="row">
-					<div class="col s6 m3 l3">
-						<p>
-							<img class="responsive-img" src="img/ankits.png"><br>
-							<span class="flow-text cyan-text">Ankit Parekh</span><br> 
-							<span class="grey-text">Creative Director</span><br>
-						</p>
-					</div>
-					<div class="col s6 m3 l3">
-						<p>
-							<img class="responsive-img" src="img/sagars.png"><br>
-							<span class="flow-text cyan-text">Sagar Patel</span><br> 
-							<span class="grey-text">Strategy Director</span><br>
-						</p>
-					</div>
-					<div class="col s6 m3 l3">
-						<p>
-							<img class="responsive-img" src="img/gauravs.jpg"><br>
-							<span class="flow-text cyan-text">Gaurav Bhavsar</span><br> 
-							<span class="grey-text">Technical Director</span><br>
-						</p>
-					</div>
-					<div class="col s6 m3 l3">
-						<p>
-							<img class="responsive-img" src="img/milinds.png"><br>
-							<span class="flow-text cyan-text">Milind Patel</span><br> 
-							<span class="grey-text">Marketing Director</span><br>
-						</p>
-					</div>
-				</div>
+				<div class="row" id="teamrow"></div>
 			</div>
 		</section>
 
-		<footer class="page-footer no-pad no-mar">
-          	<div class="footer-copyright black-text">
-	            <div class="container">
-	            	<div class="row">
-						<div class="col s12 m6 l6 center-align">
-							<p>© 2016 Virtual Techies. All Rights Reserved.</p>
-						</div>
-						<div class="col s12 m6 l6 center-align">
-							<p>Designed & Developed by <a href="http://akkiparekhcv.appspot.com/">Ankit Parekh</a></p>
-						</div>
-					</div>
-	            </div>	            
-          	</div>
-        </footer>
+		<footer class="page-footer no-pad no-mar"></footer>
 	</div>	
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="libs/materialize/js/materialize.min.js"></script>
-	<script type="text/javascript" src="libs/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/virtual.js"></script>	
+	<script data-main="js/libs/require/modules/pages" src="js/libs/require/require.js"></script>	
 </body>
 </html>
