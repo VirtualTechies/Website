@@ -17,7 +17,12 @@
 </head>
 
 <body data-page="approach" class="white">
-	<div id="site-wrapper" role="main">
+	<!-- Loader -->
+	<div class="site-loader">
+		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
+	</div>
+	
+	<div id="site-wrapper" role="main" class="hide">
 		<header class="z-depth-1"></header>
 
 		<section class="center-align site-pad brown-bg">
@@ -73,6 +78,23 @@
 
 		<footer class="page-footer no-pad no-mar"></footer>
 	</div>	
-	<script src="assets/site.min.js"></script>
+	<script type="text/javascript">
+		function loadBackupScript(callback) {
+		    var script;
+		    if (typeof callback !== 'function') {
+		       throw new Error('Not a valid callback');  
+		    }
+		    script = document.createElement('script');
+		    script.onload = callback;  
+		    script.src = 'assets/site.min.js';
+		    document.head.appendChild(script);
+		}
+		loadBackupScript(function() { 
+			setTimeout(function(){ 
+				$(".site-loader").addClass("hide");
+				$("#site-wrapper").removeClass("hide");
+			},1000);			
+		});
+	</script>
 </body>
 </html>

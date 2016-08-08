@@ -16,7 +16,12 @@
 </head>
 
 <body class="white" data-page="home">
-	<div id="site-wrapper" role="main">
+	<!-- Loader -->
+	<div class="site-loader">
+		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
+	</div>	
+
+	<div id="site-wrapper" role="main" class="hide">
 		<header class="z-depth-1"></header>
 
 		<section class="intro white">
@@ -299,6 +304,23 @@
           	</div>
         </footer>
 	</div>	
-	<script src="assets/home.min.js"></script>
+	<script type="text/javascript">
+		function loadBackupScript(callback) {
+		    var script;
+		    if (typeof callback !== 'function') {
+		       throw new Error('Not a valid callback');  
+		    }
+		    script = document.createElement('script');
+		    script.onload = callback;  
+		    script.src = 'assets/home.min.js';
+		    document.head.appendChild(script);
+		}
+		loadBackupScript(function() { 
+			setTimeout(function(){ 
+				$(".site-loader").addClass("hide");
+				$("#site-wrapper").removeClass("hide");
+			},1000);			
+		});
+	</script>
 </body>
 </html>
