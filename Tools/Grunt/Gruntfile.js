@@ -19,7 +19,7 @@
 
 //Gruntfile
 module.exports = function(grunt) {
-	var rootLocation = "C:/Users/Admin/Desktop/VirtualTechies/Website/"; 
+	var rootLocation = "C:/Users/Admin/Desktop/VirtualTechies/gh-pages/Website/"; 
  
 	var options = {
 	
@@ -135,12 +135,11 @@ module.exports = function(grunt) {
 	// Task definition
 	grunt.registerTask('development', [
 			'concat',
-			//'uglify',
 			'cssmin'
 	]);
 	grunt.registerTask('production',  [		
 			'concat',
-			//'uglify',
+			'uglify',
 			'cssmin'			
 	]);
 };

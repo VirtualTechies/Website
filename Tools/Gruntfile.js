@@ -19,7 +19,7 @@
 
 //Gruntfile
 module.exports = function(grunt) {
-	var rootLocation = "C:/Users/Admin/Desktop/VirtualTechies/Website/"; 
+	var rootLocation = "C:/Users/Admin/Desktop/VirtualTechies/gh-pages/Website/"; 
  
 	var options = {
 	
