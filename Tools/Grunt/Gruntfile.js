@@ -19,7 +19,7 @@
 
 //Gruntfile
 module.exports = function(grunt) {
-	var rootLocation = "C:/Users/ANKIT PAREKH/Desktop/techies/Website/"; 
+	var rootLocation = "C:/Users/Admin/Desktop/VirtualTechies/Website/"; 
  
 	var options = {
 	
@@ -50,7 +50,8 @@ module.exports = function(grunt) {
 
 			homeJs: {
 				src: [
-					rootLocation + 'js/jquery-2.1.1.min',
+					rootLocation + 'js/libs/jquery/jquery-2.1.1.min.js',
+					rootLocation + 'js/libs/jquery/jquery.lazyload.min.js',
 					rootLocation + 'js/libs/materialize/js/materialize.min.js',
 					rootLocation + 'js/jquery.lazyload.min.js',
 					rootLocation + 'js/libs/owl-carousel/owl.carousel.min.js',
@@ -63,7 +64,8 @@ module.exports = function(grunt) {
 
 			siteJs: {
 				src: [
-				 	rootLocation + 'js/jquery-2.1.1.min',
+				 	rootLocation + 'js/libs/jquery/jquery-2.1.1.min.js',
+					rootLocation + 'js/libs/jquery/jquery.lazyload.min.js',
 					rootLocation + 'js/libs/materialize/js/materialize.min.js',
 					rootLocation + 'js/jquery.lazyload.min.js',
 					rootLocation + 'js/libs/mobile-detect/mobile-detect.min.js',
