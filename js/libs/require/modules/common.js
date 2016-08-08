@@ -19,6 +19,7 @@ requirejs.config({
         materialize   : 'libs/materialize/js/materialize.min',
         owlCarousel   : 'libs/owl-carousel/owl.carousel.min',
         mobileDetect  : 'libs/mobile-detect/mobile-detect.min',
-        template      : 'libs/template/template'
+        template      : 'libs/template/template',
+        homeProd      : 'production'
     }
 }); 

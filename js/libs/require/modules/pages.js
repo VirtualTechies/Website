@@ -7,7 +7,7 @@ requirejs(['./common'], function () {
 	
 		switch(page) {
 			case "home":
-				requirejs(['materialize', 'lazy', 'data', 'owlCarousel', 'mobileDetect', 'site'], function () {		
+				requirejs(['homeProd'], function () {		
 					console.log("jquery and dependencies configured...");
 					virtual.initialize();
 				});				

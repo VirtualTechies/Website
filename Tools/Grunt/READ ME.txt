@@ -1,0 +1,11 @@
+Please follow the following steps to run grunt to minify and bundle JS. 
+
+1) Install NodeJs in you machine. https://nodejs.org/download/
+2) Open NodeJS command line. (Start and search Node)
+3) Install grunt cli globally through npm. --> npm install grunt-cli -g
+4) navigate to the gruntfile.js present in this directory. 
+5) Verify the branch you want to minify and compress. 
+6) Have a look at the files being minified and compressed in gruntfile.js. 
+7) Run 
+	a) --> grunt watch:js (this minifies and bundles)
+	b) --> grunt watch:js --dev (this only bundles.)
