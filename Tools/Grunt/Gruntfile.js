@@ -135,12 +135,11 @@ module.exports = function(grunt) {
 	// Task definition
 	grunt.registerTask('development', [
 			'concat',
-			//'uglify',
 			'cssmin'
 	]);
 	grunt.registerTask('production',  [		
 			'concat',
-			//'uglify',
+			'uglify',
 			'cssmin'			
 	]);
 };
