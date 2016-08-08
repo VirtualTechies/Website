@@ -1,27 +1,29 @@
 requirejs(['./common'], function () {
 
-	var page = "";
-	requirejs(['jquery'], function () {		
-		console.log("jquery configured...");
-		page =  (typeof $("body").data("page") != "undefined") ? $("body").data("page") : "home";
-	
+	var page = ""; 
+
+	if(typeof document.getElementsByTagName("BODY")[0].getAttribute('data-page') != "undefined"){
+		page = document.getElementsByTagName("BODY")[0].getAttribute('data-page');
+	}else{
+		page = "home";
+	}
+
+	requirejs(['jQuery'], function () {		
 		switch(page) {
 			case "home":
 				requirejs(['homeProd'], function () {		
 					console.log("jquery and dependencies configured...");
-					virtual.initialize();
 				});				
 				break;
 			case "culture":
 			case "approach":
 			case "cases":
-				requirejs(['materialize', 'lazy', 'data', 'site'], function () {		
-					console.log("jquery and dependencies configured...");
-					virtual.initialize();
+				requirejs(['siteProd'], function () {		
+					console.log("jquery and dependencies configured...");				
 				});
 				break;
 			default:
 				break;
-		}
+		}			
 	});		
 });

@@ -5,21 +5,20 @@
 
 // Configure Require Js
 requirejs.config({
-    baseUrl: 'js',
+    baseUrl: 'assets',
     paths: {
         waitSeconds: 1,
-        jquery: [
-            'jquery-2.1.1.min'
-        ],
-        data          : 'data',
-        site          : 'virtual',
-        lazy          : 'jquery.lazyload.min',
-        backbone      : 'libs/backbone/backbone',
-        underscore    : 'libs/backbone/underscore.min',
-        materialize   : 'libs/materialize/js/materialize.min',
-        owlCarousel   : 'libs/owl-carousel/owl.carousel.min',
-        mobileDetect  : 'libs/mobile-detect/mobile-detect.min',
-        template      : 'libs/template/template',
-        homeProd      : 'production'
+
+        jQuery       : 'jquery-2.1.1.min',
+        homeProd     : 'home.min',
+        siteProd     : 'site.min',
+        cultureProd  : 'site.min',
+        hammerJs     : '../js/libs/hammer/hammerjs',
+        velocity     : '../js/libs/hammer/velocity',
+    },
+    shim:{
+        'homeProd':{
+            deps: ['hammerJs', 'velocity']
+        }
     }
 }); 

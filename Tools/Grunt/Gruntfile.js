@@ -19,82 +19,126 @@
 
 //Gruntfile
 module.exports = function(grunt) {
-	var rootLocation = "C:/Users/ANKIT PAREKH/Desktop/techies/Website/js/"; 
+	var rootLocation = "C:/Users/ANKIT PAREKH/Desktop/techies/Website/"; 
  
 	var options = {
+	
 		concat: {
 			options:{},
-            css: {
-                src: ['archive/trunk_archived_16_06/Grouptree.UI.Web/UI.core/assets/css/*.css'],
-                dest: 'archive/trunk_archived_16_06/Grouptree.UI.Web/UI.core/assets/css/production.css'
-            },
-            js: {
-            	src: [
-            		rootLocation + '/jquery-2.1.1.min',
-            		rootLocation + '/data.js',
-            		rootLocation + '/virtual.js',
-            		rootLocation + '/jquery.lazyload.min.js',
-            		rootLocation + '/libs/backbone/backbone.js',
-            		rootLocation + '/libs/backbone/underscore.min.js',
-            		rootLocation + '/libs/materialize/js/materialize.min.js',
-            		rootLocation + '/libs/owl-carousel/owl.carousel.min.js',
-            		rootLocation + '/libs/mobile-detect/mobile-detect.min.js',
-            		rootLocation + '/libs/template/template.js',
-                ],
-                dest: rootLocation +'/production.js'           
-            }
-        },
-        cssmin: {
-            css: {
-                src: 'archive/trunk_archived_16_06/Grouptree.UI.Web/UI.core/assets/css/production.css',
-                dest: 'archive/trunk_archived_16_06/Grouptree.UI.Web/UI.core/assets/css/min/production.min.css'
-            }
-        },
-        uglify: {
-            js: {            	
-                src: [
-            		rootLocation + '/jquery-2.1.1.min',
-            		rootLocation + '/data.js',
-            		rootLocation + '/virtual.js',
-            		rootLocation + '/jquery.lazyload.min.js',
-            		rootLocation + '/libs/backbone/backbone.js',
-            		rootLocation + '/libs/backbone/underscore.min.js',
-            		rootLocation + '/libs/materialize/js/materialize.min.js',
-            		rootLocation + '/libs/owl-carousel/owl.carousel.min.js',
-            		rootLocation + '/libs/mobile-detect/mobile-detect.min.js',
-            		rootLocation + '/libs/template/template.js',
-                ],
-                dest: rootLocation +'/production.js' 
-            }
-        },
-        watch: {
-            css: {
-                files: ['archive/trunk_archived_16_06/Grouptree.UI.Web/UI.core/assets/css/*.css'],
-                tasks: ['concat:css', 'cssmin:css']
-            },
-            js: {
-                files: ['archive/trunk_archived_16_06/Grouptree.UI.Web/UI.core/assets/js/*.js'],
-                tasks: ['concat:js', 'uglify:js']
-            }
-        }
-  	}
+			homeCss: {
+				src: [
+					rootLocation + 'js/libs/materialize/css/materialize.min.css',
+					rootLocation + 'css/style.css',
+					rootLocation + 'css/extra.css',
+					rootLocation + 'css/font-awesome.min.css',
+					rootLocation + 'js/libs/owl-carousel/owl.carousel.css',
+					rootLocation + 'js/libs/owl-carousel/owl.theme.css',
+					rootLocation + 'js/libs/owl-carousel/owl.transitions.css'
+				],
+				dest: rootLocation + 'assets/style.home.min.css'
+			},
+
+			siteCss:{
+				src: [
+					rootLocation + 'js/libs/materialize/css/materialize.min.css',
+					rootLocation + 'css/style.css',
+					rootLocation + 'css/extra.css',
+					rootLocation + 'css/font-awesome.min.css'
+				],
+				dest: rootLocation + 'assets/style.min.css'
+			},
+
+			homeJs: {
+				src: [
+					rootLocation + 'js/jquery-2.1.1.min',
+					rootLocation + 'js/libs/materialize/js/materialize.min.js',
+					rootLocation + 'js/jquery.lazyload.min.js',
+					rootLocation + 'js/libs/owl-carousel/owl.carousel.min.js',
+					rootLocation + 'js/libs/mobile-detect/mobile-detect.min.js',
+					rootLocation + 'js/data.js',
+					rootLocation + 'js/virtual.js'
+				],
+				dest: rootLocation +'assets/home.min.js'           
+			},
+
+			siteJs: {
+				src: [
+				 	rootLocation + 'js/jquery-2.1.1.min',
+					rootLocation + 'js/libs/materialize/js/materialize.min.js',
+					rootLocation + 'js/jquery.lazyload.min.js',
+					rootLocation + 'js/libs/mobile-detect/mobile-detect.min.js',
+					rootLocation + 'js/data.js',
+					rootLocation + 'js/virtual.js'
+				],
+				dest: rootLocation +'assets/site.min.js'
+			}
+		},
+
+		cssmin: {
+			options: {
+				shorthandCompacting: false,
+				roundingPrecision: -1
+			},
+			homeCss: {
+				expand: false,
+				src : rootLocation + 'assets/style.home.min.css',
+				dest: rootLocation + 'assets/style.home.min.css'
+			},
+			siteCss : {
+				expand: false,
+				src : rootLocation + 'assets/style.style.min.css',
+				dest: rootLocation + 'assets/style.style.min.css'
+			}
+		},
+
+		uglify: {
+			options:{
+				beautify:false
+			},
+			homeJs: {            	
+				src: [
+					rootLocation +'assets/home.min.js'
+				],
+				dest: rootLocation +'assets/home.min.js'
+			},
+			siteJs: {            	
+				src: [
+					rootLocation +'assets/site.min.js'
+				],
+				dest: rootLocation +'assets/site.min.js'
+			}
+		},
+
+		watch: {
+			css: {
+				files: [ rootLocation + 'css/*.css'],
+				tasks: ['concat:css', 'cssmin:css']
+			},
+			js: {
+				files: [rootLocation + 'js/*.js'],
+				tasks: ['concat:js', 'uglify:js']
+			}
+		}
+	}
 	
 	//Initializing the configuration object
 	grunt.initConfig(options);
 
 	// Plugin loading
 	grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-
-	//var mode = grunt.option('dev') ? 'debugDist' : 'dist';
-
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	
 	// Task definition
-	//grunt.registerTask('musafir-dist', ['packit:' + mode + 'Musafir1', 'packit:' + mode + 'Musafir2', 'packit:' + mode + 'Trip', 'packit:' + mode + 'Plus']);
-    //grunt.registerTask('musafir-js', ['musafir-dist']);
-    //grunt.registerTask('js', ['chmod:musafirjs', 'musafir-js', 'chmod:remotejs', 'copy:musafir']);
-    //grunt.registerTask('css', ['chmod:musafircss', 'cssmin:musafir']);
-	grunt.registerTask('development', ['concat', 'cssmin', 'uglify']);
-	grunt.registerTask('production',  ['concat', 'cssmin', 'uglify']);
+	grunt.registerTask('development', [
+			'concat',
+			//'uglify',
+			'cssmin'
+	]);
+	grunt.registerTask('production',  [		
+			'concat',
+			//'uglify',
+			'cssmin'			
+	]);
 };

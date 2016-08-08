@@ -184,3 +184,7 @@ virtual = {
 
 	}
 };
+
+$(function(){
+	virtual.initialize();
+});
