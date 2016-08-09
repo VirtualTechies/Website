@@ -122,6 +122,12 @@ body{
 .site-pad--sm{
 	padding:4rem 0 1rem;
 }
+.equal-pad{
+	padding:4rem 0;
+}
+.equal-pad--sm{
+	padding:2rem 0;
+}
 
 #oursSection {
 	padding:5rem 0 8rem;
