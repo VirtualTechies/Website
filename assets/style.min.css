@@ -98,6 +98,9 @@ body{
 .width100{
 	width:100%;
 }
+.width60{
+	width:60%;
+}
 
 .hoverbtn:hover{
 	background:#00bcd4 !important;
@@ -114,6 +117,16 @@ body{
 
 .site-pad{
 	padding:7rem 0 2rem;
+}
+
+.site-pad--sm{
+	padding:4rem 0 1rem;
+}
+.equal-pad{
+	padding:4rem 0;
+}
+.equal-pad--sm{
+	padding:2rem 0;
 }
 
 #oursSection {
@@ -250,6 +263,30 @@ footer.page-footer form{
 	    height: 70%;
 	}
 }		
+
+.block-center{
+	margin:0 auto;
+}
+
+.serviceIcon img{
+	max-width:75px;
+}
+.serviceIcon + p {
+	text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    font-size: 1.1rem;
+	font-weight:bold;
+}
 @charset "UTF-8";
 html {
     -webkit-text-size-adjust: 100%;
@@ -602,8 +639,6 @@ html {
     font-size: 137.5%;
     line-height: 1.6363636364;
     min-height: 100%;
-    background-color: #3e3c36;
-    color: #969696;
     font-family: "Ideal Sans Light";
     -webkit-font-smoothing: antialiased
 }

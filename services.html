@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Virtual Techies - Techifying the World</title>
+	<meta name="description" content="TryIt - Virtual Dressing Room">
+	<meta name="author" content="Ankit Parekh">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="shortcut icon" href="img/favicon.png">	
+	<link rel="stylesheet" href="assets/style.home.min.css">
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body data-page="services" class="white">
+	<!-- Loader -->
+	<div class="site-loader">
+		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
+	</div>
+
+	<div id="site-wrapper" role="main" class="hide">
+		<header class="z-depth-1"></header>
+
+		<section class="intro white">
+			<div class="owl-carousel" id="site-slider">
+				<div class="item valign-wrapper">
+					<article class="o-panorama js-animation-element a-inview width100">
+						<div class="image o-panorama__image js-image-liquid imgLiquid_bgSize imgLiquid_ready" style="background-image:linear-gradient(rgba(0, 0, 0, 0.10),rgba(0, 0, 0, 0.25)), url('img/services/service-1-slider.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+						<div class="o-panorama__content o-panorama__content--home o-panorama--transparent u-contain">
+							<div class="o-panorama__opacity">
+								<h2 class="o-panorama__heading left-align">Fresh, innovative, creative, minimalist ... What's your style?</h2>
+								<p class="white-text left-align">We craft experiences for the web, helping brands speak human in a digital world.</p>
+								<a href="#" class="btn cyan">Dive In</a>
+							</div>
+						</div>
+					</article>
+				</div>
+				<div class="item valign-wrapper">
+					<article class="o-panorama js-animation-element a-inview width100">
+						<div class="image o-panorama__image js-image-liquid imgLiquid_bgSize imgLiquid_ready" style="background-image:linear-gradient(rgba(0, 0, 0, 0.10),rgba(0, 0, 0, 0.25)), url('img/services/service-2-slider.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+						<div class="o-panorama__content o-panorama__content--home o-panorama--transparent u-contain">
+							<div class="o-panorama__opacity">
+								<h2 class="o-panorama__heading left-align">We produce the highest possible user experience for your business and target audience. </h2>
+								<p class="flow-text white-text left-align">Our creative design and responsive development solutions are second to none.</p>
+								<a href="#" class="btn cyan">Hire Us</a>
+							</div>
+						</div>
+					</article>
+				</div>
+				<div class="item valign-wrapper">
+					<article class="o-panorama js-animation-element a-inview width100">
+						<div class="image o-panorama__image js-image-liquid imgLiquid_bgSize imgLiquid_ready" style="background-image:linear-gradient(rgba(0, 0, 0, 0.10),rgba(0, 0, 0, 0.25)), url('img/services/service-3-slider.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+						<div class="o-panorama__content o-panorama__content--home o-panorama--transparent u-contain">
+							<div class="o-panorama__opacity">
+								<h2 class="o-panorama__heading left-align">We build web and mobile apps for startups and agencies</h2>
+								<p class="flow-text white-text left-align">We walk with updated technologies in mind</p>
+								<a href="#" class="btn cyan">Tell Us</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>						
+		</section>
+
+		<section class="white site-pad--sm light-bl-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m12 l12">
+						<h3 class="c-intro__heading--sm center-align"><span class="cyan-text">Core </span>Services</h3>						
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="coreFeatures" class="site-pad--sm light-bl-bg">
+			<div class="container">
+				<div class="row valign-wrapper">
+					<div class="col s12 m6 l6">
+					<h2 class="c-intro__heading--sm valign">Website <span class="cyan-text">Development</span></h2>
+						<p class="">Modern, precise and compliant coding to ensure your website performs well and keeps your customers engaged.</p>
+					</div>
+					<div class="col s12 m6 l6">
+						<img data-original="img/feat-1.png" class="lazy responsive-img">
+					</div>
+				</div>
+			</div>
+		</section>	
+
+		<footer class="page-footer no-pad no-mar"></footer>
+	</div>	
+
+	<script type="text/javascript">
+		function loadBackupScript(callback) {
+		    var script;
+		    if (typeof callback !== 'function') {
+		       throw new Error('Not a valid callback');  
+		    }
+		    script = document.createElement('script');
+		    script.onload = callback;  
+		    script.src = 'assets/home.min.js';
+		    document.head.appendChild(script);
+		}
+		loadBackupScript(function() { 
+			setTimeout(function(){ 
+				$(".site-loader").addClass("hide");
+				$("#site-wrapper").removeClass("hide");
+			},1000);			
+		});
+	</script>
+</body>
+</html>
