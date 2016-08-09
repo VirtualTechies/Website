@@ -250,3 +250,10 @@ footer.page-footer form{
 .block-center{
 	margin:0 auto;
 }
+
+.serviceIcon img{
+	max-width:75px;
+}
+.serviceIcon + p {
+	text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
