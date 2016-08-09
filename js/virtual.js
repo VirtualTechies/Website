@@ -17,6 +17,7 @@ virtual = {
 		var currentPage = (typeof this.page != "undefined") ? this.page : "home";
 		switch(currentPage) {
 			case "home":
+			case "services":
 				this.initializeHomePage();
 				break;
 			case "culture":
