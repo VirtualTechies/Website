@@ -81,6 +81,9 @@ body{
 .width100{
 	width:100%;
 }
+.width60{
+	width:60%;
+}
 
 .hoverbtn:hover{
 	background:#00bcd4 !important;
@@ -97,6 +100,10 @@ body{
 
 .site-pad{
 	padding:7rem 0 2rem;
+}
+
+.site-pad--sm{
+	padding:4rem 0 1rem;
 }
 
 #oursSection {
@@ -233,3 +240,7 @@ footer.page-footer form{
 	    height: 70%;
 	}
 }		
+
+.block-center{
+	margin:0 auto;
+}
