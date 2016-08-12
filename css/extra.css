@@ -3243,11 +3243,10 @@ html.is-no-scroll {
 
 .c-case__heading {
     font-size: 1.0909090909rem;
-    line-height: 1.1666666667;
-    margin-bottom: .8181818182rem;
     color: #282623;
     font-family: "NeuzeitGroBold";
-    letter-spacing: -1px
+    letter-spacing: -1px;
+    line-height: 1.3666666667;
 }
 
 .c-case-intro {
