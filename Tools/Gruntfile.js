@@ -19,7 +19,7 @@
 
 //Gruntfile
 module.exports = function(grunt) {
-	var rootLocation = "C:/Users/Admin/Desktop/VirtualTechies/Website/";
+	var rootLocation = "C:/Users/ANKIT PAREKH/Desktop/techies/master/Website/";
 	var options = {
 	
 		concat: {
@@ -55,6 +55,7 @@ module.exports = function(grunt) {
 					rootLocation + 'js/jquery.lazyload.min.js',
 					rootLocation + 'js/libs/owl-carousel/owl.carousel.min.js',
 					rootLocation + 'js/libs/mobile-detect/mobile-detect.min.js',
+					rootLocation + 'js/libs/masonary/masonry.pkgd.min.js',
 					rootLocation + 'js/data.js',
 					rootLocation + 'js/virtual.js'
 				],
@@ -68,6 +69,7 @@ module.exports = function(grunt) {
 					rootLocation + 'js/libs/materialize/js/materialize.min.js',
 					rootLocation + 'js/jquery.lazyload.min.js',
 					rootLocation + 'js/libs/mobile-detect/mobile-detect.min.js',
+					rootLocation + 'js/libs/masonary/masonry.pkgd.min.js',
 					rootLocation + 'js/data.js',
 					rootLocation + 'js/virtual.js'
 				],

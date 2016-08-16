@@ -1,0 +1,328 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Virtual Techies - Techifying the World</title>
+	<meta name="description" content="TryIt - Virtual Dressing Room">
+	<meta name="author"      content="Ankit Parekh">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0"/>
+	<link rel="shortcut icon" href="img/favicon.png">	
+	<link rel="stylesheet" href="assets/style.home.min.css">
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style type="text/css">
+		.venus-loader {
+		    position: fixed;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    top: 0;
+		    background-color: #fff;
+		    z-index: 999999;
+		}
+		.venus-loader .loader-inner {
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    top: 0;
+		    margin: auto;
+		    width: 40px;
+		    height: 40px;
+		}
+
+		.venus-loader p {
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 72%;
+		    top: 30%;
+		    margin: auto;
+		    width: 100%;
+		    text-align: center;
+		    font-weight:bold;
+		}
+
+		.venus-loader .loader-inner span:nth-child(1) {
+		    background: #26c6da;
+		    animation-delay: -1.5s;
+		}
+
+		.venus-loader .loader-inner span:nth-child(2) {
+		    background: #e0e0e0;
+		    animation-delay: -1s;
+		}
+
+		.venus-loader .loader-inner span:nth-child(3) {
+		    background: #26c6da;
+		    animation-delay: -0.5s;
+		}
+
+		.venus-loader .loader-inner span:last-child {
+			background: #e0e0e0;
+		}
+
+		.venus-loader .loader-inner span {
+		    border: 0;
+		    margin: 0;
+		    width: 25px;
+    		height: 25px;
+		    position: absolute;
+		    animation: loeader 2s ease infinite;
+		    text-align:center;		    
+		}
+
+		@keyframes loeader{
+			0%,100%{
+				transform:translate(0);
+			}
+			25%{
+				transform:translate(160%);
+			}
+			50%{
+				transform:translate(160%,160%);
+			}
+			75%{
+				transform:translate(0,160%);
+			}
+		}
+
+		@-webkit-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@-moz-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@-ms-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@-o-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+	</style>
+</head>
+
+<body class="white" data-page="home">
+	<!-- Loader -->
+	<!-- <div class="site-loader">
+		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
+	</div> -->	
+
+	<div class="venus-loader">
+		<div class="loader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<p class="flow-text">Virtual <span class="cyan-text">Techies</span></p>
+	</div>
+
+	<div id="site-wrapper" role="main" class="hide">
+		<header class="z-depth-1"></header>
+
+		<section class="center-align site-pad">
+			<div class="container">
+				<div class="row">`
+					<div id="masonry-grid" class="row">
+				        <div class="col s6 m4">
+				          <div class="card">
+				            <div class="card-image">
+				              
+				              <span class="card-title">Card Title</span>
+				            </div>
+				            <div class="card-content">
+				              <p>I am a very simple card. I am good at containing small bits of information.
+				              I am convenient because I require little markup to use effectively.</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">This is a link</a>
+				              <a href='#'>This is a link</a>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="col s6 m4">
+				          <div class="card">
+				            <div class="card-image">
+				              
+				              <span class="card-title">Card Title</span>
+				            </div>
+				            <div class="card-content">
+				              <p>I am a very simple card. I am good at containing small bits of information.
+				              I am convenient because I require little markup to use effectively.</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">This is a link</a>
+				              <a href='#'>This is a link</a>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="col s6 m4">
+				          <div class="card">
+				            <div class="card-content">
+				              <p>I am a very simple card. I am good at containing small bits of information.
+				              I am convenient because I require little markup to use effectively.</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">This is a link</a>
+				              <a href='#'>This is a link</a>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="col s6 m4">
+				          <div class="card">
+				            <div class="card-image">
+				              
+				              <span class="card-title">Card Title</span>
+				            </div>
+				            <div class="card-content">
+				              <p>
+				              I am convenient because I require little markup to use effectively.</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">This is a link</a>
+				              <a href='#'>This is a link</a>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="col s6 m4">
+				          <div class="card">
+				            <div class="card-image">
+				              
+				              <span class="card-title">Card Title</span>
+				            </div>
+				            <div class="card-content">
+				              <p>I am a very simple card. I am good at containing small bits of information.</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">This is a link</a>
+				              <a href='#'>This is a link</a>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="col s6 m4">
+				          <div class="card">
+				            <div class="card-image">
+				              
+				              <span class="card-title">Card Title</span>
+				            </div>
+				            <div class="card-content">
+				              <p>I am a very simple card. I am good at containing small bits of information.
+				              I am convenient because I require little markup to use effectively.</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">This is a link</a>
+				              <a href='#'>This is a link</a>
+				            </div>
+				          </div>
+				        </div>
+			      	</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="page-footer no-pad no-mar"></footer>
+	</div>	
+	<script type="text/javascript">
+
+		function loadBackupScript(callback) {
+		    var script;
+		    if (typeof callback !== 'function') {
+		       throw new Error('Not a valid callback');  
+		    }
+		    script = document.createElement('script');
+		    script.onload = callback;  
+		    script.src = 'assets/home.min.js';
+		    document.head.appendChild(script);
+
+		    script2 = document.createElement('script');
+		    script2.onload = callback;  
+		    script2.src = 'js/libs/masonary/masonry.pkgd.min.js';
+		    document.head.appendChild(script2);		    
+		}
+
+		loadBackupScript(function() { 
+			setTimeout(function(){ 
+				$(".venus-loader").addClass("hide");
+				$("#site-wrapper").removeClass("hide");
+			},1000);
+		});		
+	</script>
+</body>
+</html>

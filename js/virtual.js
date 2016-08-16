@@ -111,6 +111,16 @@ virtual = {
 		$("img.lazy, img , .image").lazyload({
 			effect    : "fadeIn"
 		});
+
+		var $container = $('#masonry-grid');
+	    
+	    $container.load(function(){
+	    	$container.masonry({
+				columnWidth: '.col',
+				itemSelector: '.col',
+				percentPosition: true
+		    });
+	    });	    
 	},
 
 	initializePlugins : function(){
