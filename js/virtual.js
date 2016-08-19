@@ -94,10 +94,10 @@ virtual = {
 		footer += '<div class="container">';
 		footer += '<div class="row">';
 		footer += '<div class="col s12 m6 l6 center-align">';
-		footer += '<p>© '+new Date().getFullYear()+' Virtual Techies. All Rights Reserved.</p>';
+		footer += '<p class="no-mar">© '+new Date().getFullYear()+' Virtual Techies. All Rights Reserved.</p>';
 		footer += '</div>';
 		footer += '<div class="col s12 m6 l6 center-align">';
-		footer += '<p>Designed & Developed by <a href="http://akkiparekhcv.appspot.com/">Ankit Parekh</a></p>';
+		footer += '<p class="no-mar">Designed & Developed by <a href="http://akkiparekhcv.appspot.com/">Ankit Parekh</a></p>';
 		footer += '</div></div></div></div>';
 
 		if($('footer').length){
@@ -111,16 +111,6 @@ virtual = {
 		$("img.lazy, img , .image").lazyload({
 			effect    : "fadeIn"
 		});
-
-		var $container = $('#masonry-grid');
-	    
-	    $container.load(function(){
-	    	$container.masonry({
-				columnWidth: '.col',
-				itemSelector: '.col',
-				percentPosition: true
-		    });
-	    });	    
 	},
 
 	initializePlugins : function(){
