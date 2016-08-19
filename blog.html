@@ -1,0 +1,645 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Virtual Techies - Techifying the World</title>
+	<meta name="description" content="TryIt - Virtual Dressing Room">
+	<meta name="author"      content="Ankit Parekh">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0"/>
+	<link rel="shortcut icon" href="img/favicon.png">	
+	<link rel="stylesheet" href="assets/style.home.min.css">
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style type="text/css">
+		.venus-loader {
+		    position: fixed;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    top: 0;
+		    background-color: #fff;
+		    z-index: 999999;
+		}
+		.venus-loader .loader-inner {
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    top: 0;
+		    margin: auto;
+		    width: 40px;
+		    height: 40px;
+		}
+
+		.venus-loader p {
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 72%;
+		    top: 30%;
+		    margin: auto;
+		    width: 100%;
+		    text-align: center;
+		    font-weight:bold;
+		}
+
+		.venus-loader .loader-inner span:nth-child(1) {
+		    background: #26c6da;
+		    animation-delay: -1.5s;
+		}
+
+		.venus-loader .loader-inner span:nth-child(2) {
+		    background: #e0e0e0;
+		    animation-delay: -1s;
+		}
+
+		.venus-loader .loader-inner span:nth-child(3) {
+		    background: #26c6da;
+		    animation-delay: -0.5s;
+		}
+
+		.venus-loader .loader-inner span:last-child {
+			background: #e0e0e0;
+		}
+
+		.venus-loader .loader-inner span {
+		    border: 0;
+		    margin: 0;
+		    width: 25px;
+    		height: 25px;
+		    position: absolute;
+		    animation: loeader 2s ease infinite;
+		    text-align:center;		    
+		}
+
+		@keyframes loeader{
+			0%,100%{
+				transform:translate(0);
+			}
+			25%{
+				transform:translate(160%);
+			}
+			50%{
+				transform:translate(160%,160%);
+			}
+			75%{
+				transform:translate(0,160%);
+			}
+		}
+
+		@-webkit-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@-moz-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@-ms-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@-o-keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		@keyframes $animation-name {
+		  0 {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(359deg);
+		    -moz-transform: rotate(359deg);
+		    -ms-transform: rotate(359deg);
+		    -o-transform: rotate(359deg);
+		    transform: rotate(359deg);
+		  }
+		}
+
+		#masonry-grid2 .card .card-image:before{
+		    content: '';
+		    display: block;
+		    position: absolute;
+		    top: 0;
+		    background:linear-gradient( rgba(138, 161, 183, 0.78), rgba(0, 0, 0, 0.45) );
+		    width: 100%;
+		    height: 100%;
+		    z-index:1;	   
+		}
+		#masonry-grid2 .card .card-image p{
+			z-index:2;		   
+		}
+
+		.blog-post-section,
+		.blog-content-section{
+			height: 100%;
+		    width:100%;
+		    position: relative;
+		    -webkit-transition: all .3s ease-in;
+			-moz-transition: all .3s ease-in;
+			-o-transition: all .3s ease-in;
+			transition: all .8s ease-in;
+		}
+
+		.blog-post-section article:first-child{
+			background-image: url("http://demos.creative-tim.com/gaia-bootstrap-template-pro/assets/img/header-13.jpeg");
+			height: 70vh;
+		}
+
+		.blog-post-section article:first-child h1,
+		.blog-post-section article:first-child p,
+		.blog-post-section article:first-child a{
+			z-index:5;
+		}
+
+		.close-blog{
+			position: absolute;
+			right: 2%;
+			top: 2%;	
+			z-index:5;		
+		}
+
+		.close-blog i{
+			font-size:.7rem;
+		}
+
+		.card-image span{
+		    background-size: cover;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    height: auto;
+		    display: block;
+		    width: 100%;
+		    min-height: 200px;
+		    max-height: 1000px;
+		}
+
+		.control:hover{
+			background:#00bcd4!important;
+			color:#fff!important;
+		}
+
+		.blog-mainImage .image{
+			height: 70vh;
+			background-size: cover;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		}
+
+		.blog-mainImage p ,
+		.blog-mainImage span{
+			position:absolute;			
+			width:100%;
+			z-index:6;
+			display:block;
+		}
+		.blog-mainImage p{
+			top:40%;
+		}
+		.blog-mainImage span{
+			top:50%;
+		}
+		.blog-mainImage{
+			position:relative;
+		}
+		.blog-post-section article:first-child:before,
+		.blog-mainImage:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 70vh;
+			display: block;
+			z-index: 3;
+			content: "";
+			opacity: .7;
+			background: #333;
+		}
+
+	</style>
+</head>
+
+<body class="white" data-page="blog">
+	<!-- Loader -->
+	<!-- <div class="site-loader">
+		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
+	</div> -->	
+
+	<div class="venus-loader">
+		<div class="loader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<p class="flow-text">Virtual <span class="cyan-text">Techies</span></p>
+	</div>
+
+	<div id="site-wrapper" role="main" class="hide">
+		<header class="z-depth-1"></header>
+
+		<section class="blog-post-section">
+			<article class="center-align equal-pad brown-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col s12 m12 l12 center-align">
+							<h1 class="white-text c-intro__heading--sm">Creative Blog</h1>
+							<p class="c-case__heading white-text">Find the latest stories from famous bloggers and concepts.</p>
+							<br><br><a class="btn grey white-text">Discover Stories</a>
+						</div>
+					</div>
+				</div>
+			</article>
+			<article id="allBlogs" class="center-align site-pad--sm">
+				<div class="container">
+					<div class="row">
+						<div id="masonry-grid">
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">	
+					              <span style="background-image:linear-gradient(rgba(0, 0, 0, 0.10),rgba(0, 0, 0, 0.62)), url('http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog4.jpg');"></span>
+					              <p class="card-title bold">Autodesk looks to future of 3D printing with Project Escher</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model disruption is only part of the story — and…</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">	
+					              <span style="background-image:linear-gradient(rgba(0, 0, 0, 0.10),rgba(0, 0, 0, 0.62)), url('http://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog5.jpg');"></span>
+					              <p class="card-title bold">Lyft launching cross-platform service this week</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. </p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">	
+					              <span style="background-image:linear-gradient(rgba(0, 0, 0, 0.10),rgba(0, 0, 0, 0.62)), url('http://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog6.jpg');"></span>
+					              <p class="card-title bold">We will breathe clean air and exercise</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is too high for the beams and angle of the ceiling I also wanted to point out that it’s the first album to go number 1 off of streaming...</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+				      	</div>
+					</div>
+				</div>
+			</article>
+			<article id="recommendedBlogs" class="grey lighten-4 center-align equal-pad">
+				<div class="container">
+					<div class="row">
+						<div class="col s12 m12 l12 center-align">
+							<p>Don't miss our</p>
+							<p class="c-intro__heading--sm black-text">Most Recommended Stories</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div id="masonry-grid2">
+					        <div class="col s12 m4 l4">
+					          	<div class="card z-depth-5 hoverable">
+					            	<div class="card-image">	
+										<img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/office2.jpg">
+										<p class="card-title bold">The Best Productivity Apps on Market</p>
+					            	</div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">
+					              <img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog8.jpg">
+					              <p class="card-title bold">Working on Wallstreet is Not So Easy</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">
+					              <img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-project6.jpg">
+					              <p class="card-title bold">0 to 100.000 Customers in 6 months</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">
+					            	<img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog4.jpg">
+					              <p class="card-title bold">Autodesk looks to future of 3D printing with Project Escher</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model disruption is only part of the story — and…</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">	
+					              <img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog5.jpg">
+					              <p class="card-title bold">Lyft launching cross-platform service this week</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. </p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+					        <div class="col s12 m4 l4">
+					          <div class="card z-depth-5 hoverable">
+					            <div class="card-image">	
+					              <img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog6.jpg">
+					          	<p class="card-title bold">We will breathe clean air and exercise</p>
+					            </div>
+					            <div class="card-content transparent">
+					               <p class="left-align">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is too high for the beams and angle of the ceiling I also wanted to point out that it’s the first album to go number 1 off of streaming...</p>
+					            </div>
+					            <div class="card-action transparent">
+					              <span class="btn btn-flat cyan-text control">Read More</aspan>
+					            </div>
+					          </div>
+					        </div>
+				      	</div>
+					</div>
+				</div>
+			</article>
+			<article id="latestBlogs" class="white center-align site-pad">
+				<div class="container">
+					<div class="row">
+						<div class="col s12 m12 l12 center-align">
+							<p>Checkout our Latest</p>
+							<p class="c-intro__heading--sm black-text">Blog Posts</p>
+						</div>
+					</div>
+
+					<div class="row valign-wrapper">
+				        <div class="col s12 m6 l6">
+							<div class="card z-depth-5 hoverable">
+								<div class="card-image">
+									<p class="card-title bold">The Best Productivity Apps on Market</p>
+									<img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/office2.jpg">
+								</div>
+							</div>
+				        </div>
+				        <div class="col s12 m6 l6 center-align">
+				        	<div class="valign">
+					        	<h2 class="c-case__heading black-text">One of the Best Articles of 2016 Is Here</h2>
+								<p class="grey-text">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
+					        	<br><a class="btn cyan">Read-more</a>
+				        	</div>
+				        </div>
+				    </div>
+
+				    <div class="row valign-wrapper">
+				    	<div class="col s12 m6 l6 center-align">
+				        	<div class="valign">
+					        	<h2 class="c-case__heading black-text">One of the Best Articles of 2016 Is Here</h2>
+								<p class="grey-text">Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
+					        	<br><a class="btn cyan">Read-more</a>
+				        	</div>
+				        </div>
+				        <div class="col s12 m6 l6">
+							<div class="card z-depth-5 hoverable">
+								<div class="card-image">
+									<p class="card-title bold">The Best Productivity Apps on Market</p>
+									<img class="responsive-img" src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/office2.jpg">
+								</div>
+							</div>
+				        </div>				        
+				    </div>
+		      	</div>
+			</article>
+			<article id="subscribe" class="site-pad grey lighten-4">
+				<div class="container">
+					<div class="row">
+						<div class="col s12 m12 l12 center-align">
+							<h2 class="c-intro__heading--sm black-text">Subscribe to Newsletter</h2>
+							<p class="grey-text">We are so blessed! All praises and blessings to the families of people who never gave up on dreams I love you guys.</p>
+						 	<div class="center-block" style="width:80%;">
+								<input id="first_name" type="text" class="validate">
+							</div><br>
+							<a class="btn cyan">SUBSCRIBE</a>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>		
+
+		<section class="blog-content-section hide center-align grey lighten-4">
+			<a class="btn-floating btn btn-flat waves-effect waves-light white close-blog"><i class="fa fa-times black-text"></i></a>
+			<article class="blog-mainImage">
+				<div class="image" style="transform: translate3d(0px, 0px, 0px); background-image: url('http://demos.creative-tim.com/gaia-bootstrap-template-pro/assets/img/header-1.jpeg');"></div>
+				<p class="white-text flow-text">Successful Designers Share Their Routines</p>
+				<span class="white-text">Find only the best stories from our famous writers.</span>
+			</article>
+			<article class="equal-pad">
+				<div class='container'>
+					<div class="row">
+						<div class="col s12 m8 l8">
+							<p class="space-para left-align">In the past nine months we’ve hosted over 400 LIVE Chats with entrepreneurs, investors, entertainers, athletes, and thought leaders from every industry imaginable. Many of our guests have written some of the most insightful, entertaining, and thought-provoking books in categories ranging from science fiction and history, to business non-fiction and memoirs.</p>
+							<p class="space-para left-align">Perhaps unsurprisingly, our community wanted to know how. How do these writers write? What time of day do they write, and how frequently? How long does it take? And does it get any easier over time?</p>
+							<p class="space-para left-align">A. The desire to lose weight is one of the most frequently cited reasons for skipping breakfast. But many observational studies have found that people who skip breakfast are more likely to be overweight. The theory is that they more than make up for the missed calories in the morning by eating more at lunch or snacking all day.</p>
+							<blockquote class="space-para">
+								<p>Overall, there’s still a similar intake or a lesser intake (of calories) over the whole day.</p>
+								<small>Krista Casazza, PhD, RD.</small>
+							</blockquote>
+							<p class="space-para left-align">Another small randomized trial published by Cornell University researchers in Physiology &amp; Behavior in 2013 found that college students ate about 145 calories more at lunch when they ate nothing in the morning than they did on a day when they ate breakfast. Considering that their breakfasts averaged about 625 calories, skipping it still resulted in a savings of about 450 calories by day’s end, according to the study.</p>
+							<p class="space-para left-align">In the past nine months we’ve hosted over 400 LIVE Chats with entrepreneurs, investors, entertainers, athletes, and thought leaders from every industry imaginable. Many of our guests have written some of the most insightful, entertaining, and thought-provoking books in categories ranging from science fiction and history, to business non-fiction and memoirs.</p>
+							<p class="space-para left-align">Perhaps unsurprisingly, our community wanted to know how. How do these writers write? What time of day do they write, and how frequently? How long does it take? And does it get any easier over time?</p>
+						</div>
+						<div class="col s12 m4 l4 center-align">
+							<h3 class="social-title">Author</h3>
+							<div class="author space-para">
+								<div class="avatar avatar-danger">
+									<img class="responsive-img circle" alt="..." src="http://demos.creative-tim.com/gaia-bootstrap-template-pro/assets/img/faces/face_1.jpg">
+								</div>
+								<div class="description text-center">
+									<h3 class="flow-text">Tina</h3>
+									<p class="small-text">Designer</p>
+								</div>
+								<div class="social-buttons">
+									<a href="#" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-twitter"></i></a>
+									<a href="#" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-dribbble"></i></a>
+									<a href="#" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-facebook-square"></i></a>
+								</div>
+							</div>
+
+							<h3 class="social-title space-para">Categories</h3>
+
+							<span class="chip space-para">Food</span>
+							<span class="chip space-para">Health</span>
+							<span class="chip space-para">Lifestyle</span>
+							<span class="chip space-para">Breakfast</span>
+							
+							<h3 class="social-title space-para">Shares - 18,5K</h3>
+							
+							<div class="social-buttons-blog-posts">
+								<a href="" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-facebook-square"></i></a>
+								<a href="" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-twitter"></i></a>
+								<a href="" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-instagram"></i></a>
+								<a href="" class="btn btn-flat btn-floating"><i class="fa cyan-text fa-google-plus-square"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>						
+		</section>
+
+		<footer class="page-footer no-pad no-mar"></footer>
+	</div>	
+	<script type="text/javascript">
+
+		function loadBackupScript(callback) {
+		    var script;
+		    if (typeof callback !== 'function') {
+		       throw new Error('Not a valid callback');  
+		    }
+		    script = document.createElement('script');
+		    script.onload = callback;  
+		    script.src = 'assets/home.min.js';
+		    document.head.appendChild(script);
+
+		    script2 = document.createElement('script');
+		    script2.onload = callback;  
+		    script2.src = 'js/libs/masonary/masonry.pkgd.min.js';
+		    document.head.appendChild(script2);		    
+		}
+
+		loadBackupScript(function() { 
+			setTimeout(function(){ 
+
+				var $container = $('#masonry-grid');
+		    	$container.masonry({
+					columnWidth: ".col",
+					itemSelector: ".col",
+					gutter: 0,
+					percentPosition: true
+			    });
+
+			    var $container2 = $("#masonry-grid2");
+			    $container2.masonry({
+					columnWidth: ".col",
+					itemSelector: ".col",
+					gutter: 0,
+					percentPosition: true
+			    });
+
+				$(".venus-loader").addClass("hide");
+				$("#site-wrapper").removeClass("hide");
+				
+				$(".control").on("click",function(){
+					$(".blog-content-section").removeClass("hide");	
+					$(".blog-post-section").addClass("hide");					
+					$("nav").wrap('<div class="navbar-fixed"></div>');
+				});
+
+				$(".close-blog").on("click",function(){
+					$(".blog-content-section").addClass("hide");	
+					$(".blog-post-section").removeClass("hide");				
+					$("nav").unwrap();					
+				});
+
+
+			},1000);
+
+		});		
+	</script>
+</body>
+</html>

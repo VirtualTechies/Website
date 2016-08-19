@@ -38,14 +38,19 @@
 	</div>	
 	<script type="text/javascript">
 		function loadBackupScript(callback) {
-		    var script;
+		    var script, script2;
 		    if (typeof callback !== 'function') {
 		       throw new Error('Not a valid callback');  
 		    }
 		    script = document.createElement('script');
 		    script.onload = callback;  
-		    script.src = 'assets/site.min.js';
+		    script.src = 'assets/plugins.min.js';
 		    document.head.appendChild(script);
+
+		    script2 = document.createElement('script');
+		    script2.onload = callback;  
+		    script2.src = 'assets/site.min.js';
+		    document.head.appendChild(script2);
 		}
 		loadBackupScript(function() { 
 			setTimeout(function(){ 

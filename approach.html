@@ -14,6 +14,23 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+
+	<style type="text/css">
+		#approachLines .top{
+			padding:5rem 0;
+			border-bottom: 2px solid #eee;
+		}
+		#technologies .col{
+			margin-top:5rem;
+		}
+		#technologies .row:first-child .col{
+			margin-top:0rem;
+		}
+		#technologies .col img{
+			width:70%;
+			margin:0 auto;
+		}
+	</style>
 </head>
 
 <body data-page="approach" class="white">
@@ -29,7 +46,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12 l12">
-						<h1 class="c-intro__heading white-text">How We <span class="cyan-text">Approach</span> Our Projects</h1>
+						<h1 class="bold white-text">How We <span class="cyan-text">Approach</span> Our Projects</h1>
 						<strong class="white-text">Always Tailor-Made<br><br></strong>
 						<p class="flow-text white-text">Naturally, you represent your own unique target audience, calling for unique feats of User Experience design. Still, the Virtual Techies approach comprises four structural stages to ensure user happiness hits your people right between the eyes.<br><br></p>
 						<a href="#scroll-to" class="btn cyan js-smooth-scroll" title="Tribe Members">Show Me</a>
@@ -42,7 +59,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12 l12 center-align">
-						<h1 class="c-intro__heading--sm grey-text">THE <span class="cyan-text">HOW</span> & <span class="cyan-text">WHY</span></h1>
+						<h1 class="bold grey-text">THE <span class="cyan-text">HOW</span> & <span class="cyan-text">WHY</span></h1>
 						<p class="flow-text grey-text">Pillars of Our Process</p>
 					</div>
 				</div>
@@ -57,7 +74,7 @@
 			<div class="container center-align">
 				<div class="row">
 					<div class="col s12 m12 l12">
-						<p class="c-intro__heading--sm white-text"><span class="cyan-text">Technology</span> Capabilities</p>
+						<p class="bold white-text"><span class="cyan-text">Technology</span> Capabilities</p>
 						<p class="white-text">Our skills are constantly evolving based on the needs of our partners — from open-source to licensed enterprise tools, we stay sharp.</p>
 					</div>
 				</div>
@@ -69,7 +86,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12 l12 center-align">
-						<h1 class="c-intro__heading--sm grey-text"><span class="cyan-text">MULTIDISCIPLINARY</span> APPROACH</h1>
+						<h1 class="bold grey-text"><span class="cyan-text">MULTIDISCIPLINARY</span> APPROACH</h1>
 						<p class="flow-text grey-text">More than an impressive list of offerings, we care about how those offerings work together to build something remarkable.</p>
 					</div>
 				</div>
@@ -80,14 +97,19 @@
 	</div>	
 	<script type="text/javascript">
 		function loadBackupScript(callback) {
-		    var script;
+		    var script, script2;
 		    if (typeof callback !== 'function') {
 		       throw new Error('Not a valid callback');  
 		    }
 		    script = document.createElement('script');
 		    script.onload = callback;  
-		    script.src = 'assets/site.min.js';
+		    script.src = 'assets/plugins.min.js';
 		    document.head.appendChild(script);
+
+		    script2 = document.createElement('script');
+		    script2.onload = callback;  
+		    script2.src = 'assets/site.min.js';
+		    document.head.appendChild(script2);
 		}
 		loadBackupScript(function() { 
 			setTimeout(function(){ 
