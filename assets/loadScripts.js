@@ -52,8 +52,8 @@ var loadScript = {
 				}
 
 				setTimeout(function(){ 
-					$(".site-loader").addClass("hide");
-					$("#site-wrapper").removeClass("hide");
+					document.getElementById("site-loader").className  = "site-loader hide";
+					document.getElementById("site-wrapper").className = "";
 				},1000);
 			} 
 		};
@@ -61,7 +61,9 @@ var loadScript = {
 		var mainScript =  document.createElement('script');					    		 
 		mainScript.src = "assets/plugins.min.js";
     	document.head.appendChild(mainScript);
-    	execteScripts();
+    	mainScript.onload = function() {
+			execteScripts(); 
+		}
 	}
 };
 
