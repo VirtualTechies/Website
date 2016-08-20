@@ -52,8 +52,8 @@ var loadScript = {
 				}
 
 				setTimeout(function(){ 
-					$(".site-loader").addClass("hide");
-					$("#site-wrapper").removeClass("hide");
+					document.getElementById("site-loader").className  = "site-loader hide";
+					document.getElementById("site-wrapper").className = "";
 				},1000);
 			} 
 		};
