@@ -18,7 +18,13 @@
 <body data-page="cases" class="white">
 	<!-- Loader -->
 	<div class="site-loader">
-		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
+		<div class="loader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<p class="flow-text">Virtual <span class="cyan-text">Techies</span></p>
 	</div>
 
 	<div id="site-wrapper" role="main" class="hide">
@@ -36,28 +42,6 @@
 		</section>
 		<footer class="page-footer no-pad no-mar"></footer>
 	</div>	
-	<script type="text/javascript">
-		function loadBackupScript(callback) {
-		    var script, script2;
-		    if (typeof callback !== 'function') {
-		       throw new Error('Not a valid callback');  
-		    }
-		    script = document.createElement('script');
-		    script.onload = callback;  
-		    script.src = 'assets/plugins.min.js';
-		    document.head.appendChild(script);
-
-		    script2 = document.createElement('script');
-		    script2.onload = callback;  
-		    script2.src = 'assets/site.min.js';
-		    document.head.appendChild(script2);
-		}
-		loadBackupScript(function() { 
-			setTimeout(function(){ 
-				$(".site-loader").addClass("hide");
-				$("#site-wrapper").removeClass("hide");
-			},1000);			
-		});
-	</script>		
+	<script type="text/javascript" src="assets/loadScripts.js"></script>		
 </body>
 </html>
