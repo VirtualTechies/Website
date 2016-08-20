@@ -61,7 +61,9 @@ var loadScript = {
 		var mainScript =  document.createElement('script');					    		 
 		mainScript.src = "assets/plugins.min.js";
     	document.head.appendChild(mainScript);
-    	execteScripts();
+    	mainScript.onload = function() {
+			execteScripts(); 
+		}
 	}
 };
 
