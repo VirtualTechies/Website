@@ -103,6 +103,36 @@ var headerdata = {
     ]
 };
 
+var homedata = {
+	introFeatures:[
+		{
+			featureText:'<h4 class="bold">Prototyping and Wireframing, <span class="cyan-text">UX Design</span></h4>',
+			featuredesc:'<p>We collaboate with clients, understand their needs, follow web trends to prepare perfect prototypes and layouts with high level user experience, using advanced technologies and tools.</p>',
+			imgPath:'img/feat-1.png'
+		},
+		{
+			featureText:'<h4 class="bold">User Interface <span class="cyan-text">Design</span></h4>',
+			featuredesc:'<p>We love to design, draw, think and, at the same time, be simple, clean and modern. Our aim is to transform mockups and wireframes into cutting edge designs with perfect look.</p>',
+			imgPath:'img/feat-2.png'
+		},
+		{
+			featureText:'<h4 class="bold">Front-end <span class="cyan-text">Development</span></h4>',
+			featuredesc:'<p class="">We build rich interfaces mainly based on Bootstrap3 mobile-first framework. We always provide high quality results using latest web technologies by doing clean and semantic hand coding.</p>',
+			imgPath:'img/feat-3.png'
+		},
+		{
+			featureText:'<h4 class="bold">Web Application <span class="cyan-text">Development</span></h4>',
+			featuredesc:'<p>We develop functional web applications based on AngularJS and ReactJS.</p>',
+			imgPath:'img/feat-4.png'
+		},
+		{
+			featureText:'<h4 class="bold">Mobile Application <span class="cyan-text">Development</span></h4>',
+			featuredesc:'<p class="">We are also experienced in designing and building iOS and Android native applications with perfect and intuitive design and high performance backend functionality.</p>',
+			imgPath:'img/feat-5.png'
+		}
+	]
+};
+
 var teamdata = {
 	"culturedata" : [
 		{

@@ -75,32 +75,165 @@ footer.page-footer form{
 /*footer Css*/
 
 /*site-loader css starts*/
-.site-loader{
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	display: block;
-	opacity: 0.8;
-	background-color: #eeeeee;
-	z-index: 99;
-	text-align: center;
+.site-loader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #fff;
+    z-index: 999999;
 }
-.site-loader img {
-    position: relative;
-    margin: 0 auto;
-    height:auto;
-    width: 50%;
+.site-loader .loader-inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
 }
-@media only screen and (max-width: 600px) {
-	.site-loader img {
-	    position: relative;
-	    margin: 0 auto;
-	    height: auto;
-	    width: 100%;
-	    height: 70%;
+
+.site-loader p {
+	position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 72%;
+    top: 30%;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-weight:bold;
+}
+
+.site-loader .loader-inner span:nth-child(1) {
+    background: #26c6da;
+    animation-delay: -1.5s;
+}
+
+.site-loader .loader-inner span:nth-child(2) {
+    background: #e0e0e0;
+    animation-delay: -1s;
+}
+
+.site-loader .loader-inner span:nth-child(3) {
+    background: #26c6da;
+    animation-delay: -0.5s;
+}
+
+.site-loader .loader-inner span:last-child {
+	background: #e0e0e0;
+}
+
+.site-loader .loader-inner span {
+    border: 0;
+    margin: 0;
+    width: 25px;
+	height: 25px;
+    position: absolute;
+    animation: loeader 2s ease infinite;
+    text-align:center;		    
+}
+
+@keyframes loeader{
+	0%,100%{
+		transform:translate(0);
 	}
+	25%{
+		transform:translate(160%);
+	}
+	50%{
+		transform:translate(160%,160%);
+	}
+	75%{
+		transform:translate(0,160%);
+	}
+}
+
+@-webkit-keyframes $animation-name {
+  0 {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes $animation-name {
+  0 {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@-ms-keyframes $animation-name {
+  0 {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes $animation-name {
+  0 {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes $animation-name {
+  0 {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }	
 /*site-loader css ends*/
 
@@ -112,12 +245,13 @@ footer.page-footer form{
 .equal-pad--sm{	padding:2rem 0; }
 .width100{ width:100%; }
 .width60{ width:60%; }
-.brown-bg{background-color: #3e3c36!important;}
+.site-bg{background: linear-gradient(60deg,rgb(0, 212, 205),#0277bd)!important;}
 .light-bl-bg{background-color: #f5f8fa !important;}
 .noPad,.no-pad{padding:0!important;}
 .no-mar{margin:0!important;}
-.brown-text{color: #3e3c36!important;}
+.site-text{color: #00bcd4 !important;}
 .block-center{margin:0 auto;}
+.no-shadow{box-shadow:none!important;}
 /*helpers Css*/
 
 /*labels css*/

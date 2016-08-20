@@ -14,167 +14,6 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<style type="text/css">
-		.venus-loader {
-		    position: fixed;
-		    left: 0;
-		    right: 0;
-		    bottom: 0;
-		    top: 0;
-		    background-color: #fff;
-		    z-index: 999999;
-		}
-		.venus-loader .loader-inner {
-		    position: absolute;
-		    left: 0;
-		    right: 0;
-		    bottom: 0;
-		    top: 0;
-		    margin: auto;
-		    width: 40px;
-		    height: 40px;
-		}
-
-		.venus-loader p {
-			position: absolute;
-		    left: 0;
-		    right: 0;
-		    bottom: 72%;
-		    top: 30%;
-		    margin: auto;
-		    width: 100%;
-		    text-align: center;
-		    font-weight:bold;
-		}
-
-		.venus-loader .loader-inner span:nth-child(1) {
-		    background: #26c6da;
-		    animation-delay: -1.5s;
-		}
-
-		.venus-loader .loader-inner span:nth-child(2) {
-		    background: #e0e0e0;
-		    animation-delay: -1s;
-		}
-
-		.venus-loader .loader-inner span:nth-child(3) {
-		    background: #26c6da;
-		    animation-delay: -0.5s;
-		}
-
-		.venus-loader .loader-inner span:last-child {
-			background: #e0e0e0;
-		}
-
-		.venus-loader .loader-inner span {
-		    border: 0;
-		    margin: 0;
-		    width: 25px;
-    		height: 25px;
-		    position: absolute;
-		    animation: loeader 2s ease infinite;
-		    text-align:center;		    
-		}
-
-		@keyframes loeader{
-			0%,100%{
-				transform:translate(0);
-			}
-			25%{
-				transform:translate(160%);
-			}
-			50%{
-				transform:translate(160%,160%);
-			}
-			75%{
-				transform:translate(0,160%);
-			}
-		}
-
-		@-webkit-keyframes $animation-name {
-		  0 {
-		    -webkit-transform: rotate(0deg);
-		    -moz-transform: rotate(0deg);
-		    -ms-transform: rotate(0deg);
-		    -o-transform: rotate(0deg);
-		    transform: rotate(0deg);
-		  }
-		  100% {
-		    -webkit-transform: rotate(359deg);
-		    -moz-transform: rotate(359deg);
-		    -ms-transform: rotate(359deg);
-		    -o-transform: rotate(359deg);
-		    transform: rotate(359deg);
-		  }
-		}
-
-		@-moz-keyframes $animation-name {
-		  0 {
-		    -webkit-transform: rotate(0deg);
-		    -moz-transform: rotate(0deg);
-		    -ms-transform: rotate(0deg);
-		    -o-transform: rotate(0deg);
-		    transform: rotate(0deg);
-		  }
-		  100% {
-		    -webkit-transform: rotate(359deg);
-		    -moz-transform: rotate(359deg);
-		    -ms-transform: rotate(359deg);
-		    -o-transform: rotate(359deg);
-		    transform: rotate(359deg);
-		  }
-		}
-
-		@-ms-keyframes $animation-name {
-		  0 {
-		    -webkit-transform: rotate(0deg);
-		    -moz-transform: rotate(0deg);
-		    -ms-transform: rotate(0deg);
-		    -o-transform: rotate(0deg);
-		    transform: rotate(0deg);
-		  }
-		  100% {
-		    -webkit-transform: rotate(359deg);
-		    -moz-transform: rotate(359deg);
-		    -ms-transform: rotate(359deg);
-		    -o-transform: rotate(359deg);
-		    transform: rotate(359deg);
-		  }
-		}
-
-		@-o-keyframes $animation-name {
-		  0 {
-		    -webkit-transform: rotate(0deg);
-		    -moz-transform: rotate(0deg);
-		    -ms-transform: rotate(0deg);
-		    -o-transform: rotate(0deg);
-		    transform: rotate(0deg);
-		  }
-		  100% {
-		    -webkit-transform: rotate(359deg);
-		    -moz-transform: rotate(359deg);
-		    -ms-transform: rotate(359deg);
-		    -o-transform: rotate(359deg);
-		    transform: rotate(359deg);
-		  }
-		}
-
-		@keyframes $animation-name {
-		  0 {
-		    -webkit-transform: rotate(0deg);
-		    -moz-transform: rotate(0deg);
-		    -ms-transform: rotate(0deg);
-		    -o-transform: rotate(0deg);
-		    transform: rotate(0deg);
-		  }
-		  100% {
-		    -webkit-transform: rotate(359deg);
-		    -moz-transform: rotate(359deg);
-		    -ms-transform: rotate(359deg);
-		    -o-transform: rotate(359deg);
-		    transform: rotate(359deg);
-		  }
-		}
-
 		#masonry-grid2 .card .card-image:before{
 		    content: '';
 		    display: block;
@@ -279,12 +118,7 @@
 </head>
 
 <body class="white" data-page="blog">
-	<!-- Loader -->
-	<!-- <div class="site-loader">
-		<img id="" src="gifs/resp_dribbble.gif" alt="Loading..." />
-	</div> -->	
-
-	<div class="venus-loader">
+	<div class="site-loader">
 		<div class="loader-inner">
 			<span></span>
 			<span></span>
@@ -584,28 +418,30 @@
 
 		<footer class="page-footer no-pad no-mar"></footer>
 	</div>	
-	<script type="text/javascript">
 
+	<script type="text/javascript">
 		function loadBackupScript(callback) {
-		    var script;
+		    var script, script2, script3;
 		    if (typeof callback !== 'function') {
 		       throw new Error('Not a valid callback');  
 		    }
 		    script = document.createElement('script');
 		    script.onload = callback;  
-		    script.src = 'assets/home.min.js';
+		    script.src = 'assets/plugins.min.js';
 		    document.head.appendChild(script);
 
-		    script2 = document.createElement('script');
-		    script2.onload = callback;  
-		    script2.src = 'js/libs/masonary/masonry.pkgd.min.js';
-		    document.head.appendChild(script2);		    
-		}
+		    setTimeout(function(){ 
+				script2 = document.createElement('script');
+			    script2.onload = callback;  
+			    script2.src = 'assets/site.min.js';
+			    document.head.appendChild(script2);
 
-		loadBackupScript(function() { 
-			setTimeout(function(){ 
+			    script3 = document.createElement('script');
+			    script3.onload = callback;  
+			    script3.src = 'js/libs/masonary/masonry.pkgd.min.js';
+			    document.head.appendChild(script3);
 
-				var $container = $('#masonry-grid');
+			    var $container = $('#masonry-grid');
 		    	$container.masonry({
 					columnWidth: ".col",
 					itemSelector: ".col",
@@ -621,8 +457,7 @@
 					percentPosition: true
 			    });
 
-				$(".venus-loader").addClass("hide");
-				$("#site-wrapper").removeClass("hide");
+				
 				
 				$(".control").on("click",function(){
 					$(".blog-content-section").removeClass("hide");	
@@ -636,10 +471,15 @@
 					$("nav").unwrap();					
 				});
 
+			},1000);		    
+		}
 
-			},1000);
-
-		});		
+		loadBackupScript(function() { 
+			setTimeout(function(){ 
+				$(".venus-loader").addClass("hide");
+				$("#site-wrapper").removeClass("hide");
+			},1000);			
+		});
 	</script>
 </body>
 </html>

@@ -49,7 +49,7 @@
 }
 #site-slider .item .slider-title h2{
 	margin-top:10%;
-	font-weight:bold;
+	font-weight:500;
 }
 /*site-slider Css*/
 
@@ -77,15 +77,16 @@
     padding-left: 20px;
 }
 #slide-intro .big-title .picDivide{
-	height: 90px;
+    height: 90px;
     width: 90px;
+    z-index: 1;
     background-color: #fff;
     display: inline-block;
     overflow: hidden;
     float: right;
     position: relative;
     left: 55px;
-    top: -0.3em;
+    top: -1.9em;
 }
 #slide-intro .StoryLine{
 	padding:5%;
@@ -98,16 +99,18 @@
 
 /*oursSection Css*/
 #oursSection {
-	padding:5rem 0 8rem;
-	background-color: #3e3c36!important;
+	padding:5rem 0 7rem;
 }
+
 #oursSection img{
-	margin:5em auto;
-	max-height:9rem;
-	min-height:9rem;
+	max-height:7rem;
+	min-height:7rem;
+}
+#oursSection .card{
+	margin-top:3rem;
+	cursor:pointer;
 }
 #oursSection .card:hover{
-	border: 1px solid #fff;
 	cursor:pointer;
 }
 /*oursSection Css*/

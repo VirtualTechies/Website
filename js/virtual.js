@@ -109,15 +109,20 @@ virtual = {
 
 	initializeLazyLoad : function(){
 		$("img.lazy, img , .image").lazyload({
-			effect    : "fadeIn"
+			effect    : "fadeIn",
+			threshold : 200
 		});
 	},
 
 	initializePlugins : function(){
-				
+		$(".btn").addClass("waves-effect waves-light z-depth-3");
+		$(".btn.cyan").removeClass("cyan").addClass("site-bg");
 	},
 
 	initializeHomePage : function() {
+
+		var virtual = this;
+		var isMobile = virtual.detectDevice();
 		/*initializing Slider*/
 		$('.owl-carousel').owlCarousel({
 			loop       : true,
@@ -141,6 +146,39 @@ virtual = {
 			}
 		});
 		$('.parallax').parallax();
+
+		var features = '<div class="container">';
+		$(homedata.introFeatures).each(function(f){
+			features += '<div class="row '+(f==0 ? '' : 'top')+'">';
+			if(isMobile ||  f % 2 == 0){
+				features += '<div class="col s12 m6 l6">';
+				features += '<img data-original="'+homedata.introFeatures[f].imgPath+'" class="lazy responsive-img">';
+				features += '</div>';
+				features += '<div class="col s12 m6 l6">';
+				features += homedata.introFeatures[f].featureText;
+				features += homedata.introFeatures[f].featuredesc;
+				features += '</div>';
+			}
+			else{
+				features += '<div class="col s12 m6 l6">';
+				features += homedata.introFeatures[f].featureText;
+				features += homedata.introFeatures[f].featuredesc;
+				features += '</div>';
+				features += '<div class="col s12 m6 l6">';
+				features += '<img data-original="'+homedata.introFeatures[f].imgPath+'" class="lazy responsive-img">';
+				features += '</div>';
+			}	
+			features += '</div>';
+		});
+		features += '</div>';
+		$("#introFeatures").html(features);
+
+		$("#connect .card-panel").hover(function(){
+			$(this).toggleClass("transparent no-shadow cyan-text site-bg hoverable white-text z-depth-5");
+		},function(){
+			$(this).toggleClass("transparent no-shadow cyan-text site-bg hoverable white-text z-depth-5");
+		});
+		virtual.initializeLazyLoad();
 	},
 
 	initializeCulture : function() {
@@ -183,6 +221,15 @@ virtual = {
 
 	initializeCases: function() {
 
+	},
+
+	detectDevice:function(){
+		var isMobile = false;
+		var md = new MobileDetect(window.navigator.userAgent);
+		if (md.mobile()) {
+			isMobile = true;
+		}
+		return isMobile;
 	}
 };
 
