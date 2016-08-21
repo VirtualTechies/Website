@@ -32,19 +32,20 @@ virtual = {
 			default:
 				break;
 		}
+		this.initializeWow();
 	},
 
 	initializeHeader:function(){
 		var header = '';
 		var mobileheader = '';
 		var dds    = '';
-		
-		header += '<nav class="white">';
+	
+		header += '<div class="navbar-fixed">';
+		header += '<nav id="web-header" class="transparent">';
 		header += '<div class="nav-wrapper container">';
 		header += '<a href="#" class="brand-logo black-text">';
-		header += '<img src="img/logo.png" class="respoonsive-img">';
-		header += '</a>';
-					
+		header += '<small class="bold cyan-text"><em>Virtual </em><em class="white-text">Techies</em></small>';
+		header += '</a>';					
 		header += '<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars cyan-text"></i></a>';
 		header += '<ul id="nav-mobile" class="right hide-on-med-and-down">';
 
@@ -68,9 +69,9 @@ virtual = {
 		mobileheader += '</ul>';
 		header += '</ul>';
 		header += mobileheader;
-		header += '</div></nav>';	
+		header += '</div></nav></div>';	
 
-		$('header').html(header + dds);
+		$('header').html(header + dds).attr("id","site-navbar").addClass("big");
 		$('.button-collapse').sideNav({
 			menuWidth    : 300,
 			edge         : 'left',
@@ -86,6 +87,20 @@ virtual = {
 			belowOrigin: true,
 			alignment: 'left'
 		});
+
+		$(document).scroll(function(){
+			if($(this).scrollTop() > 50){
+				$("#web-header").addClass("white z-depth-1").removeClass("transparent z-depth-0");
+				$("#site-wrapper #site-navbar").removeClass("big");
+				$("#site-navbar").find(".hide-on-med-and-down li a").addClass("white-text").removeClass("black-text");
+			}
+			else{
+				$("#web-header").addClass("transparent z-depth-0").removeClass("white z-depth-1");
+				$("#site-wrapper #site-navbar").addClass("big");
+				$("#site-navbar").find(".hide-on-med-and-down li a").addClass("black-text").removeClass("white-text");
+			}
+		});
+		
 	},
 
 	initializeFooter:function(){
@@ -114,9 +129,10 @@ virtual = {
 		});
 	},
 
-	initializePlugins : function(){
+	initializePlugins : function(){		
 		$(".btn").addClass("waves-effect waves-light z-depth-3");
 		$(".btn.cyan").removeClass("cyan").addClass("site-bg");
+		this.initializeWow();
 	},
 
 	initializeHomePage : function() {
@@ -130,7 +146,9 @@ virtual = {
 			dots       : false,
 			lazyLoad   : true,
 			items      : 1,
-			pagination :false,
+			pagination : false,
+			autoplay   : true,
+			autoplayHoverPause: true,
 
 			responsiveClass:true,
 			responsive:{
@@ -145,22 +163,29 @@ virtual = {
 				}
 			}
 		});
+
+		if(isMobile){
+			$('.owl-carousel .slider-title h3').addClass("flow-text").css("margin-top","60%");
+			$("#weDoSec").css("top","-45px").css("z-index" ,"1");
+		}
+
 		$('.parallax').parallax();
 
 		var features = '<div class="container">';
 		$(homedata.introFeatures).each(function(f){
 			features += '<div class="row '+(f==0 ? '' : 'top')+'">';
 			if(isMobile ||  f % 2 == 0){
+				var alignment = isMobile ? "center-align wow slideIn" : "right-align wow slideInRight";
 				features += '<div class="col s12 m6 l6">';
-				features += '<img data-original="'+homedata.introFeatures[f].imgPath+'" class="lazy responsive-img">';
+				features += '<img data-original="'+homedata.introFeatures[f].imgPath+'" class="wow slideInLeft lazy responsive-img">';
 				features += '</div>';
-				features += '<div class="col s12 m6 l6">';
+				features += '<div class="col s12 m6 l6 '+alignment+'">';
 				features += homedata.introFeatures[f].featureText;
 				features += homedata.introFeatures[f].featuredesc;
 				features += '</div>';
 			}
 			else{
-				features += '<div class="col s12 m6 l6">';
+				features += '<div class="col s12 m6 l6 left-align wow slideInLeft">';
 				features += homedata.introFeatures[f].featureText;
 				features += homedata.introFeatures[f].featuredesc;
 				features += '</div>';
@@ -178,6 +203,7 @@ virtual = {
 		},function(){
 			$(this).toggleClass("transparent no-shadow cyan-text site-bg hoverable white-text z-depth-5");
 		});
+		virtual.initializeWow();
 		virtual.initializeLazyLoad();
 	},
 
@@ -230,6 +256,12 @@ virtual = {
 			isMobile = true;
 		}
 		return isMobile;
+	},
+
+	initializeWow : function(){		
+		$(".wow").attr("data-wow-duration","2s").attr("data-wow-delay","1s");
+		wow = new WOW();
+		wow.init();
 	}
 };
 

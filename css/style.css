@@ -22,18 +22,68 @@ body{
 }
 
 /*header Css*/
-.brand-logo img{
-	min-width:70px;
-	max-height: 40px;
-	margin:.4em 0;
-}
-
 #nav-mobile li a{
 	color:#333 !important;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+#site-navbar .brand-logo{
+    outline:none;
+}
+
+#site-navbar.big .brand-logo small{
+    top: 25px;
+    position: relative;
+    font-family: cursive;
+}
+#site-navbar.big .brand-logo small em:nth-child(2){
+    color:#fff !important;
+}
+#site-navbar .brand-logo small em:nth-child(2){
+    color:grey !important;
+}
+#site-navbar{
+    max-height:65px;
+    transition:all 0.3s ease-in;
+}
+
+#site-navbar.big .navbar-fixed,
+#site-navbar.big .navbar-fixed nav,
+#site-navbar.big .navbar-fixed nav ul.hide-on-med-and-down{
+    min-height:125px;   
+}
+
+#site-navbar.big .navbar-fixed,
+#site-navbar.big .navbar-fixed nav
+{
+    background:rgba(0, 0, 0, 0.13)!important;
+}
+
+#site-navbar.big .navbar-fixed nav ul.hide-on-med-and-down li a{
+    margin:2rem 0;
+    color:#fff!important;
+    font-weight:600;
+}
+
+#site-navbar.big .navbar-fixed nav ul.hide-on-med-and-down li .dropdown-content li a{
+    margin:.5rem 0;
+    color:#000!important;
+    font-weight:600;
+}
+
+#site-navbar.big .navbar-fixed nav .button-collapse {
+    top: 25%;
+}
+
+.first-sec-site{
+    position:relative;
+    top:-120px;
+    left:0;
+    right:0;
+    margin-bottom:-120px;
 }
 /*header Css*/
 
