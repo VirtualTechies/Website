@@ -211,14 +211,30 @@ virtual = {
 		var team = '';
 
 		$(teamdata.culturedata).each(function(c){
-			team += '<div class="col s6 m3 l3"><p>';
+			team += '<div class="col s6 m3 l3">';
+			team += '<div class="card-panel transparent black-text no-shadow"><p>';
 			team += '<img class="responsive-img lazy" data-original="'+teamdata.culturedata[c].imgPath+'"><br>';
-			team += '<span class="flow-text cyan-text">'+teamdata.culturedata[c].name+'</span><br>';
-			team += '<span class="grey-text">'+teamdata.culturedata[c].role+'</span><br>';
-			team += '</p></div>';
+			team += '<span class="truncate flow-text">'+teamdata.culturedata[c].name+'</span>';
+			team += '<span class="">'+teamdata.culturedata[c].role+'</span>';
+			team += '</p>';
+			team += '</div></div>';
 		});		
 		$("#teamrow").html(team);
 		this.initializeLazyLoad();
+
+		$("#goToTribe").on("click",function(){
+			$('html, body').animate({
+				scrollTop: $("#tribeMembers").offset().top
+			}, 2000);
+		});
+
+		$("#teamrow .card-panel").hover(function(){
+			$(this).addClass("z-depth-3 white-text site-bg");
+			$(this).removeClass("transparent no-shadow black-text");			
+		},function(){
+			$(this).removeClass("z-depth-3 white-text site-bg");
+			$(this).addClass("transparent no-shadow black-text");
+		});
 	},
 
 	initializeApproach: function() {
@@ -243,6 +259,12 @@ virtual = {
 		});
 		$("#technologies #techs").html(techs);
 		this.initializeLazyLoad();
+
+		$("#goToApproach").on("click",function(){
+			$('html, body').animate({
+				scrollTop: ($("#approachLines").offset().top - 100)
+			}, 2000);
+		});
 	},
 
 	initializeCases: function() {
