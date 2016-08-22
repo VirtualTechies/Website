@@ -265,6 +265,56 @@ virtual = {
 				scrollTop: ($("#approachLines").offset().top - 100)
 			}, 2000);
 		});
+
+		$(".tags").typed({
+            strings: ["Business owners with big dreams.","Bringing ideas to life.","Owners who want to work within a budget.","Cutting edge technology & marketing.","Taking your business to the next level.","Happy customers.","Results!"],
+            typeSpeed: 30,
+            backSpeed: 0,
+            startDelay: 0,
+            backDelay: 700,
+            randomize: 100,
+            cursorChar: '|',
+            showCursor:true,
+            loop:true,
+            contentType: 'text', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            callback: function(){ 
+				// Uncomment these lines to make the cursor disappear after 2s. (2000 -> 2 s) 
+				// setTimeout(function(){
+				// jQuery(".typed-cursor").hide(); 
+				// }, 2000);
+			},
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(window).on('scroll', function(){
+			$(".cd-timeline-block").each(function(){
+				if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+					$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+				}
+			});
+		});
+
+        var carousel = $('.owl-carousel');
+		/*initializing Slider*/
+		carousel.owlCarousel({
+			loop: true,
+			center: true,
+			items: 1,
+			nav : false,
+			dots : false,
+			autoplayHoverPause: true,
+			animateOut: 'slideOutUp',
+			animateIn: 'slideInUp'
+		});
+
+		$(".controls li").on("click", function(){
+			var index = $(this).index();
+			carousel.trigger("to.owl.carousel", [index, 500, true]);
+			$(this).find("i").addClass("fa-circle").removeClass("fa-circle-o");
+			$(this).siblings().find("i").addClass("fa-circle-o").removeClass("fa-circle");
+		});
 	},
 
 	initializeCases: function() {

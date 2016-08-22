@@ -17,8 +17,17 @@ var loadScript = {
 						console.log(loadScript.currentPage+" page initialized...");
 					};
 					break;
-				case "culture":
 				case "approach":
+					scriptsToGetLoaded.push("js/libs/typed/typed.min.js");
+					scriptsToGetLoaded.push("assets/home.min.js");
+					callbacks[0] = function(){
+						console.log(loadScript.currentPage+" page initialized...");
+					};
+					callbacks[1] = function(){
+						console.log(loadScript.currentPage+" typed.min.js initialized...");
+					};
+					break;
+				case "culture":
 				case "cases":				
 					scriptsToGetLoaded.push("assets/site.min.js");
 					callbacks[0] = function(){
