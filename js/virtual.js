@@ -211,14 +211,30 @@ virtual = {
 		var team = '';
 
 		$(teamdata.culturedata).each(function(c){
-			team += '<div class="col s6 m3 l3"><p>';
+			team += '<div class="col s6 m3 l3">';
+			team += '<div class="card-panel transparent black-text no-shadow"><p>';
 			team += '<img class="responsive-img lazy" data-original="'+teamdata.culturedata[c].imgPath+'"><br>';
-			team += '<span class="flow-text cyan-text">'+teamdata.culturedata[c].name+'</span><br>';
-			team += '<span class="grey-text">'+teamdata.culturedata[c].role+'</span><br>';
-			team += '</p></div>';
+			team += '<span class="truncate flow-text">'+teamdata.culturedata[c].name+'</span>';
+			team += '<span class="">'+teamdata.culturedata[c].role+'</span>';
+			team += '</p>';
+			team += '</div></div>';
 		});		
 		$("#teamrow").html(team);
 		this.initializeLazyLoad();
+
+		$("#goToTribe").on("click",function(){
+			$('html, body').animate({
+				scrollTop: $("#tribeMembers").offset().top
+			}, 2000);
+		});
+
+		$("#teamrow .card-panel").hover(function(){
+			$(this).addClass("z-depth-3 white-text site-bg");
+			$(this).removeClass("transparent no-shadow black-text");			
+		},function(){
+			$(this).removeClass("z-depth-3 white-text site-bg");
+			$(this).addClass("transparent no-shadow black-text");
+		});
 	},
 
 	initializeApproach: function() {
@@ -243,6 +259,62 @@ virtual = {
 		});
 		$("#technologies #techs").html(techs);
 		this.initializeLazyLoad();
+
+		$("#goToApproach").on("click",function(){
+			$('html, body').animate({
+				scrollTop: ($("#approachLines").offset().top - 100)
+			}, 2000);
+		});
+
+		$(".tags").typed({
+            strings: ["Business owners with big dreams.","Bringing ideas to life.","Owners who want to work within a budget.","Cutting edge technology & marketing.","Taking your business to the next level.","Happy customers.","Results!"],
+            typeSpeed: 30,
+            backSpeed: 0,
+            startDelay: 0,
+            backDelay: 700,
+            randomize: 100,
+            cursorChar: '|',
+            showCursor:true,
+            loop:true,
+            contentType: 'text', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            callback: function(){ 
+				// Uncomment these lines to make the cursor disappear after 2s. (2000 -> 2 s) 
+				// setTimeout(function(){
+				// jQuery(".typed-cursor").hide(); 
+				// }, 2000);
+			},
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(window).on('scroll', function(){
+			$(".cd-timeline-block").each(function(){
+				if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+					$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+				}
+			});
+		});
+
+        var carousel = $('.owl-carousel');
+		/*initializing Slider*/
+		carousel.owlCarousel({
+			loop: true,
+			center: true,
+			items: 1,
+			nav : false,
+			dots : false,
+			autoplayHoverPause: true,
+			animateOut: 'slideOutUp',
+			animateIn: 'slideInUp'
+		});
+
+		$(".controls li").on("click", function(){
+			var index = $(this).index();
+			carousel.trigger("to.owl.carousel", [index, 500, true]);
+			$(this).find("i").addClass("fa-circle").removeClass("fa-circle-o");
+			$(this).siblings().find("i").addClass("fa-circle-o").removeClass("fa-circle");
+		});
 	},
 
 	initializeCases: function() {

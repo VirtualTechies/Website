@@ -9,15 +9,27 @@
 	<meta name="author"      content="Ankit Parekh">
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0"/>
 	<link rel="shortcut icon" href="img/favicon.png">
-	<link rel="stylesheet" href="assets/style.min.css">
+	<link rel="stylesheet" href="assets/style.home.min.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
 	<style type="text/css">
+		.first-sec-site.approach{
+			background-size: cover; 
+		    background-repeat: no-repeat;
+		    background-position: center center;
+		    width: 100%;
+		    height: 100%;
+		    max-height: 700px;
+		    min-height: 600px;
+		    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.08)), url('img/approach-head.png');
+		}
+		.first-sec-site.approach h3{
+			margin-top:7.5rem;
+		}
 		#approachLines .top{
-			padding:5rem 0;
 			border-bottom: 2px solid #eee;
 		}
 		#technologies .col{
@@ -30,6 +42,109 @@
 			width:70%;
 			margin:0 auto;
 		}
+		.timeline {
+		  position: relative;
+		}
+
+		.timeline .timeline-event {
+		  position: relative;
+		  padding-top: 5px;
+		  padding-bottom: 5px;
+		}
+
+		.timeline .timeline-event .timeline-content {
+		  position: relative;
+		  width: calc(50% - 50px);
+		}
+
+		.timeline .timeline-event::before {
+		  display: block;
+		  content: "";
+		  width: 2px;
+		  height: calc(50% - 30px);
+		  position: absolute;
+		  background: #d2d2d2;
+		  left: calc(50% - 1px);
+		  top: 0;
+		}
+
+		.timeline .timeline-event::after {
+		  display: block;
+		  content: "";
+		  width: 2px;
+		  height: calc(50% - 30px);
+		  position: absolute;
+		  background: #d2d2d2;
+		  left: calc(50% - 1px);
+		  top: calc(50% + 30px);
+		}
+
+		.timeline .timeline-event:first-child::before {
+		  display: none;
+		}
+
+		.timeline .timeline-event:last-child::after {
+		  display: none;
+		}
+
+		.timeline .timeline-event:nth-child(even) .timeline-content {
+		  margin-left: calc(50% + 50px);
+		}
+
+		.timeline .timeline-event:nth-child(odd) .timeline-content {
+		  margin-left: 0;
+		}
+
+		.timeline .timeline-badge {
+		  display: block;
+		  position: absolute;
+		  width: 40px;
+		  height: 40px;
+		  background: #d2d2d2;
+		  top: calc(50% - 20px);
+		  right: calc(50% - 20px);
+		  border-radius: 50%;
+		  text-align: center;
+		  cursor: default;
+		}
+
+		.timeline .timeline-badge i {
+		  font-size: 25px;
+		  line-height: 40px;
+		}
+
+	@media (max-width: 600px) {
+	  .timeline .timeline-event .timeline-content {
+	    width: calc(100% - 70px);
+	  }
+	  .timeline .timeline-event::before {
+	    left: 19px;
+	  }
+	  .timeline .timeline-event::after {
+	    left: 19px;
+	  }
+	  .timeline .timeline-event:nth-child(even) .timeline-content {
+	    margin-left: 70px;
+	  }
+	  .timeline .timeline-event:nth-child(odd) .timeline-content {
+	    margin-left: 70px;
+	  }
+	  .timeline .timeline-badge {
+	    left: 0;
+	  }
+	}
+
+	.owl-carousel .item img{
+		height:160px;
+		width:200px;
+		margin:5rem auto 1rem;
+	}
+
+	.controls{
+		margin-top:7rem;
+	}
+
+
 	</style>
 </head>
 
@@ -48,25 +163,162 @@
 	<div id="site-wrapper" role="main" class="hide">
 		<header class="z-depth-1"></header>
 
-		<section class="center-align site-pad brown-bg">
+		<section class="center-align site-pad first-sec-site approach">
 			<div class="container">
 				<div class="row">
-					<div class="col s12 m12 l12">
-						<h1 class="bold white-text">How We <span class="cyan-text">Approach</span> Our Projects</h1>
-						<strong class="white-text">Always Tailor-Made<br><br></strong>
-						<p class="flow-text white-text">Naturally, you represent your own unique target audience, calling for unique feats of User Experience design. Still, the Virtual Techies approach comprises four structural stages to ensure user happiness hits your people right between the eyes.<br><br></p>
-						<a href="#scroll-to" class="btn cyan js-smooth-scroll" title="Tribe Members">Show Me</a>
+					<div class="col s12 m12 l12 white-text">
+						<h3 class="bold">WE'RE ALL <span class="cyan-text">ABOUT</span></h3>
+						<span class="flow-text tags"></span>
+						<p>" As a business owner or entrepreneur, you work constantly to grow your dreams of success. Our online marketing and web design agency in Mumbai makes it easier by providing you with the proven strategies and resources you need to reach more people, drive massive traffic, and skyrocket profits – all at a price that fits your budget. "<br><br></p>
+						<a id="goToApproach" class="btn cyan" title="Tribe Members">Show Me</a>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="site-pad">
+		<section class="equal-pad light-bl-bg">
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12 l12 center-align">
-						<h1 class="bold grey-text">THE <span class="cyan-text">HOW</span> & <span class="cyan-text">WHY</span></h1>
-						<p class="flow-text grey-text">Pillars of Our Process</p>
+						<h4 class="bold grey-text">THE <span class="cyan-text">HOW</span> & <span class="cyan-text">WHY</span></h4>
+						<p class="grey-text">Pillars of Our Process</p>
+						<p class="flow-text black-text">
+							Collaboration <i class="fa fa-star cyan-text"></i>  Iteration  <i class="cyan-text fa fa-star"></i>  Long-term</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="equal-pad light-bl-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m6 l6 left-align">
+						<h4 class="bold cyan-text">Collaboration</h4>
+						<p class="flow-text black-text no-mar">We involve our clients in workﬂows and progress. Transparency and collaborative team work is crucial.</p>
+					</div>
+					<div class="col s12 m6 l6 left-align">
+						<img data-original="img/collaboration.jpg" class="lazy responsive-img">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="equal-pad" id="timeline">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m12 l12 center-align">
+						<div class="timeline">							
+							<div class="timeline-event">
+								<div class="card timeline-content" style="overflow: hidden;">
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="http://img11.hostingpics.net/pics/681702481.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
+										<p>Content <a href="#">This is a link</a></p>
+									</div>
+									<div class="card-reveal" style="display: none; transform: translateY(0px);">
+										<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+										<p>Here is some more information about this product that is only revealed once clicked on.</p>
+									</div>
+								</div>								
+								<div class="timeline-badge blue white-text"><i class="material-icons">language</i></div>
+							</div>							
+							<div class="timeline-event">
+								<div class="card timeline-content" style="overflow: hidden;">
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="http://img11.hostingpics.net/pics/949190532.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
+										<p>Content <a href="#">This is a link</a></p>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+										<p>Here is some more information about this product that is only revealed once clicked on.</p>
+									</div>
+								</div>								
+								<div class="timeline-badge red white-text"><i class="material-icons">work</i></div>
+							</div>							
+							<div class="timeline-event">
+								<div class="card timeline-content" style="overflow: hidden;">
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="http://img11.hostingpics.net/pics/512562623.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
+										<p>Content <a href="#">This is a link</a></p>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+										<p>Here is some more information about this product that is only revealed once clicked on.</p>
+									</div>
+								</div>						
+								<div class="timeline-badge green white-text"><i class="material-icons">person</i></div>
+							</div>						
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="equal-pad light-bl-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m6 l6 left-align">
+						<h4 class="bold cyan-text">Constant iteration</h4>
+						<p class="flow-text black-text no-mar">Iteration is the key of a successful product. We always have to validate hypothesis, measure how the product works, learn about users, monitor performance, study analytics, because we know well that “Design is how it works.”</p>
+					</div>
+					<div class="col s12 m6 l6 center-align">
+						<div class="row">
+							<div class="col s11 m11 l11 center-align">
+								<div class="owl-carousel">
+									<div class="item">
+										<img data-original="img/iterations/slide1.png" class="lazy responsive-img">
+										<p class="flow-text">Start with something...</p>
+									</div>	
+									<div class="item">
+										<img data-original="img/iterations/slide2.png" class="lazy responsive-img">
+										<p class="flow-text">Improve what you started with...</p>
+									</div>
+									<div class="item">
+										<img data-original="img/iterations/slide3.png" class="lazy responsive-img">
+										<p class="flow-text">Keep improving...</p>
+									</div>
+									<div class="item">
+										<img data-original="img/iterations/slide4.png" class="lazy responsive-img">
+										<p class="flow-text">keep enhancing...</p>
+									</div>
+									<div class="item">
+										<img data-original="img/iterations/slide5.png" class="lazy responsive-img">
+										<p class="flow-text">Achieve your target...</p>
+									</div>								
+								</div>
+							</div>
+							<div class="col s1 m1 l1 valign-wrapper">
+								<ul class="valign controls cyan-text">
+									<li><i class="fa fa-circle-o"></i></li>
+									<li><i class="fa fa-circle-o"></i></li>
+									<li><i class="fa fa-circle-o"></i></li>
+									<li><i class="fa fa-circle-o"></i></li>
+									<li><i class="fa fa-circle-o"></i></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="equal-pad light-bl-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m6 l6 left-align">
+						<h4 class="bold cyan-text">Long-term support</h4>
+						<p class="flow-text black-text no-mar">We support our clients and projects in the long term, because deployment doesn't mean the end of the project.</p>
+					</div>
+					<div class="col s12 m6 l6 center-align">
+						<img data-original="img/support.png" class="lazy responsive-img">
 					</div>
 				</div>
 			</div>
