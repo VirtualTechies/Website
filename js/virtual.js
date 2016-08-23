@@ -306,7 +306,8 @@ virtual = {
 			dots : false,
 			autoplayHoverPause: true,
 			animateOut: 'slideOutUp',
-			animateIn: 'slideInUp'
+			animateIn: 'slideInUp',
+			lazyLoad   : true
 		});
 
 		$(".controls li").on("click", function(){
@@ -314,6 +315,12 @@ virtual = {
 			carousel.trigger("to.owl.carousel", [index, 500, true]);
 			$(this).find("i").addClass("fa-circle").removeClass("fa-circle-o");
 			$(this).siblings().find("i").addClass("fa-circle-o").removeClass("fa-circle");
+		});
+
+		$(".numbering .card").hover(function(){
+			$(this).toggleClass("flip");		
+		},function(){
+			$(this).toggleClass("flip");	
 		});
 	},
 

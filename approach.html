@@ -42,97 +42,45 @@
 			width:70%;
 			margin:0 auto;
 		}
-		.timeline {
-		  position: relative;
+		.numbering ul{list-style-type:none;margin:260px 0;padding:0;border:1px solid #479ED4;height:0;position:relative;font-size:0;}
+		.numbering li{display:inline-block;background-color:#479ED4;height:30px;width:30px;border-radius:15px;color:#fff;text-align:center;font-size:20px;position:relative;top:-15px;margin-left:9.5%;}
+		.numbering .step{position:absolute;display:inline-block;font-size:normal;width:250px;text-align:center;left:-110px;top:-220px;}
+		.numbering .step h3{color:#479ED4;font-size:14px;font-weight:bold;padding:10px 0;text-transform:uppercase;}
+		.numbering .step p,
+		.numbering .step img{height:160px;margin:0 auto;padding:10px 0;}
+		.numbering .step.invert{top:50px;}
+		@media only screen and (max-width:1024px) and (min-width:641px){
+			.numbering ul{width:0;height:1020px;margin:120px auto 160px;display:block;}
+			.numbering li{display:block;top:-15px;left:-15px;margin:140px 0 0 0;text-align:center;}
+			.numbering li:first-child{margin-top:0;}
+			.numbering li .number{text-align:center;width:30px;display:block;}
+			.numbering .step,
+			.numbering .step.invert{left:-280px;top:-120px;}
+			.numbering .step.invert{left:50px;}
+			.numbering .step p{height:auto;}
+			.numbering .step p,
+			.numbering .step img{margin:0 auto;padding:4px 0;color:#262626;}
+		}
+		@media only screen and (max-width:640px){
+			.numbering ul{width:auto;height:auto;padding:0 15px;margin:30px auto;display:block;border:0;}
+			.numbering li{display:block;top:0;left:0;margin:20px 0;padding:20px 0;text-align:center;position:relative;height:auto;width:auto;background-color:transparent;border-bottom:1px solid #777;border-radius:0;}
+			.numbering li:last-child{border-bottom:none;}
+			.numbering li .number{display:block;margin:10px auto 20px;background-color:#479ED4;height:50px;width:50px;border-radius:25px;color:#fff;text-align:center;font-size:24px;line-height:50px;}
+			.numbering .step,
+			.numbering .step.invert{left:0;top:0;position:relative;}
+			.numbering .step p{height:auto;color:#262626;padding:4px 0;}
 		}
 
-		.timeline .timeline-event {
-		  position: relative;
-		  padding-top: 5px;
-		  padding-bottom: 5px;
+		@media only screen and (min-width:1024px){
+			.numbering .card{width:250px;height:160px;display:inline-block;position:relative;-webkit-perspective:600px;-moz-perspective:600px;perspective:600px;}
+			.numbering .card .front, .card .back{width:inherit;height:inherit;float:none;position:absolute;top:0;left:0;background:#fff;}
+			.numbering .card .front{z-index:2;-webkit-transform:rotateX(0deg) rotateY(0deg);-moz-transform:rotateX(0deg) rotateY(0deg);transform:rotateX(0deg) rotateY(0deg);-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;backface-visibility:hidden;-webkit-transition:all .4s ease-in-out;transition:all .4s ease-in-out;}
+			.numbering .card .front img{height:120px;display:block;margin:5%;}
+			.numbering .card.flip .front{z-index:2;-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);transform:rotateY(180deg);}
+			.numbering .card .back{color:#262626;z-index:1;-webkit-transform:rotateY(-180deg);-moz-transform:rotateY(-179deg);transform:rotateY(-179deg);-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;backface-visibility:hidden;-webkit-transition:all .4s ease-in-out;transition:all .4s ease-in-out;}
+			.numbering .card.flip .back{z-index:3;-webkit-transform:rotateX(0deg) rotateY(0deg);-moz-transform:rotateX(0deg) rotateY(0deg);transform:rotateX(0deg) rotateY(0deg);}
+			.numbering .card p{width:90%;height:160px;padding:5%;background-color:#fff;}
 		}
-
-		.timeline .timeline-event .timeline-content {
-		  position: relative;
-		  width: calc(50% - 50px);
-		}
-
-		.timeline .timeline-event::before {
-		  display: block;
-		  content: "";
-		  width: 2px;
-		  height: calc(50% - 30px);
-		  position: absolute;
-		  background: #d2d2d2;
-		  left: calc(50% - 1px);
-		  top: 0;
-		}
-
-		.timeline .timeline-event::after {
-		  display: block;
-		  content: "";
-		  width: 2px;
-		  height: calc(50% - 30px);
-		  position: absolute;
-		  background: #d2d2d2;
-		  left: calc(50% - 1px);
-		  top: calc(50% + 30px);
-		}
-
-		.timeline .timeline-event:first-child::before {
-		  display: none;
-		}
-
-		.timeline .timeline-event:last-child::after {
-		  display: none;
-		}
-
-		.timeline .timeline-event:nth-child(even) .timeline-content {
-		  margin-left: calc(50% + 50px);
-		}
-
-		.timeline .timeline-event:nth-child(odd) .timeline-content {
-		  margin-left: 0;
-		}
-
-		.timeline .timeline-badge {
-		  display: block;
-		  position: absolute;
-		  width: 40px;
-		  height: 40px;
-		  background: #d2d2d2;
-		  top: calc(50% - 20px);
-		  right: calc(50% - 20px);
-		  border-radius: 50%;
-		  text-align: center;
-		  cursor: default;
-		}
-
-		.timeline .timeline-badge i {
-		  font-size: 25px;
-		  line-height: 40px;
-		}
-
-	@media (max-width: 600px) {
-	  .timeline .timeline-event .timeline-content {
-	    width: calc(100% - 70px);
-	  }
-	  .timeline .timeline-event::before {
-	    left: 19px;
-	  }
-	  .timeline .timeline-event::after {
-	    left: 19px;
-	  }
-	  .timeline .timeline-event:nth-child(even) .timeline-content {
-	    margin-left: 70px;
-	  }
-	  .timeline .timeline-event:nth-child(odd) .timeline-content {
-	    margin-left: 70px;
-	  }
-	  .timeline .timeline-badge {
-	    left: 0;
-	  }
-	}
 
 	.owl-carousel .item img{
 		height:160px;
@@ -207,62 +155,155 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12 l12 center-align">
-						<div class="timeline">							
-							<div class="timeline-event">
-								<div class="card timeline-content" style="overflow: hidden;">
-									<div class="card-image waves-effect waves-block waves-light">
-										<img class="activator" src="http://img11.hostingpics.net/pics/681702481.jpg">
+						<h4 class="bold grey-text">Our <span class="cyan-text">process</span></h4>
+						<p class="grey-text">Turn your applications into a “heavy lifting conversion machine”</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 m12 l12 center-align">
+						<div class="small-12 columns numbering">
+							<ul>
+								<li>
+									<span class="number">1</span>
+									<div class="step">
+										<div class="card">
+											<div class="front">
+												<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-analysis.png" alt="Analysis">
+											</div>
+											<div class="back">
+												<p>
+													The first step is always about information gathering, identifying things
+													like the website purpose, goals and target audience.
+												</p>
+											</div>
+										</div>
+										<h3>
+											Analysis
+										</h3>
 									</div>
-									<div class="card-content">
-										<span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-										<p>Content <a href="#">This is a link</a></p>
+								</li>
+								<li>
+									<span class="number">2</span>
+									<div class="step invert">
+										<h3>
+											Planning
+										</h3>
+										<div class="card">
+											<div class="front">
+												<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-planning.png" alt="Planning">
+											</div>
+											<div class="back">
+												<p>
+													The second step is planning. A plan includes a definition of the site map,
+													structure and technologies that we're about to use.
+												</p>
+											</div>
+										</div>
 									</div>
-									<div class="card-reveal" style="display: none; transform: translateY(0px);">
-										<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-										<p>Here is some more information about this product that is only revealed once clicked on.</p>
-									</div>
-								</div>								
-								<div class="timeline-badge blue white-text"><i class="material-icons">language</i></div>
-							</div>							
-							<div class="timeline-event">
-								<div class="card timeline-content" style="overflow: hidden;">
-									<div class="card-image waves-effect waves-block waves-light">
-										<img class="activator" src="http://img11.hostingpics.net/pics/949190532.jpg">
-									</div>
-									<div class="card-content">
-										<span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-										<p>Content <a href="#">This is a link</a></p>
-									</div>
-									<div class="card-reveal">
-										<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-										<p>Here is some more information about this product that is only revealed once clicked on.</p>
-									</div>
-								</div>								
-								<div class="timeline-badge red white-text"><i class="material-icons">work</i></div>
-							</div>							
-							<div class="timeline-event">
-								<div class="card timeline-content" style="overflow: hidden;">
-									<div class="card-image waves-effect waves-block waves-light">
-										<img class="activator" src="http://img11.hostingpics.net/pics/512562623.jpg">
-									</div>
-									<div class="card-content">
-										<span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-										<p>Content <a href="#">This is a link</a></p>
-									</div>
-									<div class="card-reveal">
-										<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-										<p>Here is some more information about this product that is only revealed once clicked on.</p>
-									</div>
-								</div>						
-								<div class="timeline-badge green white-text"><i class="material-icons">person</i></div>
-							</div>						
-						</div>
+								</li>
+							<li>
+							<span class="number">3</span>
+							<div class="step">
+							<div class="card">
+							<div class="front">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-design.png" alt="Design">
+							</div>
+							<div class="back">
+							<p>
+							Not only do we focus on wireframe models and the visual styles in this stage but also usability
+							of the user interface for the best possible user experience.
+							</p>
+							</div>
+							</div>
+							<h3>
+							Design
+							</h3>
+							</div>
+							</li>
+							<li>
+							<span class="number">4</span>
+							<div class="step invert">
+							<h3>
+							Content
+							</h3>
+							<div class="card">
+							<div class="front">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-content.png" alt="content">
+							</div>
+							<div class="back">
+							<p>
+							A very important part of the process is choosing the right text, photos or videos.
+							All optimized not only for visitors but for search engines.
+							</p>
+							</div>
+							</div>
+							</div>
+							</li>
+							<li>
+							<span class="number">5</span>
+							<div class="step">
+							<div class="card">
+							<div class="front">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-development.png" alt="development">
+							</div>
+							<div class="back">
+							<p>
+							Here we actually create the website using the hypertext mark up language and 
+							cascading style sheets with some help from databases and other technologies as well.
+							</p>
+							</div>
+							</div>
+							<h3>
+							Development
+							</h3>
+							</div>
+							</li>
+							<li>
+							<span class="number">6</span>
+							<div class="step invert">
+							<h3>
+							Testing
+							</h3>
+							<div class="card">
+							<div class="front">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-testing.png" alt="testing">
+							</div>
+							<div class="back">
+							<p>
+							We test all the technical features like coded scripts, compatibility with major
+							browser but we also ask ourselves if the website really fulfills it’s purpose.
+							</p>
+							</div>
+							</div>
+							</div>
+							</li>
+							<li>
+							<span class="number">7</span>
+							<div class="step">
+							<div class="card">
+							<div class="front">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-deployment.png" alt="Deployment">
+							</div>
+							<div class="back">
+							<p>
+							After we launch the site our job is definitely not done yet, we always monitor what’s happening
+							after the start, enabling us to fix any possible deficiencies.
+							</p>
+							</div>
+							</div>
+							<h3>
+							Deployment
+							</h3>
+							</div>
+							</li>
+							</ul>
+							</div>	
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="equal-pad light-bl-bg">
+		<section class="site-pad light-bl-bg">
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m6 l6 left-align">
@@ -278,19 +319,19 @@
 										<p class="flow-text">Start with something...</p>
 									</div>	
 									<div class="item">
-										<img data-original="img/iterations/Slide2.PNG" class="lazy responsive-img">
+										<img data-original="img/iterations/Slide2.png" class="lazy responsive-img">
 										<p class="flow-text">Improve what you started with...</p>
 									</div>
 									<div class="item">
-										<img data-original="img/iterations/Slide3.PNG" class="lazy responsive-img">
+										<img data-original="img/iterations/Slide3.png" class="lazy responsive-img">
 										<p class="flow-text">Keep improving...</p>
 									</div>
 									<div class="item">
-										<img data-original="img/iterations/Slide4.PNG" class="lazy responsive-img">
+										<img data-original="img/iterations/Slide4.png" class="lazy responsive-img">
 										<p class="flow-text">keep enhancing...</p>
 									</div>
 									<div class="item">
-										<img data-original="img/iterations/Slide5.PNG" class="lazy responsive-img">
+										<img data-original="img/iterations/Slide5.png" class="lazy responsive-img">
 										<p class="flow-text">Achieve your target...</p>
 									</div>								
 								</div>
@@ -310,29 +351,25 @@
 			</div>
 		</section>
 
-		<section class="equal-pad light-bl-bg">
+		<section class="site-pad light-bl-bg">
 			<div class="container">
 				<div class="row">
-					<div class="col s12 m6 l6 left-align">
-						<h4 class="bold cyan-text">Long-term support</h4>
-						<p class="flow-text black-text no-mar">We support our clients and projects in the long term, because deployment doesn't mean the end of the project.</p>
-					</div>
 					<div class="col s12 m6 l6 center-align">
 						<img data-original="img/support.png" class="lazy responsive-img">
 					</div>
+					<div class="col s12 m6 l6 left-align">
+						<h4 class="bold cyan-text">Long-term support</h4>
+						<p class="flow-text black-text no-mar">We support our clients and projects in the long term, because deployment doesn't mean the end of the project.</p>
+					</div>					
 				</div>
 			</div>
 		</section>
 
-		<section id="approachLines" class="">
-			<div class="container"></div>
-		</section>
-
-		<section id="technologies" class="brown-bg">
+		<section id="technologies" class="site-pad cyan">
 			<div class="container center-align">
 				<div class="row">
 					<div class="col s12 m12 l12">
-						<p class="bold white-text"><span class="cyan-text">Technology</span> Capabilities</p>
+						<h4 class="bold white-text"><span class="black-text">Technology</span> Capabilities</h4>
 						<p class="white-text">Our skills are constantly evolving based on the needs of our partners — from open-source to licensed enterprise tools, we stay sharp.</p>
 					</div>
 				</div>
@@ -344,10 +381,59 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12 l12 center-align">
-						<h1 class="bold grey-text"><span class="cyan-text">MULTIDISCIPLINARY</span> APPROACH</h1>
-						<p class="flow-text grey-text">More than an impressive list of offerings, we care about how those offerings work together to build something remarkable.</p>
+						<h4 class="bold grey-text">Why choose <span class="cyan-text">us</span> ?</h4>
+						<p class="grey-text">More than an impressive list of offerings, we care about how those offerings work together to build something remarkable.</p>
 					</div>
 				</div>
+
+				<div class="row">
+					<div class="col s12 m4 l4 center-align">
+						<div class="card-panel white z-depth-3 hoverable">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-dedicated-designers.png" alt="Dedicated Designers">
+							<h3 class="flow-text"> Dedicated Designers</h3>
+							<p> From mock-ups to development, you will be assigned a dedicated web design specialist who will work alongside you and be on hand to answer any questions throughout your project.</p>
+						</div>
+					</div>
+					<div class="col s12 m4 l4 center-align">
+						<div class="card-panel white z-depth-3 hoverable">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-built-seo.png" alt="Built With SEO in Mind">
+							<h3 class="flow-text"> Built With SEO in Mind </h3>
+							<p> Whether you plan to have SEO or not, we will build your website to be as search engine friendly as possible, so if you change your mind there won't be any additional costs.</p>
+						</div>
+					</div>
+					<div class="col s12 m4 l4 center-align">
+						<div class="card-panel white z-depth-3 hoverable">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-open-source.png" alt="100% Open Source">
+							<h3 class="flow-text"> 100% Open Source	</h3>
+							<p> We only use open source software, meaning you won't end up tied to an agencies proprietary software and their sky high maintenance fees. It also means that you own 100% of your website.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12 m4 l4 center-align">
+						<div class="card-panel white z-depth-3 hoverable">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-responsive.png" alt="Responsive Design">
+							<h3 class="flow-text"> Responsive Design </h3>
+							<p> We design and develop all our websites to be responsive, which means your websites will look universally great on a smart phone, tablet and desktop computer.</p>
+						</div>
+					</div>
+					<div class="col s12 m4 l4 center-align">
+						<div class="card-panel white z-depth-3 hoverable">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/icon-5-star.png" alt="We're Experienced">
+							<h3 class="flow-text"> We're Experienced </h3>
+							<p> With over 700 projects under our belt and 45 years combined experience we are committed to your success whether you're a start up business or a Fortune 500 company.</p>
+						</div>
+					</div>
+					<div class="col s12 m4 l4 center-align">
+						<div class="card-panel white z-depth-3 hoverable">
+							<img src="http://webvdeo.com/wp-content/themes/webvdeo-theme-v4//assets/images/web-design/img-dollar.png" alt="We're Experienced">
+							<h3 class="flow-text"> We're Affordable</h3>
+							<p>	We believe that good work isn't cheap and cheap work isn't good. Now we're not the cheapest, but we're not the most expensive either. We are however,the best bang for your buck.</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</section>
 
