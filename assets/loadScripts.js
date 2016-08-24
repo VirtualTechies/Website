@@ -34,6 +34,12 @@ var loadScript = {
 						console.log(loadScript.currentPage+" page initialized...");
 					};
 					break;
+				case "member":				
+					scriptsToGetLoaded.push("assets/site.min.js");
+					callbacks[0] = function(){
+						console.log(loadScript.currentPage+" page initialized...");
+					};
+					break;
 				default: 
 					break; 
 			}

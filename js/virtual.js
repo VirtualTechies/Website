@@ -17,8 +17,12 @@ virtual = {
 		var currentPage = (typeof this.page != "undefined") ? this.page : "home";
 		switch(currentPage) {
 			case "home":
-			case "services":
+				this.initializeSlider();
 				this.initializeHomePage();
+				break;
+			case "services":	
+				this.initializeSlider();			
+				this.initializeServices();
 				break;
 			case "culture":
 				this.initializeCulture();
@@ -27,6 +31,9 @@ virtual = {
 				this.initializeApproach();
 				break;
 			case "cases":
+				this.initializeCases();
+				break;
+			case "member":
 				this.initializeCases();
 				break;
 			default:
@@ -139,37 +146,6 @@ virtual = {
 
 		var virtual = this;
 		var isMobile = virtual.detectDevice();
-		/*initializing Slider*/
-		$('.owl-carousel').owlCarousel({
-			loop       : true,
-			nav        : false,
-			dots       : false,
-			lazyLoad   : true,
-			items      : 1,
-			pagination : false,
-			autoplay   : true,
-			autoplayHoverPause: true,
-
-			responsiveClass:true,
-			responsive:{
-				0:{
-				    items:1
-				},
-				600:{
-				    items:1
-				},
-				1000:{
-				    items:1
-				}
-			}
-		});
-
-		if(isMobile){
-			$('.owl-carousel .slider-title h3').addClass("flow-text").css("margin-top","60%");
-			$("#weDoSec").css("top","-45px").css("z-index" ,"1");
-		}
-
-		$('.parallax').parallax();
 
 		var features = '<div class="container">';
 		$(homedata.introFeatures).each(function(f){
@@ -228,7 +204,7 @@ virtual = {
 			}, 2000);
 		});
 
-		$("#teamrow .card-panel").hover(function(){
+		$("#teamrow .card-panel").css("cursor","pointer").hover(function(){
 			$(this).addClass("z-depth-3 white-text site-bg");
 			$(this).removeClass("transparent no-shadow black-text");			
 		},function(){
@@ -239,26 +215,68 @@ virtual = {
 
 	initializeApproach: function() {
 		var approachLines= '';
-
+			approachLines += '<ul>';
 		$(approachData.process).each(function(p){
-			approachLines += '<div class="row top">';
-			approachLines += '<div class="col s12 m4 l4 left-align">';
-			approachLines += '<h1 class="c-intro__heading--sm cyan-text">'+approachData.process[p].name+' "</h1>';
+			approachLines += '<li>';
+			approachLines += '<span class="number">'+(p+1)+'</span>';
+			approachLines += '<div class="step '+(p % 2 == 0 ? "" : "invert")+'">';
+			approachLines += '<div class="card no-shadow white valign-wrapper">';
+			if(p % 2 != 0) {
+				approachLines += '<h3>'+approachData.process[p].name+'</h3>';
+			}
+			approachLines += '<div class="front">';
+			approachLines += '<i class="fa fa-5x cyan-text valign '+approachData.process[p].icon+'"></i>';
 			approachLines += '</div>';
-			approachLines += '<div class="col s12 m8 l8 right-align">';
-			approachLines += '<p class="black-text">'+approachData.process[p].desc+'</p>';
-			approachLines += '</div></div>';
+			approachLines += '<div class="back">';
+			approachLines += '<p>'+approachData.process[p].desc+'</p>';
+			approachLines += '</div>';
+			approachLines += '</div>';
+			if(p % 2 == 0) {
+				approachLines += '<h3>'+approachData.process[p].name+'</h3>';
+			}
+			approachLines += '</div>';
+			approachLines += '</li>';
 		});		
-		$("#approachLines .container").html(approachLines);
+		approachLines += '</ul>';
+		$("#approachLines").html(approachLines);
 
 		var techs = '';
 		$(approachData.technologies).each(function(t){
 			techs += '<div class="col s4 m2 l2">';
+			techs += '<div class="no-pad card-panel transparent no-shadow hoverable white-text">';
 			techs += '<img data-original="'+approachData.technologies[t].imgPath+'" class="lazy respoonsive-img">';
-			techs += '<p class="white-text flow-text">'+approachData.technologies[t].name+'</p></div>';
+			techs += '<p class="no-mar flow-text">'+approachData.technologies[t].name+'</p></div>';
+			techs += '</div>';
 		});
 		$("#technologies #techs").html(techs);
 		this.initializeLazyLoad();
+
+		$("#technologies #techs .card-panel")
+		.css("transition","all .2s ease-in-out")
+		.hover(function(){
+			$(this).toggleClass("no-shadow z-depth-5").css("transform","scale(1.1)");		
+		},function(){
+			$(this).toggleClass("no-shadow z-depth-5").css("transform","scale(1)");	
+		});
+
+		var chooselines = '';
+		chooselines += '<div class="row">';
+		$(approachData.choose).each(function(c){
+			chooselines += '<div class="col s12 m4 l4 center-align">';
+			chooselines += '<div class="card-panel transparent no-shadow cyan-text hoverable">';
+			chooselines += '<i class="fa fa-5x valign '+approachData.choose[c].icon+'"></i>';
+			chooselines += '<h3 class="flow-text">'+approachData.choose[c].heading+'</h3>';
+			chooselines += '<p>'+approachData.choose[c].desc+'</p>';
+			chooselines += '</div></div>';
+		});
+		chooselines += '</div>';
+		$("#chooseSection").html(chooselines);
+
+		$("#chooseSection .card-panel").hover(function(){
+			$(this).toggleClass("transparent no-shadow site-bg cyan-text white-text z-depth-5");		
+		},function(){
+			$(this).toggleClass("transparent no-shadow site-bg cyan-text white-text z-depth-5");	
+		});
 
 		$("#goToApproach").on("click",function(){
 			$('html, body').animate({
@@ -318,14 +336,48 @@ virtual = {
 		});
 
 		$(".numbering .card").hover(function(){
-			$(this).toggleClass("flip");		
+			$(this).toggleClass("flip no-shadow z-depth-5");		
 		},function(){
-			$(this).toggleClass("flip");	
+			$(this).toggleClass("flip no-shadow z-depth-5");	
 		});
 	},
 
 	initializeCases: function() {
 
+	},
+
+	initializeServices:function() {
+		var virtual = this;
+		var isMobile = virtual.detectDevice();
+		var service = '';
+		$(serviceData.services).each(function(f){
+			service += '<div class="site-pad--sm"></div>';
+			service += '<div class="row valign-wrapper '+(f==0 ? '' : 'top')+'">';
+			if(isMobile ||  f % 2 == 0){
+				var alignment = isMobile ? "center-align wow slideIn" : "valign right-align wow slideInRight";
+				service += '<div class="col s12 m6 l6">';
+				service += '<img data-original="'+serviceData.services[f].img+'" class="wow slideInLeft lazy responsive-img">';
+				service += '</div>';
+				service += '<div class="col s12 m6 l6'+alignment+'">';
+				service += serviceData.services[f].heading;
+				service += serviceData.services[f].desc;
+				service += '</div>';
+			}
+			else{
+				service += '<div class="col s12 m6 l6 valign left-align wow slideInLeft">';
+				service += serviceData.services[f].heading;
+				service += serviceData.services[f].desc;
+				service += '</div>';
+				service += '<div class="col s12 m6 l6">';
+				service += '<img data-original="'+serviceData.services[f].img+'" class="lazy responsive-img">';
+				service += '</div>';
+			}	
+			service += '</div>';
+			service += '<div class="site-pad--sm"></div>';
+		});
+		$("#servicesSection").html(service);
+		virtual.initializeWow();
+		virtual.initializeLazyLoad();
 	},
 
 	detectDevice:function(){
@@ -335,6 +387,43 @@ virtual = {
 			isMobile = true;
 		}
 		return isMobile;
+	},
+
+	initializeSlider:function() {
+
+		var virtual = this;
+		var isMobile = virtual.detectDevice();
+		/*initializing Slider*/
+		$('.owl-carousel').owlCarousel({
+			loop       : true,
+			nav        : false,
+			dots       : false,
+			lazyLoad   : true,
+			items      : 1,
+			pagination : false,
+			autoplay   : true,
+			autoplayHoverPause: true,
+
+			responsiveClass:true,
+			responsive:{
+				0:{
+				    items:1
+				},
+				600:{
+				    items:1
+				},
+				1000:{
+				    items:1
+				}
+			}
+		});
+
+		if(isMobile){
+			$('.owl-carousel .slider-title h3').addClass("flow-text").css("margin-top","60%");
+			$("#weDoSec").css("top","-45px").css("z-index" ,"1");
+		}
+
+		$('.parallax').parallax();
 	},
 
 	initializeWow : function(){		
