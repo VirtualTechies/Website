@@ -161,24 +161,39 @@ var teamdata = {
 var approachData = {
 	process : [
 		{
-			name:"Agility",
-			desc:"We believe in a seamless client partnership that connects us into a single unified team. We're not only agile in code but in discovery, planning and design."
+			name:"ANALYSIS",
+			desc:"The first step is always about information gathering, identifying things like the website purpose, goals and target audience.",
+			icon : "fa-search"
 		},
 		{
-			name:"Team",
-			desc:"Our dedicated team model ensures that every project receives the meticulous attention and resource it deserves from our Strategists, Designers, Producers, Engineers, & Filmmakers."
+			name:"PLANNING",
+			desc:"The second step is planning. A plan includes a definition of the site map, structure and technologies that we're about to use.",
+			icon : "fa-sitemap"
 		},
 		{
-			name:"Collaboration",
-			desc:"Nothing we do is in isolation. Our process is extremely collaborative, leveraging our clients unique perspectives to activate our own expertise."
+			name:"DESIGN",
+			desc:"Not only do we focus on wireframe models and the visual styles in this stage but also usability	of the user interface for the best possible user experience.",
+			icon : "fa-paint-brush"
 		},
 		{
-			name:"Iteration",
-			desc:"Even if the first try is a hit, we believe that constant analysis and adjustment helps us realize the best possible version of whatever we're creating."
+			name:"CONTENT",
+			desc:"A very important part of the process is choosing the right text, photos or videos. All optimized not only for visitors but for search engines.",
+			icon : "fa-file-text-o"
 		},
 		{
-			name:"Results",
-			desc:"More than how a product looks, we care about how it works. Our results-driven approach guides every aspect of the engagement from technical discovery to deployment."
+			name:"DEVELOPMENT",
+			desc:"Here we actually create the website using the hypertext mark up language and cascading style sheets with some help from databases and other technologies as well.",
+			icon : "fa-tasks"
+		},
+		{
+			name:"TESTING",
+			desc:"We test all the technical features like coded scripts, compatibility with major	browser but we also ask ourselves if the website really fulfills it’s purpose.",
+			icon : "fa-check-square-o"
+		},
+		{
+			name:"DEPLOYMENT",
+			desc:"After we launch the site our job is definitely not done yet, we always monitor what’s happening after the start, enabling us to fix any possible deficiencies.",
+			icon : "fa-laptop"
 		}
 	],
 
@@ -234,6 +249,74 @@ var approachData = {
 		{
 			imgPath:"img/technologies/mongodb.png",
 			name:"MongoDB"
+		}
+	],
+
+	choose: [
+		{
+			heading:"Dedicated Designers",
+			desc:"From mock-ups to development, you will be assigned a dedicated web design specialist who will work alongside you and be on hand to answer any questions throughout your project.",
+			icon:"fa-users"
+		},
+		{
+			heading:"Built With SEO in Mind",
+			desc:"Whether you plan to have SEO or not, we will build your website to be as search engine friendly as possible, so if you change your mind there won't be any additional costs.",
+			icon:"fa-cog"
+		},
+		{
+			heading:"100% Open Source",
+			desc:"We only use open source software, meaning you won't end up tied to an agencies proprietary software and their sky high maintenance fees. It also means that you own 100% of your website.",
+			icon:"fa-terminal"
+		},
+		{
+			heading:"Responsive Design",
+			desc:"We design and develop all our websites to be responsive, which means your websites will look universally great on a smart phone, tablet and desktop computer.",
+			icon:"fa-tablet"
+		},
+		{
+			heading:"We're Experienced",
+			desc:"With over 700 projects under our belt and 45 years combined experience we are committed to your success whether you're a start up business or a Fortune 500 company.",
+			icon:"fa-thumbs-up"
+		},
+		{
+			heading:"We're Affordable",
+			desc:"We believe that good work isn't cheap and cheap work isn't good. Now we're not the cheapest, but we're not the most expensive either. We are however,the best bang for your buck.",
+			icon:"fa-rupee"
+		}
+	]
+};
+
+var serviceData = {
+	services : [
+		{
+			heading:'<h4 class="bold">HELP! I NEED A <span class="cyan-text">WEBSITE</span></h4>',
+			desc:"A well built website should generate revenue, strengthen your brand and relieve pressure from your customer support. But the demands and complexity of modern websites have risen enormously in the past few years, leaving many outdated and broken. Let’s try to fix that.",
+			img : "img/services/Web_designing_icon.png"
+		},
+		{
+			heading:'<h4 class="bold">HELP! I NEED AN <span class="cyan-text">APP</span></h4>',
+			desc:"We have created everything from corporate apps to multiplayer games to virtual pets. We have found that the real challenge isn’t designing or building the functionalities but knowing which ones give actual value - and how to distribute the man hours. We have been through the process countless times and we will get you through too.",
+			img : "img/services/app_development1.png"
+		},
+		{
+			heading:'<h4 class="bold">HELP! I NEED A <span class="cyan-text">DIGITAL PARTNER</span></h4>',
+			desc:"We work in partnership with brands, agencies, public organizations and anyone else who is looking for specialists to complete their skill set. This allows us to be the best at what we do and do what we enjoy the most. Are you looking for a partnership? You have come to the right place.",
+			img : "img/services/digital.jpg"
+		},
+		{
+			heading:'<h4 class="bold">HELP! I NEED A <span class="cyan-text">ECOMMERCE</span> SYSTEM</h4>',
+			desc:"Online retail through integrated platforms and highly engaging experiences.",
+			img : "img/services/ecomm.png"
+		},
+		{
+			heading:'<h4 class="bold">HELP! I NEED A <span class="cyan-text">WEB</span> Application</h4>',
+			desc:"Intelligent systems and simpler experiences through digital platforms.",
+			img : "img/services/web_Application_Development.jpg"
+		},
+		{
+			heading:'<h4 class="bold">HELP! I NEED AN AWESOME <span class="cyan-text">DESIGN AND USER EXPERIENCE</span></h4>',
+			desc:"Form and function through high fidelity interfaces and human experiences.",
+			img : "img/services/responsive_dev.jpg"
 		}
 	]
 };
