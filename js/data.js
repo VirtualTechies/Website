@@ -36,7 +36,7 @@ var headerdata = {
 		        }
         	]
         },
-        { 
+        /*{ 
         	text     : "Products",
         	isMain   : true,
         	hasChild : true,
@@ -71,7 +71,7 @@ var headerdata = {
 		        	childs   : []
 		        }
         	]
-        },
+        },*/
         { 
         	text     : "Services",
         	isMain   : true,
@@ -79,13 +79,13 @@ var headerdata = {
         	link     : "services.html",
         	childs   : []
         },
-        { 
+        /*{ 
         	text     : "Blog",
         	isMain   : true,
         	hasChild : false,
         	link     : "blog.html",
         	childs   : []
-        },
+        },*/
         { 
         	text     : "Team",
         	isMain   : true,
@@ -154,6 +154,69 @@ var teamdata = {
 			imgPath : "img/members/milinds.png",
 			name    : "Milind Patel",
 			role	: "Marketing Director"
+		}
+	],
+
+	"memberdata" : [
+		{
+			name:"Ankit Parekh",
+			tagline:"Let’s introduce you to our frontman of the front-end.",
+			mailId:"ankit77parekh@gmail.com",
+			imgPath:"img/members/pics/ankit.jpg",
+			headingLine:"Sculpt Online Magic",
+			role:"Creative Director",
+			story:"Ankit is an enthusiastic, ambitious, and highly sociable front-end developer. Developing fast and efficient websites is his pride and joy. Crafting a pixel perfect and structured website is what gets him all worked up. Tom has an engineer's drive to build bridges across the gap between front- and back-end development.",
+			fbId:"",
+			skypeId:"",
+			linkedinId:"",
+			twitterId:"",
+			googleplusId:"",
+			happyPeople:"Every day I work on improving the skills that I need for building advanced and user centred websites. I feel building fast and beautiful websites is a key aspect of making happy people."
+		},
+		{
+			name:"Sagar Patel",
+			tagline:"Let's introduce you to our captain of the outside world.",
+			mailId:"ankit77parekh@gmail.com",
+			imgPath:"img/members/pics/sagar.jpg",
+			headingLine:"Kickstart Ideas",
+			role:"Strategy Director",
+			story:"As one of the founding fathers and strategy director of Virtual Techies, Sagar helps clients to get what they need, which is not necessarily what they want. He is infinitely curious, open-minded and experienced, which makes him a solid sparring partner for new digital projects.",
+			fbId:"",
+			skypeId:"",
+			linkedinId:"",
+			twitterId:"",
+			googleplusId:"",
+			happyPeople:"I believe the Internet allows people to exploit new opportunities, in life and in business. Together with the Virtual Techies tribe I see it as our mission to make the journey to these opportunities pleasant and challenging."
+		},
+		{
+			name:"Gaurav Bhavsar",
+			tagline:"Let’s introduce you to our professor development.",
+			mailId:"ankit77parekh@gmail.com",
+			imgPath:"img/members/pics/gaurav.jpg",
+			headingLine:"Make Everything Work, Always",
+			role:"Technical Director",
+			story:"Gaurav is one of the partners and the technical chief of the Virtual Techies Tribe. As a professor of development, Gaurav knows everything - literally everything - about the parts of digital products most people never get to see. He spends most of his time working 'under the hood' of the products we create. With his solid vision on technical processes his goal is to inspire the Rodesk developers and determine the long term technical strategy.",
+			fbId:"",
+			skypeId:"",
+			linkedinId:"",
+			twitterId:"",
+			googleplusId:"",
+			happyPeople:"I love technology. My main goal is using the power of technology to empower people, making their lives easier and more enjoyable. If I manage to make people smile along the way, that makes me a happier person myself."
+		},
+		{
+			name:"Milind Patel",
+			tagline:"Let’s introduce you to our Marketing core.",
+			mailId:"ankit77parekh@gmail.com",
+			imgPath:"img/members/pics/milind.jpg",
+			headingLine:"Create Online Aesthetics",
+			role:"Marketing Director",
+			story:"Milind is the marketing head and director at Virtual Techies, bringing over a decade of experience designing brand identities, data visualizations, online experiences and products to the table. He directs his designs at establishing tangible online worlds and draws his inspiration from urban habitats and mega-cities.",
+			fbId:"",
+			skypeId:"",
+			linkedinId:"",
+			twitterId:"",
+			googleplusId:"",
+			happyPeople:"Every day when I get to the studio, I have the privilege of directing and shaping our creative team. We create intuitive digital products that visitors can relate to. My main goal is seeing a twinkle in the eyes of our team members and the visitors of the worlds we create together."
 		}
 	]
 };

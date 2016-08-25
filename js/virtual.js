@@ -34,6 +34,10 @@ virtual = {
 				this.initializeCases();
 				break;
 			case "member":
+			case "team":
+				this.initializeMember();
+				break;
+			case "contact":
 				this.initializeCases();
 				break;
 			default:
@@ -43,6 +47,10 @@ virtual = {
 	},
 
 	initializeHeader:function(){
+		
+		var virtual = this;
+		var isMobile = virtual.detectDevice();
+
 		var header = '';
 		var mobileheader = '';
 		var dds    = '';
@@ -90,7 +98,7 @@ virtual = {
 			outDuration: 225,
 			constrain_width: false,
 			hover: true,
-			gutter: 0,
+			gutter: 100,
 			belowOrigin: true,
 			alignment: 'left'
 		});
@@ -181,6 +189,46 @@ virtual = {
 		});
 		virtual.initializeWow();
 		virtual.initializeLazyLoad();
+
+		$("#enquirySubmit").click(function(e) {
+			e.preventDefault();
+	        $(".error").hide();
+	        var hasError = false;
+	        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	        var emailFromVal = $("#email").val();
+	        if (emailFromVal == '') {
+	            $("#email").after('<span class="error red-text">You forgot to enter the email address.</span>');
+	            hasError = true;
+	        } else if (!emailReg.test(emailFromVal)) {
+	            $("#email").after('<span class="error red-text">Enter a valid email address to send to.</span>');
+	            hasError = true;
+	        }
+	        var Name = $("#name").val();
+	        if (Name == '') {
+	            $("#name").after('<span class="error red-text">You forgot to enter the Name</span>');
+	            hasError = true;
+	        }
+	        var companName = $("#CompanyName").val();
+	        var messageVal = $("#comment").val();
+	        if (messageVal == '') {
+	            $("#comment").after('<span class="error red-text">You forgot to enter the message.</span>');
+	            hasError = true;
+	        }
+	        if (hasError == false) {
+	            $(this).hide();
+	            $("#enquirySubmit").val('Sending...');
+	            $.post("sendemail.php", {
+	                email: emailFromVal,
+	                user: Name,
+	                message: messageVal,
+	                companName:companName
+	            }, function(data) {
+	                $("#submit").html('Send Message');
+	                $("#contactform")[0].reset();
+	            });
+	        }
+	        return false;
+	    });
 	},
 
 	initializeCulture : function() {
@@ -210,6 +258,11 @@ virtual = {
 		},function(){
 			$(this).removeClass("z-depth-3 white-text site-bg");
 			$(this).addClass("transparent no-shadow black-text");
+		}).click(function(e){
+			e.preventDefault();
+			var name = $(this).find("span.truncate").text();
+			localStorage.setItem('memberName',name);
+			window.location.href = 'member.html';
 		});
 	},
 
@@ -380,6 +433,91 @@ virtual = {
 		virtual.initializeLazyLoad();
 	},
 
+	initializeMember:function() {
+
+		var virtual = this;
+
+		if(virtual.page != "team") {
+
+			var clickedName = localStorage.getItem("memberName");
+			var otherMembers = '';
+			$(teamdata.memberdata).each(function(f) {
+				if(teamdata.memberdata[f].name == clickedName) {
+					$("#name").html(teamdata.memberdata[f].name);
+					$("#tagline").html(teamdata.memberdata[f].tagline);
+					$("#mail").attr("href",teamdata.memberdata[f].mailId);
+					$(".avatar").css("background-image","linear-gradient(rgba(0, 0, 0, 0.32),rgb(9, 9, 9)), url("+teamdata.memberdata[f].imgPath+")");
+					$("#doLine").html(teamdata.memberdata[f].headingLine);
+					$("#story").html(teamdata.memberdata[f].story);
+					$("#happyPeople p.flow-text").html("<i class='fa fa-quote-left'></i> " +teamdata.memberdata[f].happyPeople + " <i class='fa fa-quote-right'></i>");
+					$("#socialLinks a#facebookUrl").attr("href",teamdata.memberdata[f].fbId);
+					$("#socialLinks a#linkedinUrl").attr("href",teamdata.memberdata[f].linkedinId);
+					$("#socialLinks a#twitterUrl").attr("href",teamdata.memberdata[f].twitterId);
+					$("#socialLinks a#skypeUrl").attr("href",teamdata.memberdata[f].skypeId);
+				}
+				else {			
+					otherMembers += '<div class="col s12 m4 l4 center-align">';
+					otherMembers += '<div class="card transparent cyan-text no-shadow">';
+					otherMembers += '<div class="card-image center-align z-depth-5">';
+					otherMembers += '<img data-original="'+teamdata.memberdata[f].imgPath+'">';
+					otherMembers += '<span class="card-title">'+teamdata.memberdata[f].name+'</span>';
+					otherMembers += '</div>';
+					otherMembers += '<div class="card-content">';
+					otherMembers += '<p class="flow-text bold">'+teamdata.memberdata[f].role+'</p>.';
+					otherMembers += '</div>';
+					otherMembers += '</div></div>';
+				}			
+			});
+
+			$("#otherMembers").html(otherMembers);
+			virtual.initializeWow();
+			virtual.initializeLazyLoad();
+
+			$("#otherMembers .card").css("cursor","pointer").hover(function(){
+				$(this).toggleClass("transparent no-shadow z-depth-5 white-text site-bg");
+				$(this).find(".card-image").toggleClass("z-depth-5");
+			},function(){
+				$(this).toggleClass("transparent no-shadow z-depth-5 white-text site-bg");
+				$(this).find(".card-image").toggleClass("z-depth-5");
+			}).click(function(e){
+				e.preventDefault();
+				var name = $(this).find(".card-title").text();
+				localStorage.setItem('memberName',name);
+				window.location.href = 'member.html';
+			});
+
+			$("#socialLinks a").hover(function(){
+				$(this).parent(".card-panel").toggleClass("site-bg white z-depth-5 no-shadow");
+				$(this).find("i").toggleClass("cyan-text white-text");
+				$(this).toggleClass("circle white transparent");
+			},function(){
+				$(this).parent(".card-panel").toggleClass("site-bg white z-depth-5 no-shadow");
+				$(this).find("i").toggleClass("cyan-text white-text");	
+				$(this).toggleClass("circle white transparent");	
+			});
+		}
+		else {
+			var members = '';
+			$(teamdata.memberdata).each(function(f) {							
+				members += '<div class="col s12 m3 l3 center-align">';
+				members += '<div class="card-panel transparent cyan-text no-shadow">';
+				members += '<img class="lazy circle responsive-img z-depth-3" data-original="'+teamdata.memberdata[f].imgPath+'">';
+				members += '<br><span class="flow-text truncate">'+teamdata.memberdata[f].name+'</span>';
+				members += '<p class="bold black-text">'+teamdata.memberdata[f].role+'</p>';
+				members += '<p>';
+				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-facebook"></i></a>';
+				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-twitter"></i></a>';
+				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-linkedin"></i></a>';
+				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-skype"></i></a>';
+				members += '</p>';
+				members += '</div></div>';
+			});
+			$("#teamMembers").html(members);
+			virtual.initializeWow();
+			virtual.initializeLazyLoad();
+		}
+	},
+
 	detectDevice:function(){
 		var isMobile = false;
 		var md = new MobileDetect(window.navigator.userAgent);
@@ -424,6 +562,49 @@ virtual = {
 		}
 
 		$('.parallax').parallax();
+	},
+
+	initializeContact: function(){
+		$("gmap_canvas").css("height",$("#contactForm").height + 100);
+		$("#enquirySubmit").click(function(e) {
+			e.preventDefault();
+	        $(".error").hide();
+	        var hasError = false;
+	        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	        var emailFromVal = $("#email").val();
+	        if (emailFromVal == '') {
+	            $("#email").after('<span class="error red-text">You forgot to enter the email address.</span>');
+	            hasError = true;
+	        } else if (!emailReg.test(emailFromVal)) {
+	            $("#email").after('<span class="error red-text">Enter a valid email address to send to.</span>');
+	            hasError = true;
+	        }
+	        var Name = $("#name").val();
+	        if (Name == '') {
+	            $("#name").after('<span class="error red-text">You forgot to enter the Name</span>');
+	            hasError = true;
+	        }
+	        var companName = $("#CompanyName").val();
+	        var messageVal = $("#comment").val();
+	        if (messageVal == '') {
+	            $("#comment").after('<span class="error red-text">You forgot to enter the message.</span>');
+	            hasError = true;
+	        }
+	        if (hasError == false) {
+	            $(this).hide();
+	            $("#enquirySubmit").val('Sending...');
+	            $.post("sendemail.php", {
+	                email: emailFromVal,
+	                user: Name,
+	                message: messageVal,
+	                companName:companName
+	            }, function(data) {
+	                $("#submit").html('Send Message');
+	                $("#contact-form")[0].reset();
+	            });
+	        }
+	        return false;
+	    });
 	},
 
 	initializeWow : function(){		

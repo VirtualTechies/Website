@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Virtual Techies - Techifying the World</title><meta name="description" content="TryIt - Virtual Dressing Room"><meta name="author" content="Ankit Parekh"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="img/favicon.png"><link rel="stylesheet" href="assets/style.home.min.css"><!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--><style type="text/css">.first-sec-site.contact{
+			background-size: cover; 
+		    background-repeat: no-repeat;
+		    background-position: top center;
+		    width: 100%;
+		    height: 100%;
+		    min-height:800px;
+		    max-height: 800px;
+		    background-image:linear-gradient(rgb(0, 0, 0),rgba(9, 9, 9, 0.24)), url('img/contact-bg.jpg');
+		}
+		.first-sec-site.contact .width100{
+			margin-top:-120px;
+			padding-top:10rem;			
+		}
+		.first-sec-site.contact h2{
+			margin-top:13rem;
+		}
+		.address:after {
+		    content: "";
+		    position: absolute;
+		    top: 25em;
+		    width: 40%;
+		    height: 90%;
+		    background-color: rgba(255,255,255,.15);
+		    z-index: 100;
+		    right: 10%;
+		}
+
+		#gmap_canvas {
+		    width: 100%;
+		    height:100%;
+		    max-height:700px;
+		    position: absolute;
+		    overflow: hidden;
+		    z-index:100;
+		}		
+		#contactForm{			
+			position:relative;
+			margin-top:3rem;
+		}		
+		#contactForm .card-panel{
+			position: relative;
+			z-index:1000;
+		}	
+		#contactHead{
+			position: relative;
+			width:90%;
+			margin:0 auto;
+			padding:1rem 5%;
+		    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+			top:-40px;
+			border-radius:3px;
+		}
+		.content{
+			position: relative;
+			top:-40px;
+		}</style></head><body data-page="contact" class="white"><div id="site-loader" class="site-loader"><div class="loader-inner"><span></span> <span></span> <span></span> <span></span></div><p class="flow-text">Virtual <span class="cyan-text">Techies</span></p></div><div id="site-wrapper" role="main" class="hide"><header class="z-depth-1"></header><section class="first-sec-site contact"><div class="width100"><div class="container"><div class="row"><div class="col s12 m12 l12 slider-title center-align"><h2 class="white-text bold">Contact</h2></div></div><div class="row valign-wrapper"><div class="col s12 m7 l7 left-align"><h4 class="white-text valign bold">Ready To Share Your Story? Let's See If We Can Start A Project.</h4></div><div class="col s12 m5 l5 center-align"><div class="address"><p class="flow-text white-text valign">Virtual Techies<br>Mira-road, Thane.<br>Mumbai 401107<br>India<br>+91 9920353532</p><a href="mailto:ankit77parekh@gmail.com" class="btn cyan">Email Us</a></div></div></div></div></div></section><section class="grey lighten-4 site-pad"><div class="container"><div class="row"><div class="col s12 m12 l12 center-align"><h4 class="bold wow fadeInDown">Get <span class="cyan-text">Notified</span></h4><p class="flow-text wow fadeInDown">Don't miss out on new projects, people and positions. No spam, just friendly updates.</p></div></div><div class="row"><div class="col s12 offset-m1 m4 offset-l1 l4"><div class="input-field"><input placeholder="Placeholder" id="first_name" type="text" class="validate"><label for="first_name">Name</label></div></div><div class="col s12 m4 l4"><div class="input-field"><input placeholder="Placeholder" id="Email" type="email" class="validate"><label for="Email">Email</label></div></div><div class="col s12 m3 l3"><a class="btn cyan btn-large">And Hit It!</a></div></div></div><div class="equal-pad--sm"></div></section><section class="grey lighten-4 site-pad--sm"><div id="gmap_canvas"></div><div id="contactForm"><div class="container"><div class="row"><div class="col s12 m7 l7"><form class="white" role="form" id="contact-form" method="post"><div class="card-panel white z-depth-3"><h5 class="site-bg white-text center-align" id="contactHead">Send Us Message</h5><div class="content"><div class="row"><div class="col s12 m6 l6"><div class="info info-horizontal"><div class="description"><p class="flow-text"><i class="fa fa-phone"></i> Give us a ring</p><p>Virtual Techies<br>+91 9920353532<br>Mon - Fri, 9:00-21:00</p></div></div></div><div class="col s12 m6 l6"><div class="info info-horizontal"><div class="description"><p class="flow-text"><i class="fa fa-map-marker"></i> Find us</p><p>Mira-road, Thane<br>Mumbai - 401107<br>India</p></div></div></div></div><div class="row"><div class="input-field col s12"><input id="name" type="text" class="validate"><label for="name">Your Name</label></div></div><div class="row"><div class="input-field col s12"><input id="email" type="email" class="validate"><label for="email">Email</label></div></div><div class="row"><div class="input-field col s12"><textarea id="comment" class="materialize-textarea"></textarea><label for="comment">Message</label></div></div><div class="row"><div class="input-field col s12 right-align"><input class="btn cyan" id="enquirySubmit" type="submit" value="Send Message"></div></div></div></div></form></div></div></div></div></section><footer class="page-footer no-pad no-mar"></footer></div><script type="text/javascript" src="assets/loadScripts.js"></script><script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script><script type="text/javascript">function init_map(){var myOptions = {zoom:9,center:new google.maps.LatLng(19.2780687,72.85839669999996),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(19.2780687,72.85839669999996)});infowindow = new google.maps.InfoWindow({content:'<strong>Virtual Techies</strong><br>Mira-road, Thane,Mumbai,India<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script></body></html>
