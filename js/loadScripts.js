@@ -37,7 +37,7 @@ var loadScript = {
                     break;
                 case "member":
                 case "team":
-                    scripts.push("assets/site.min.js");
+                    scriptsToGetLoaded.push("assets/site.min.js");
                     callbacks[0] = function() {
                         console.log(loadScript.currentPage + " page initialized...");
                     }
