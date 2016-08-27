@@ -529,38 +529,41 @@ virtual = {
 
 	initializeSlider:function() {
 
-		var virtual = this;
-		var isMobile = virtual.detectDevice();
-		/*initializing Slider*/
-		$('.owl-carousel').owlCarousel({
-			loop       : true,
-			nav        : false,
-			dots       : false,
-			lazyLoad   : true,
-			items      : 1,
-			pagination : false,
-			autoplay   : true,
-			autoplayHoverPause: true,
+		var virtual   = this;
+		var isMobile  = virtual.detectDevice();
+		var slider    = $('.owl-carousel');
 
-			responsiveClass:true,
-			responsive:{
-				0:{
-				    items:1
-				},
-				600:{
-				    items:1
-				},
-				1000:{
-				    items:1
+		if(slider.length) {
+			/*initializing Slider*/
+			$(slider).owlCarousel({
+				loop       : true,
+				nav        : false,
+				dots       : false,
+				lazyLoad   : true,
+				items      : 1,
+				pagination : false,
+				autoplay   : true,
+				autoplayHoverPause: true,
+
+				responsiveClass:true,
+				responsive:{
+					0:{
+					    items:1
+					},
+					600:{
+					    items:1
+					},
+					1000:{
+					    items:1
+					}
 				}
+			}).show();
+
+			if(isMobile){
+				$('.owl-carousel .slider-title h3').addClass("flow-text").css("margin-top","60%");
+				$("#weDoSec").css("top","-45px").css("z-index" ,"1");
 			}
-		});
-
-		if(isMobile){
-			$('.owl-carousel .slider-title h3').addClass("flow-text").css("margin-top","60%");
-			$("#weDoSec").css("top","-45px").css("z-index" ,"1");
 		}
-
 		$('.parallax').parallax();
 	},
 
