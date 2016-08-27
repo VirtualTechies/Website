@@ -232,18 +232,13 @@ virtual = {
 	},
 
 	initializeCulture : function() {
-		var team = '';
 
-		$(teamdata.culturedata).each(function(c){
-			team += '<div class="col s6 m3 l3">';
-			team += '<div class="card-panel transparent black-text no-shadow"><p>';
-			team += '<img class="responsive-img lazy" data-original="'+teamdata.culturedata[c].imgPath+'"><br>';
-			team += '<span class="truncate flow-text">'+teamdata.culturedata[c].name+'</span>';
-			team += '<span class="">'+teamdata.culturedata[c].role+'</span>';
-			team += '</p>';
-			team += '</div></div>';
-		});		
-		$("#teamrow").html(team);
+		var teamTemplate =  '<div class="col s6 m3 l3">'
+						 +  '<div class="card-panel transparent black-text no-shadow"><p>'
+						 +  '<img class="responsive-img lazy" data-original="imgPath"><br>'
+				 		 +  '<span class="truncate flow-text">name</span>'
+						 +  '<span class="">role</span></p></div></div>';
+		this.createHtmlTemplates($("#teamrow"), teamTemplate, teamdata.culturedata);
 		this.initializeLazyLoad();
 
 		$("#goToTribe").on("click",function(){
@@ -293,38 +288,27 @@ virtual = {
 		approachLines += '</ul>';
 		$("#approachLines").html(approachLines);
 
-		var techs = '';
-		$(approachData.technologies).each(function(t){
-			techs += '<div class="col s4 m2 l2">';
-			techs += '<div class="no-pad card-panel transparent no-shadow hoverable white-text">';
-			techs += '<img data-original="'+approachData.technologies[t].imgPath+'" class="lazy respoonsive-img">';
-			techs += '<p class="no-mar flow-text">'+approachData.technologies[t].name+'</p></div>';
-			techs += '</div>';
-		});
-		$("#technologies #techs").html(techs);
+		var techTemplate = '<div class="col s4 m2 l2">'
+						 + '<div class="no-pad card-panel transparent no-shadow hoverable white-text">'
+						 + '<img data-original="imgPath" class="lazy respoonsive-img">'
+						 + '<p class="no-mar flow-text">name</p></div></div>';
+		this.createHtmlTemplates($("#technologies #techs"), techTemplate, approachData.technologies);
 		this.initializeLazyLoad();
 
-		$("#technologies #techs .card-panel")
-		.css("transition","all .2s ease-in-out")
-		.hover(function(){
+		$("#technologies #techs .card-panel").css("transition","all .2s ease-in-out").hover(function(){
 			$(this).toggleClass("no-shadow z-depth-5").css("transform","scale(1.1)");		
 		},function(){
 			$(this).toggleClass("no-shadow z-depth-5").css("transform","scale(1)");	
 		});
 
-		var chooselines = '';
-		chooselines += '<div class="row">';
-		$(approachData.choose).each(function(c){
-			chooselines += '<div class="col s12 m4 l4 center-align">';
-			chooselines += '<div class="card-panel transparent no-shadow cyan-text hoverable">';
-			chooselines += '<i class="fa fa-5x valign '+approachData.choose[c].icon+'"></i>';
-			chooselines += '<h3 class="flow-text">'+approachData.choose[c].heading+'</h3>';
-			chooselines += '<p>'+approachData.choose[c].desc+'</p>';
-			chooselines += '</div></div>';
-		});
-		chooselines += '</div>';
-		$("#chooseSection").html(chooselines);
-
+		var chooseUsTemplate = '<div class="col s12 m4 l4 center-align">'
+							 + '<div class="card-panel transparent no-shadow cyan-text hoverable">'
+							 + '<i class="fa fa-5x valign icon"></i>'
+							 + '<h3 class="flow-text">heading</h3>'
+							 + '<p>desc</p>'
+							 + '</div></div>';
+		this.createHtmlTemplates( $("#chooseSection"), chooseUsTemplate, approachData.choose);
+		
 		$("#chooseSection .card-panel").hover(function(){
 			$(this).toggleClass("transparent no-shadow site-bg cyan-text white-text z-depth-5");		
 		},function(){
@@ -347,14 +331,9 @@ virtual = {
             cursorChar: '|',
             showCursor:true,
             loop:true,
-            contentType: 'text', // or text
-            // defaults to false for infinite loop
+            contentType: 'text',
             loopCount: false,
             callback: function(){ 
-				// Uncomment these lines to make the cursor disappear after 2s. (2000 -> 2 s) 
-				// setTimeout(function(){
-				// jQuery(".typed-cursor").hide(); 
-				// }, 2000);
 			},
             resetCallback: function() { newTyped(); }
         });
@@ -456,16 +435,16 @@ virtual = {
 					$("#socialLinks a#skypeUrl").attr("href",teamdata.memberdata[f].skypeId);
 				}
 				else {			
-					otherMembers += '<div class="col s12 m4 l4 center-align">';
-					otherMembers += '<div class="card transparent cyan-text no-shadow">';
-					otherMembers += '<div class="card-image center-align z-depth-5">';
-					otherMembers += '<img data-original="'+teamdata.memberdata[f].imgPath+'">';
-					otherMembers += '<span class="card-title">'+teamdata.memberdata[f].name+'</span>';
-					otherMembers += '</div>';
-					otherMembers += '<div class="card-content">';
-					otherMembers += '<p class="flow-text bold">'+teamdata.memberdata[f].role+'</p>.';
-					otherMembers += '</div>';
-					otherMembers += '</div></div>';
+					other= '<div class="col s12 m4 l4 center-align">';
+					other= '<div class="card transparent cyan-text no-shadow">';
+					other= '<div class="card-image center-align z-depth-5">';
+					other= '<img data-original="'+teamdata.memberdata[f].imgPath+'">';
+					other= '<span class="card-title">'+teamdata.memberdata[f].name+'</span>';
+					other= '</div>';
+					other= '<div class="card-content">';
+					other= '<p class="flow-text bold">'+teamdata.memberdata[f].role+'</p>.';
+					other= '</div>';
+					other= '</div></div>';
 				}			
 			});
 
@@ -497,22 +476,17 @@ virtual = {
 			});
 		}
 		else {
-			var members = '';
-			$(teamdata.memberdata).each(function(f) {							
-				members += '<div class="col s12 m3 l3 center-align">';
-				members += '<div class="card-panel transparent cyan-text no-shadow">';
-				members += '<img class="lazy circle responsive-img z-depth-3" data-original="'+teamdata.memberdata[f].imgPath+'">';
-				members += '<br><span class="flow-text truncate">'+teamdata.memberdata[f].name+'</span>';
-				members += '<p class="bold black-text">'+teamdata.memberdata[f].role+'</p>';
-				members += '<p>';
-				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-facebook"></i></a>';
-				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-twitter"></i></a>';
-				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-linkedin"></i></a>';
-				members += '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-skype"></i></a>';
-				members += '</p>';
-				members += '</div></div>';
-			});
-			$("#teamMembers").html(members);
+			var membersTemplate = '<div class="col s12 m3 l3 center-align">'
+								+ '<div class="card-panel transparent cyan-text no-shadow">'
+								+ '<img class="lazy circle responsive-img z-depth-3" data-original="imgPath">'
+								+ '<br><span class="flow-text truncate">name</span>'
+								+ '<p class="bold black-text">role</p><p>'
+								+ '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-facebook"></i></a>'
+								+ '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-twitter"></i></a>'
+								+ '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-linkedin"></i></a>'
+								+ '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-skype"></i></a>'
+								+ '</p></div></div>';
+			this.createHtmlTemplates($("#teamMembers"), membersTemplate, teamdata.memberdata);
 			virtual.initializeWow();
 			virtual.initializeLazyLoad();
 		}
@@ -594,7 +568,6 @@ virtual = {
 	            hasError = true;
 	        }
 	        if (hasError == false) {
-	            $(this).hide();
 	            $("#enquirySubmit").val('Sending...');
 	            $.post("sendemail.php", {
 	                email: emailFromVal,
@@ -614,6 +587,30 @@ virtual = {
 		$(".wow").attr("data-wow-duration","2s").attr("data-wow-delay","1s");
 		wow = new WOW();
 		wow.init();
+	},
+
+	createHtmlTemplates:function(templateContainer, template, collection) {	
+		var htmlString     = 					  new String || "";
+		var htmlcontainer  = templateContainer || new Object || {};
+		var htmltemplate   = template 		   || new String || "";
+		var iteratee	   = collection        || new Array  || [];
+		var replaceAll = function(str, find, replace) {
+			return str.replace(new RegExp(find, 'g'), replace);
+		};	
+
+		$(iteratee).each(function(c){
+			htmlString +=  function(template){
+				for(var propertyName in iteratee[c]) {
+					template = replaceAll(template, propertyName, iteratee[c][propertyName]);
+				}
+				return template;
+			}(htmltemplate); 
+		});
+		htmlcontainer.html(htmlString);
+		delete htmlString;
+		delete htmlcontainer;
+		delete htmltemplate;
+		delete iteratee;
 	}
 };
 
