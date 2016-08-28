@@ -65,6 +65,7 @@ var loadScript = {
                 for (var i = 0; i < scripts.length; i++) {              
                     script = document.createElement('script');                               
                     script.src = scripts[i];
+                    script.async = true;
                     if (typeof callbacks[i] !== 'function') {
                         throw new Error('Not a valid callback');  
                     }
@@ -83,6 +84,7 @@ var loadScript = {
 
         var mainScript =  document.createElement('script');                              
         mainScript.src = "assets/plugins.min.js";
+        mainScript.async = true;
         document.head.appendChild(mainScript);
         mainScript.onload = function() {
             execteScripts(); 
