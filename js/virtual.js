@@ -431,7 +431,7 @@ virtual = {
 		var service = '';
 		$(serviceData.services).each(function(f){
 			service += '<div class="site-pad--sm"></div>';
-			service += '<div class="row valign-wrapper '+(f==0 ? '' : 'top')+'">';
+			service += '<div class="row '+ (!isMobile ? 'valign-wrapper ' : ' ') + (f==0 ? '' : 'top')+'">';
 			if(isMobile ||  f % 2 == 0){
 				var alignment = isMobile ? "center-align wow slideIn" : "valign right-align wow slideInRight";
 				service += '<div class="col s12 m6 l6">';
@@ -482,16 +482,16 @@ virtual = {
 					$("#socialLinks a#skypeUrl").attr("href",teamdata.memberdata[f].skypeId);
 				}
 				else {			
-					other= '<div class="col s12 m4 l4 center-align">';
-					other= '<div class="card transparent cyan-text no-shadow">';
-					other= '<div class="card-image center-align z-depth-5">';
-					other= '<img data-src="'+teamdata.memberdata[f].imgPath+'">';
-					other= '<span class="card-title">'+teamdata.memberdata[f].name+'</span>';
-					other= '</div>';
-					other= '<div class="card-content">';
-					other= '<p class="flow-text bold">'+teamdata.memberdata[f].role+'</p>.';
-					other= '</div>';
-					other= '</div></div>';
+					otherMembers += '<div class="col s12 m4 l4 center-align">';
+					otherMembers += '<div class="card transparent cyan-text no-shadow">';
+					otherMembers += '<div class="card-image center-align z-depth-5">';
+					otherMembers += '<img data-src="'+teamdata.memberdata[f].imgPath+'">';
+					otherMembers += '<span class="card-title">'+teamdata.memberdata[f].name+'</span>';
+					otherMembers += '</div>';
+					otherMembers += '<div class="card-content">';
+					otherMembers += '<p class="flow-text bold">'+teamdata.memberdata[f].role+'</p>.';
+					otherMembers += '</div>';
+					otherMembers += '</div></div>';
 				}			
 			});
 
