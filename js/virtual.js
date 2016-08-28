@@ -68,21 +68,31 @@ virtual = {
 		header += '<ul id="nav-mobile" class="right hide-on-med-and-down">';
 
 		mobileheader += '<ul class="side-nav" id="mobile-demo">';
-		mobileheader += '<li class="grey lighten-4"><a id="mobile-logo" href="index.html" class="bold cyan-text"><em>Virtual </em><em class="grey-text">Techies</em></a></li>';
+
+		mobileheader += '<li><div class="grey lighten-4 logoView">';
+        mobileheader += '<a id="mobile-logo" href="index.html"><img class="responsive-img" src="img/vtlogonew.png"></a>';
+        mobileheader += '</div></li>';
+		
 		$(headerdata.mainLinks).each(function(h){
 			if(headerdata.mainLinks[h].isMain){
 				if(!headerdata.mainLinks[h].hasChild){
 					header += '<li><a href="'+headerdata.mainLinks[h].link+'">'+headerdata.mainLinks[h].text+'</a></li>';
+					mobileheader += '<li><div class="divider"></div></li>';
+				mobileheader += '<li><a href="'+headerdata.mainLinks[h].link+'">'+headerdata.mainLinks[h].text+'</a></li>';
 				}
 				else{
 					header += '<li><a class="dropdown-button" href="'+headerdata.mainLinks[h].link+'" data-gutter="0" data-inDuration="300" data-outDuration="225" data-constrainWidth="false" data-hover="true" data-beloworigin="true" data-activates="dropdown-'+h+'">'+headerdata.mainLinks[h].text+' <i class="fa fa-caret-down"></i></a></li>';
 					dds    += '<ul id="dropdown-'+h+'" class="dropdown-content">';
+					mobileheader += '<li class="no-padding"><ul class="collapsible collapsible-accordion"><li>';
+            		mobileheader += '<a class="collapsible-header">'+ headerdata.mainLinks[h].text+' <i class="fa fa-caret-down right"></i></a>';
+		            mobileheader += '<div class="collapsible-body"><ul>';          	
 					$(headerdata.mainLinks[h].childs).each(function(c){
 						dds += '<li><a href="'+headerdata.mainLinks[h].childs[c].link+'">'+headerdata.mainLinks[h].childs[c].text+'</a></li>';
+						mobileheader += '<li><a href="'+headerdata.mainLinks[h].childs[c].link+'">'+headerdata.mainLinks[h].childs[c].text+'</a></li>';
 					});
+					mobileheader += '</ul></div></li></ul></li>';
 					dds += '</ul>';
-				}
-				mobileheader += '<li><a href="'+headerdata.mainLinks[h].link+'">'+headerdata.mainLinks[h].text+'</a></li>';
+				}				
 			}
 		});	
 		mobileheader += '</ul>';
@@ -96,7 +106,6 @@ virtual = {
 			edge         : 'left',
 			closeOnClick : true
 		});
-
 		$('.dropdown-button').dropdown({
 			inDuration: 300,
 			outDuration: 225,
@@ -106,6 +115,7 @@ virtual = {
 			belowOrigin: true,
 			alignment: 'left'
 		});
+		$('.collapsible').collapsible();
 
 		$(document).scroll(function(){
 			if($(this).scrollTop() > 50){
@@ -419,10 +429,20 @@ virtual = {
 			$(document).scroll();
 		});
 		this.initializeLazyLoad();
+
+		$(".rocketCard").hover(function(){
+			$(this).toggleClass("transparent cyan-text site-bg hoverable white-text z-depth-3 z-depth-5");
+		},function(){
+			$(this).toggleClass("transparent cyan-text site-bg hoverable white-text z-depth-3 z-depth-5");
+		});
 	},
 
 	initializeStartAProject: function() {
-
+		$("#goToStart").on("click",function(){
+			$('html, body').animate({
+				scrollTop: ($("#formSection").offset().top - 200)
+			}, 2000);
+		});
 	},
 
 	initializeServices:function() {

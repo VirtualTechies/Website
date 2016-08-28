@@ -11,6 +11,21 @@
 	<!--[if lt IE 9]>
 	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	<style type="text/css">
+        .first-sec-site.startAProject{
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            max-height: 700px;
+            min-height: 600px;
+            background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.76)), url('img/startAProject/startAProject-header.jpg');
+        }
+        .first-sec-site.startAProject h3{
+            margin-top:15.5rem;
+        }
+    </style>
 </head>
 <body class="white" data-page="startAProject">
 	<!-- Loader -->
@@ -26,9 +41,166 @@
 	<div id="site-wrapper" role="main" class="hide">
 		<header class="z-depth-1"></header>
 		
-		<section class="intro white first-sec-site">
-			
+		<section class="intro white first-sec-site startAProject">
+			<div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 white-text center-align">
+                    	<h3 class="bold">Let's Make <span class="cyan-text">Something Great</span> Together.</h3>
+						<p class="flow-text no-mar">
+							<i class="fa fa-quote-left"></i> Start a project, get a quote or learn more about how we can partner to build a successful product. <i class="fa fa-quote-right"></i><br><br>
+						</p>
+						<a class="btn cyan" id="goToStart" title="Tribe Members">Let's Begin</a>
+                    </div>
+                </div>
+            </div>
 		</section>
+
+		<section class="site-pad light-bl-bg">
+			<article class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 white-text center-align">
+                    	<h4 class="bold grey-text"> Project <span class="cyan-text">Planner</span></h4>
+                    	<p class="black-text">*All fields are required unless indicated</p>
+                    </div>
+                </div>
+            </article>
+            <article class="container" id="formSection">
+                <div class="row">
+                    <div class="col s12 offset-m2 offset-l2 m8 l8 white-text">
+                    	<div class="card-panel z-depth-5">
+                    		 <div class="row">
+								<form class="col s12">
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="Full Name (required)" id="Full_name" type="text" class="validate">
+											<label for="Full_name">Full name</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="Your Email (required)" id="email" type="email" class="validate">
+											<label for="email">Email</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="Your Phone (required)" id="Phone" type="text" class="validate">
+											<label for="Phone">Phone</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="Your Company" id="Company" type="text" class="validate">
+											<label for="Company">Company</label>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="input-field col s12 black-text">
+											<p class="flow-text center-align">Type of Project</p>
+											<p class="center-align">Select all that apply</p>
+										</div>
+									</div>
+									<div class="row no-mar">
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Web Design And Development</label>
+										</div>
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">E-Commerce Development</label>
+										</div>
+									</div>
+									<div class="row no-mar">
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Mobile Site Development</label>
+										</div>
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">App Development</label>
+										</div>
+									</div>
+									<div class="row no-mar">
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Logo Design</label>
+										</div>
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Graphic Design</label>
+										</div>
+									</div>
+									<div class="row no-mar">
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Search Engine Optimization</label>
+										</div>
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Social Media Marketing</label>
+										</div>
+									</div>
+									<div class="row no-mar">
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Digital Makerting</label>
+										</div>
+										<div class="input-field col s6 black-text">
+											<input class="filled-in" type="checkbox" id="test5" />
+      										<label for="test5">Other</label>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="input-field col s12 black-text">
+											<p class="flow-text center-align">Project Details</p>
+											<p class="center-align">Tell us about your project/idea</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="What is your budget? (required)" id="budget" type="text" class="validate">
+											<label for="budget">Budget</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="What is your timeframe? (required)" id="timeframe" type="text" class="validate">
+											<label for="timeframe">Timeframe</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<textarea placeholder="Tell us about the project, requirements and objectives." id="requirements" class="materialize-textarea"></textarea>
+											<label for="requirements">Textarea</label>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="input-field col s12 black-text">
+											<p class="flow-text center-align">How'd you find us?</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input placeholder="Tell us about how you found us? Google, Friend, etc? (required)" id="found" type="text" class="validate">
+											<label for="found">How you found us?</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12 center-align">
+											<a class="btn cyan">Submit</a>
+										</div>
+									</div>
+								</form>
+								</div>
+                    	</div>
+                    </div>
+                </div>
+            </article>
+		</section>
+
 		<footer class="page-footer no-pad no-mar"></footer>
 	</div>
 	<script type="text/javascript" src="assets/loadScripts.min.js"></script>

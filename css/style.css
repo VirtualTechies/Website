@@ -84,6 +84,17 @@ body{
 #mobile-demo #mobile-logo{
     font-size:1.5em;
 }
+
+#mobile-demo .logoView{
+    min-height: 170px;
+    padding: 2em;
+}
+
+#mobile-demo .logoView a,
+#mobile-demo .logoView a:hover{
+    background-color:transparent!important;
+}
+   
 .first-sec-site{
     position:relative;
     top:-120px;
