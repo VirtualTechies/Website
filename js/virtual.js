@@ -40,6 +40,9 @@ virtual = {
 			case "contact":
 				this.initializeCases();
 				break;
+			case "startAProject":
+				this.initializeStartAProject();
+				break;
 			default:
 				break;
 		}
@@ -58,13 +61,14 @@ virtual = {
 		header += '<div class="navbar-fixed">';
 		header += '<nav id="web-header" class="transparent">';
 		header += '<div class="nav-wrapper container">';
-		header += '<a href="#" class="brand-logo black-text">';
+		header += '<a href="index.html" class="brand-logo black-text">';
 		header += '<small class="bold cyan-text"><em>Virtual </em><em class="white-text">Techies</em></small>';
 		header += '</a>';					
 		header += '<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars cyan-text"></i></a>';
 		header += '<ul id="nav-mobile" class="right hide-on-med-and-down">';
 
 		mobileheader += '<ul class="side-nav" id="mobile-demo">';
+		mobileheader += '<li class="grey lighten-4"><a id="mobile-logo" href="index.html" class="bold cyan-text"><em>Virtual </em><em class="grey-text">Techies</em></a></li>';
 		$(headerdata.mainLinks).each(function(h){
 			if(headerdata.mainLinks[h].isMain){
 				if(!headerdata.mainLinks[h].hasChild){
@@ -138,10 +142,8 @@ virtual = {
 	},
 
 	initializeLazyLoad : function(){
-		$("img.lazy, img , .image").lazyload({
-			effect    : "fadeIn",
-			threshold : 200
-		});
+		$(window).lazyLoadXT();
+		$("img.lazy, img , .image").lazyLoadXT();
 	},
 
 	initializePlugins : function(){		
@@ -161,7 +163,7 @@ virtual = {
 			if(isMobile ||  f % 2 == 0){
 				var alignment = isMobile ? "center-align wow slideIn" : "right-align wow slideInRight";
 				features += '<div class="col s12 m6 l6">';
-				features += '<img data-original="'+homedata.introFeatures[f].imgPath+'" class="wow slideInLeft lazy responsive-img">';
+				features += '<img data-src="'+homedata.introFeatures[f].imgPath+'" class="wow slideInLeft lazy responsive-img">';
 				features += '</div>';
 				features += '<div class="col s12 m6 l6 '+alignment+'">';
 				features += homedata.introFeatures[f].featureText;
@@ -174,7 +176,7 @@ virtual = {
 				features += homedata.introFeatures[f].featuredesc;
 				features += '</div>';
 				features += '<div class="col s12 m6 l6">';
-				features += '<img data-original="'+homedata.introFeatures[f].imgPath+'" class="lazy responsive-img">';
+				features += '<img data-src="'+homedata.introFeatures[f].imgPath+'" class="lazy responsive-img">';
 				features += '</div>';
 			}	
 			features += '</div>';
@@ -235,7 +237,7 @@ virtual = {
 
 		var teamTemplate =  '<div class="col s6 m3 l3">'
 						 +  '<div class="card-panel transparent black-text no-shadow"><p>'
-						 +  '<img class="responsive-img lazy" data-original="imgPath"><br>'
+						 +  '<img class="responsive-img lazy" data-src="imgPath"><br>'
 				 		 +  '<span class="truncate flow-text">name</span>'
 						 +  '<span class="">role</span></p></div></div>';
 		this.createHtmlTemplates($("#teamrow"), teamTemplate, teamdata.culturedata);
@@ -290,7 +292,7 @@ virtual = {
 
 		var techTemplate = '<div class="col s4 m2 l2">'
 						 + '<div class="no-pad card-panel transparent no-shadow hoverable white-text">'
-						 + '<img data-original="imgPath" class="lazy respoonsive-img">'
+						 + '<img data-src="imgPath" class="lazy responsive-img">'
 						 + '<p class="no-mar flow-text">name</p></div></div>';
 		this.createHtmlTemplates($("#technologies #techs"), techTemplate, approachData.technologies);
 		this.initializeLazyLoad();
@@ -317,7 +319,7 @@ virtual = {
 
 		$("#goToApproach").on("click",function(){
 			$('html, body').animate({
-				scrollTop: ($("#approachLines").offset().top - 100)
+				scrollTop: ($("#timeline").offset().top)
 			}, 2000);
 		});
 
@@ -338,7 +340,22 @@ virtual = {
             resetCallback: function() { newTyped(); }
         });
 
-        $(window).on('scroll', function(){
+        $(".pillarstags").typed({
+            strings: ["Collaboration","Iteration","Long-term"],
+            typeSpeed: 150,
+            backSpeed: 0,
+            startDelay: 0,
+            backDelay: 700,
+            randomize: 100,
+            cursorChar: '|',
+            showCursor:true,
+            loop:true,
+            contentType: 'text',
+            loopCount: false,
+            resetCallback: function() { newTyped(); }
+        });
+		
+		$(window).on('scroll', function(){
 			$(".cd-timeline-block").each(function(){
 				if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
 					$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
@@ -365,6 +382,7 @@ virtual = {
 			carousel.trigger("to.owl.carousel", [index, 500, true]);
 			$(this).find("i").addClass("fa-circle").removeClass("fa-circle-o");
 			$(this).siblings().find("i").addClass("fa-circle-o").removeClass("fa-circle");
+			$(document).scroll();
 		});
 
 		$(".numbering .card").hover(function(){
@@ -375,6 +393,35 @@ virtual = {
 	},
 
 	initializeCases: function() {
+		var casesTemplate = '<div class="col s12 m4 l4 center-align">'
+						  + '<a href="url"><div class="card-panel hvr-grow-shadow workcards no-shadow transparent">'
+						  + '<p class="cyan-text bold flow-text">name</p>'
+						  + '<img data-src="imgPath" class="z-depth-3 lazy responsive-img">'
+						  + '</div></a></div>';
+		this.createHtmlTemplates($("#worksSection"), casesTemplate, casesData.cases);
+		
+		var divs = $("div#worksSection > div.col");
+		for(var i = 0; i < divs.length; i+=3) {
+			divs.slice(i, i+3).wrapAll("<div class='row'></div>");
+		}
+		
+		var testimonalTemplate 	= '<div class="item">' 
+								+ '<img style="opacity:1!important" data-src="imgPath" class="lazy responsive-img">'
+								+ '<p class="white-text flow-text"><i class="fa fa-quote-left"></i> saying <i class="fa fa-quote-right"></i></p>'
+								+ '<p class="cyan-text right-align flow-text">name<br>- <small class="white-text"> position </small></p></div>';
+		this.createHtmlTemplates($("#testimonals .owl-carousel"), testimonalTemplate, casesData.testimonals);
+		this.initializeSlider();
+		$(".testimonals-controls li").on("click", function(){
+			var index = $(this).index();
+			$('.owl-carousel').trigger("to.owl.carousel", [index, 500, true]);
+			$(this).find("i").addClass("fa-circle").removeClass("fa-circle-o");
+			$(this).siblings().find("i").addClass("fa-circle-o").removeClass("fa-circle");
+			$(document).scroll();
+		});
+		this.initializeLazyLoad();
+	},
+
+	initializeStartAProject: function() {
 
 	},
 
@@ -388,7 +435,7 @@ virtual = {
 			if(isMobile ||  f % 2 == 0){
 				var alignment = isMobile ? "center-align wow slideIn" : "valign right-align wow slideInRight";
 				service += '<div class="col s12 m6 l6">';
-				service += '<img data-original="'+serviceData.services[f].img+'" class="wow slideInLeft lazy responsive-img">';
+				service += '<img data-src="'+serviceData.services[f].img+'" class="wow slideInLeft lazy responsive-img">';
 				service += '</div>';
 				service += '<div class="col s12 m6 l6'+alignment+'">';
 				service += serviceData.services[f].heading;
@@ -401,7 +448,7 @@ virtual = {
 				service += serviceData.services[f].desc;
 				service += '</div>';
 				service += '<div class="col s12 m6 l6">';
-				service += '<img data-original="'+serviceData.services[f].img+'" class="lazy responsive-img">';
+				service += '<img data-src="'+serviceData.services[f].img+'" class="lazy responsive-img">';
 				service += '</div>';
 			}	
 			service += '</div>';
@@ -438,7 +485,7 @@ virtual = {
 					other= '<div class="col s12 m4 l4 center-align">';
 					other= '<div class="card transparent cyan-text no-shadow">';
 					other= '<div class="card-image center-align z-depth-5">';
-					other= '<img data-original="'+teamdata.memberdata[f].imgPath+'">';
+					other= '<img data-src="'+teamdata.memberdata[f].imgPath+'">';
 					other= '<span class="card-title">'+teamdata.memberdata[f].name+'</span>';
 					other= '</div>';
 					other= '<div class="card-content">';
@@ -478,7 +525,7 @@ virtual = {
 		else {
 			var membersTemplate = '<div class="col s12 m3 l3 center-align">'
 								+ '<div class="card-panel transparent cyan-text no-shadow">'
-								+ '<img class="lazy circle responsive-img z-depth-3" data-original="imgPath">'
+								+ '<img class="lazy circle responsive-img z-depth-3" data-src="imgPath">'
 								+ '<br><span class="flow-text truncate">name</span>'
 								+ '<p class="bold black-text">role</p><p>'
 								+ '<a class="btn btn-flat btn-floating"><i class="fa cyan-text fa-facebook"></i></a>'
@@ -584,7 +631,7 @@ virtual = {
 	},
 
 	initializeWow : function(){		
-		$(".wow").attr("data-wow-duration","2s").attr("data-wow-delay","1s");
+		$(".wow").attr("data-wow-duration","1s").attr("data-wow-delay","1s");
 		wow = new WOW();
 		wow.init();
 	},

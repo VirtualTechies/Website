@@ -338,7 +338,7 @@ var approachData = {
 		},
 		{
 			heading:"We're Experienced",
-			desc:"With over 700 projects under our belt and 45 years combined experience we are committed to your success whether you're a start up business or a Fortune 500 company.",
+			desc:"With over 700 projects under our belt and 20 years combined experience we are committed to your success whether you're a start up business or a Fortune 500 company.",
 			icon:"fa-thumbs-up"
 		},
 		{
@@ -380,6 +380,104 @@ var serviceData = {
 			heading:'<h4 class="bold">HELP! I NEED AN AWESOME <span class="cyan-text">DESIGN AND USER EXPERIENCE</span></h4>',
 			desc:"Form and function through high fidelity interfaces and human experiences.",
 			img : "img/services/responsive_dev.jpg"
+		}
+	]
+};
+
+var casesData = {
+	cases : [
+		{
+			name   :'Verdantis',
+			url    :'http://www.verdantis.com/',
+			imgPath:'img/cases/works/verdantis.png'
+		},
+		{
+			name   :'Recruitio Consultants',
+			url    :'http://recruitioconsultants.com/',
+			imgPath:'img/cases/works/Recruitio.png'
+		},
+		{
+			name   :'Fitternity',
+			url    :'http://fitternity.com/',
+			imgPath:'img/cases/works/Fitternity.png'
+		},
+		{
+			name   :'Musafir',
+			url    :'http://in.musafir.com/',
+			imgPath:'img/cases/works/Musafir.png'
+		},
+		{
+			name   :'Assetry',
+			url    :'http://assetry.com/',
+			imgPath:'img/cases/works/assetry.png'
+		},
+		{
+			name   :'vzpro',
+			url    :'http://www.vzpro.com/',
+			imgPath:'img/cases/works/vzpro.png'
+		},
+		{
+			name   :'e-careers',
+			url    :'https://www.e-careers.com/',
+			imgPath:'img/cases/works/e-careers.png'
+		},
+		{
+			name   :'vidzapper',
+			url    :'http://vidzapper.com/',
+			imgPath:'img/cases/works/vidzapper.png'
+		},
+		{
+			name   :'atdindia',
+			url    :'http://atdindia.com/Home.aspx',
+			imgPath:'img/cases/works/atdindia.png'
+		}		
+	],
+
+	testimonals:[
+		{
+			name     : "Anuj Pandey",
+			saying   : "Ankit and his team is very sincere guy toward his work. He is always do his hard work on his task and always trying to make that better on each iteration. ",
+			position : "CEO, E10 InfoTech",
+			imgPath  : "img/cases/testimonals/testimonalMan.png"
+		},
+
+		{
+			name     : "Kishor Dige",
+			saying   : "I strongly recommend my ex-team mate Ankit Parekh. I have had the opportunity to observe Ankits professional skills as well as interpersonal style. He is consistently pleasant, and takes on all assignments with enthusiasm and dedication. His superior organizational skills make him the consummate multi-tasker. Wish you all the luck and successful career ahead. ",
+			position : "Product Manager , Capgemini",
+			imgPath  : "img/cases/testimonals/testimonalMan.png"
+		},
+
+		{
+			name     : "Atul Divecha",
+			saying   : "Amazing theme, amazing code and especially amazing support! I Really love your work.",
+			position : "Team Lead, Capgemini",
+			imgPath  : "img/cases/testimonals/testimonalMan.png"
+		},
+
+		{
+			name     : "Richard",
+			saying   : "Ankit and his team is very honest and hard-working team.",
+			position : "Founder, Efutherance",
+			imgPath  : "img/cases/testimonals/testimonalMan.png"
+		},
+		{
+			name     : "Digesh Panchal",
+			saying   : "Ankits vision is very good about the technologies and he always keeps updating himself with new technologies in the market because of which he has benefited our products with new techie things and help us to gain good client feedback.",
+			position : "Vice Presient, Verdantis",
+			imgPath  : "img/cases/testimonals/testimonalMan.png"
+		},
+		{
+			name     : "Amit Shinde",
+			saying   : "Ankit is a good UX developer i had worked with in the past. His never to say no attitude is the best selling point about him.",
+			position : "Product Manager, Verdantis",
+			imgPath  : "img/cases/testimonals/testimonalMan.png"
+		},
+		{
+			name     : "Pranita Telang",
+			saying   : "Ankit is very keen and eager UI guy which will make anything possible if he decides, I had seen working at late nights to give the product its 100% outcome. I strongly recommend him to any company and i wish i could work with him for future projects.",
+			position : "Software Manager, Verdantis",
+			imgPath  : "img/cases/testimonals/testimonalWoman.png"
 		}
 	]
 };

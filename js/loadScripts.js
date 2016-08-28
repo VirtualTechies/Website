@@ -12,6 +12,7 @@ var loadScript = {
             switch (loadScript.currentPage) {
                 case "home":
                 case "services":
+                case "cases":
                     scriptsToGetLoaded.push("assets/home.min.js");
                     callbacks[0] = function(){
                         console.log(loadScript.currentPage+" page initialized...");
@@ -28,8 +29,7 @@ var loadScript = {
                     };
                     break;
                 case "culture":
-                case "cases":
-                case "contact":              
+                case "contact": 
                     scriptsToGetLoaded.push("assets/site.min.js");
                     callbacks[0] = function(){
                         console.log(loadScript.currentPage+" page initialized...");
@@ -37,6 +37,12 @@ var loadScript = {
                     break;
                 case "member":
                 case "team":
+                    scriptsToGetLoaded.push("assets/site.min.js");
+                    callbacks[0] = function() {
+                        console.log(loadScript.currentPage + " page initialized...");
+                    }
+                    break;
+                case "startAProject":
                     scriptsToGetLoaded.push("assets/site.min.js");
                     callbacks[0] = function() {
                         console.log(loadScript.currentPage + " page initialized...");
