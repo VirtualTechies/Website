@@ -437,7 +437,7 @@ virtual = {
 				service += '<div class="col s12 m6 l6">';
 				service += '<img data-src="'+serviceData.services[f].img+'" class="wow slideInLeft lazy responsive-img">';
 				service += '</div>';
-				service += '<div class="col s12 m6 l6'+alignment+'">';
+				service += '<div class="col s12 m6 l6 '+alignment+'">';
 				service += serviceData.services[f].heading;
 				service += serviceData.services[f].desc;
 				service += '</div>';
