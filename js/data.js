@@ -402,9 +402,14 @@ var casesData = {
 			imgPath:'img/cases/works/Fitternity.png'
 		},
 		{
-			name   :'Musafir',
-			url    :'http://in.musafir.com/',
-			imgPath:'img/cases/works/Musafir.png'
+			name   :'e-careers',
+			url    :'https://www.e-careers.com/',
+			imgPath:'img/cases/works/e-careers.png'
+		},
+		{
+			name   :'vidzapper',
+			url    :'http://vidzapper.com/',
+			imgPath:'img/cases/works/vidzapper.png'
 		},
 		{
 			name   :'Assetry',
@@ -415,16 +420,6 @@ var casesData = {
 			name   :'vzpro',
 			url    :'http://www.vzpro.com/',
 			imgPath:'img/cases/works/vzpro.png'
-		},
-		{
-			name   :'e-careers',
-			url    :'https://www.e-careers.com/',
-			imgPath:'img/cases/works/e-careers.png'
-		},
-		{
-			name   :'vidzapper',
-			url    :'http://vidzapper.com/',
-			imgPath:'img/cases/works/vidzapper.png'
 		},
 		{
 			name   :'atdindia',
