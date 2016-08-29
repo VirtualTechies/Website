@@ -227,7 +227,6 @@ virtual = {
 	            hasError = true;
 	        }
 	        if (hasError == false) {
-	            $(this).hide();
 	            $("#enquirySubmit").val('Sending...');
 	            $.post("sendemail.php", {
 	                email: emailFromVal,
