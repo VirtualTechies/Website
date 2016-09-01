@@ -95,6 +95,9 @@ virtual = {
 				}				
 			}
 		});	
+		mobileheader += '<li><div class="divider"></div></li><li id="startAProjectBtn"><a class="btn cyan white-text" href="startAProject.html">Start a Project</a></li>';
+		header 		 += '<li id="startAProjectBtn"><a class="btn cyan white-text" href="startAProject.html">Start a Project</a></li>';
+
 		mobileheader += '</ul>';
 		header += '</ul>';
 		header += mobileheader;
@@ -220,7 +223,7 @@ virtual = {
 	            $("#name").after('<span class="error red-text">You forgot to enter the Name</span>');
 	            hasError = true;
 	        }
-	        var companName = $("#CompanyName").val();
+	        var companyName = $("#Company_name").val();
 	        var messageVal = $("#comment").val();
 	        if (messageVal == '') {
 	            $("#comment").after('<span class="error red-text">You forgot to enter the message.</span>');
@@ -228,15 +231,20 @@ virtual = {
 	        }
 	        if (hasError == false) {
 	            $("#enquirySubmit").val('Sending...');
-	            $.post("sendemail.php", {
-	                email: emailFromVal,
-	                user: Name,
-	                message: messageVal,
-	                companName:companName
-	            }, function(data) {
-	                $("#submit").html('Send Message');
-	                $("#contactform")[0].reset();
-	            });
+	         	$.ajax({
+					type: "POST",
+					url: "sendemail.php",
+					data: {
+						email: emailFromVal,
+		                user: Name,
+		                message: messageVal,
+		                companyName:companyName
+					},
+					success: function(){
+						$("#enquirySubmit").val('Send Message');
+	                	$("#contactform")[0].reset();
+					}
+				});
 	        }
 	        return false;
 	    });
@@ -442,6 +450,99 @@ virtual = {
 				scrollTop: ($("#formSection").offset().top - 200)
 			}, 2000);
 		});
+		$("#startAProjectBtn").addClass("hide");
+
+		var service = '';
+		$(startProject.services).each(function(s) {
+			service += '<div class="input-field col s12 m6 l6 black-text">';
+			service += '<input class="filled-in" type="checkbox" id="'+startProject.services[s].replace(/\s/g,"")+'"  data-value="'+startProject.services[s]+'"/>';
+			service += '<label for='+startProject.services[s].replace(/\s/g,"")+'>'+startProject.services[s]+'</label>';
+			service += '</div>';
+		});
+		$("#typeOfProduct").html(service);
+
+		var divs = $("#typeOfProduct .col");
+		for(var i = 0; i < divs.length; i+=2) {
+		  divs.slice(i, i+2).wrapAll("<div class='row no-mar'></div>");
+		}	
+		$('select').material_select();			
+		$('.dropdown-content li:not(.disabled) > span').css({"color":"#00bcd4"}).addClass("bold");
+	
+		$('select#timeframe').prev(".dropdown-content").find("li").each(function(l) {
+			var span = $(this).find("span").text().replace(/\./g,"<i class='fa fa-rupee'></i>");
+			$(this).find("span").html(span);
+		});
+
+		// sending Project enquiry details
+		$("#projectEnquirySubmit").click(function(e) {
+			e.preventDefault();
+	        var hasError     = false;
+	        var emailReg 	 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	        
+	        var details = {
+	        	name 	: $.trim($("#Full_name").val()),
+	        	email   : $.trim($("#email").val()),
+	        	phone   : $.trim($("#Phone").val()),
+	        	Company : $.trim($("#Company").val()),
+	        	budget  : $("#budget").val(),
+	        	time    : $("#timeframe").val(),
+	        	message : $.trim($("#requirements").val()),
+	        	finder  : $.trim($("#found").val()),
+	        	ProjectType : []
+	        };	        
+
+	        $("#typeOfProduct input[type=checkbox]").each(function(i) {
+	        	if($(this).prop("checked")) {
+	        		details["ProjectType"] = $(this).attr("data-value");
+	        	}
+	        });
+	         
+	        if( !details.name.length    || 
+	        	!details.email.length   || 
+	        	!details.phone.length   ||
+	        	(details.budget == null) ||
+	        	(details.time   == null) ||
+	        	!details.message.length ||
+	        	!emailReg.test(details.email) || 
+	        	!details.ProjectType.length)
+	        {
+	        	hasError = true;
+	        }
+
+	        (!details.name.length) 		  ? $("#Full_name").addClass("invalid") : $("#Full_name").removeClass("invalid");
+	        (!details.email.length) 	  ? $("#email").addClass("invalid") : $("#email").removeClass("invalid");
+	        (!details.phone.length) 	  ? $("#Phone").addClass("invalid") : $("#Phone").removeClass("invalid");
+	        (!details.message.length) 	  ? $("#requirements").addClass("invalid") : $("#requirements").removeClass("invalid");
+	        (details.budget == null)  	  ? $("#budget").parent().next("label").addClass("red-text invalid") : $("#budget").parent().next("label").removeClass("red-text invalid");
+	        (details.time   == null)      ? $("#timeframe").parent().next("label").addClass("red-text invalid") : $("#timeframe").parent().next("label").removeClass("red-text invalid");
+	        (!details.ProjectType.length) ? $("#pt").addClass("red-text invalid") : $("#pt").removeClass("red-text invalid");
+	        
+	        if (!hasError) {
+	            $("#projectEnquirySubmit").val('Submitting Details...');
+	            $.post("sendProjectEnquiry.php", {
+	                name 	: details.name,
+		        	email   : details.email,
+		        	phone   : details.phone,
+		        	Company : details.Company,
+		        	budget  : details.budget,
+		        	time    : details.time,
+		        	message : details.message,
+		        	finder  : details.finder,
+		        	type 	: details.ProjectType		        	
+	            }, function(data) {
+	                $("#projectEnquirySubmit").val('Submit');
+	                $("#projectform")[0].reset();
+	                Materialize.toast('You have successfully submitted the details. Our team Will Contact you shortly..', 3000);
+	            });
+	        }
+	        else {
+	        	$('html, body').animate({
+					scrollTop: ($(".invalid").offset().top - 200)
+				}, 2000);
+	        	Materialize.toast('You missed something !', 3000);
+	        }
+	        return false;
+	    });
 	},
 
 	initializeServices:function() {

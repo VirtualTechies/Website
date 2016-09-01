@@ -476,3 +476,20 @@ var casesData = {
 		}
 	]
 };
+
+var startProject = {
+	services : [
+		'Web Design And Development',
+		'E-Commerce Development',
+		'Mobile Site Development',
+		'App Development',
+		'Logo Design',
+		'Graphic Design',
+		'Search Engine Optimization',
+		'Social Media Marketing',
+		'App Ideas',
+		'Virtual reality Apps',
+		'Digital Makerting',
+		'Any Other Requirement'	
+	]
+};
