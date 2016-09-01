@@ -511,6 +511,7 @@ virtual = {
 
 	        (!details.name.length) 		  ? $("#Full_name").addClass("invalid") : $("#Full_name").removeClass("invalid");
 	        (!details.email.length) 	  ? $("#email").addClass("invalid") : $("#email").removeClass("invalid");
+	        !emailReg.test(details.email) ? $("#email").addClass("invalid") : $("#email").removeClass("invalid");
 	        (!details.phone.length) 	  ? $("#Phone").addClass("invalid") : $("#Phone").removeClass("invalid");
 	        (!details.message.length) 	  ? $("#requirements").addClass("invalid") : $("#requirements").removeClass("invalid");
 	        (details.budget == null)  	  ? $("#budget").parent().next("label").addClass("red-text invalid") : $("#budget").parent().next("label").removeClass("red-text invalid");
