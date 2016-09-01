@@ -1,9 +1,15 @@
 <?php
 // Fetching Values from URL.
-$name = $_POST['user'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$companyName = $_POST['companyName'];
+$name    = $_POST['name'];
+$email   = $_POST['email'];
+$phone   = $_POST['phone'];
+$Company = $_POST['Company'];
+$budget  = $_POST['budget'];
+$time    = $_POST['time'];
+$finder  = $_POST['finder'];
+$type    = $_POST['type'];
+$messageRequirement = $_POST['message'];
+
 $subject = 'Visitor Contact Information';
 $userSubject = 'Greetings From Virtual-Techhies Team';
 
@@ -18,8 +24,13 @@ $userSubject = 'Greetings From Virtual-Techhies Team';
 	. '<br/>A visitor on your website has send some message through Contact Us Page.<br/><br/>'
 	. 'Name:' . $name . '<br/>'
 	. 'Email:' . $email . '<br/>'
-	. 'Message:' . $message . '<br/><br/>'
-	. 'Company Name:' . $companyName . '<br/><br/>'
+	. 'Phone:' . $phone . '<br/><br/>'
+	. 'Company Name:' . $Company . '<br/><br/>'
+	. 'Budget:' . $budget . '<br/>'
+	. 'Time:' . $time . '<br/>'
+	. 'Finder:' . $finder . '<br/><br/>'
+	. 'Type:' . $type . '<br/><br/>'
+	. 'Requirements:' . $messageRequirement . '<br/><br/>'
 	. '<br/>'
 	. '</div>';
 	$sendmessage = "<div style=\"background-color:whitesmoke; color:black;\">" . $template . "</div>";
