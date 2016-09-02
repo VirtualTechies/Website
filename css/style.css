@@ -336,15 +336,17 @@ textarea:focus{
  border-bottom: 1px solid #ef5350;
  box-shadow: 0 1px 0 0 #ef5350;
 }
-
 .input-field input[type=text].invalid + label,
 .input-field input[type=email].invalid + label,
 textarea.invalid + label{
     color: #ef5350 !important;
 }
-
 .input-field .prefix.active {
  color: #00bcd4 !important;
+}
+[type=checkbox].filled-in:checked+label:after {
+    border: 2px solid #00bcd4;
+    background-color: #00bcd4;
 }
 /*labels css*/
 

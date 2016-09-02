@@ -381,6 +381,41 @@ var serviceData = {
 			desc:"Form and function through high fidelity interfaces and human experiences.",
 			img : "img/services/responsive_dev.jpg"
 		}
+	],
+
+	additional: [
+		{
+			desc: "User experience redesign",
+			imgPath : "img/services/additional/design.png"
+		},
+		{
+			desc: "Website Redesign and hosting",
+			imgPath : "img/services/additional/hosting.png"
+		},
+		{
+			desc: "Art direction and design",
+			imgPath : "img/services/additional/direction.png"
+		},
+		{
+			desc: "Virtual reality",
+			imgPath : "img/services/additional/virtualreality.png"
+		},
+		{
+			desc: "Animation and motion graphics",
+			imgPath : "img/services/additional/animation.png"
+		},
+		{
+			desc: "Banners",
+			imgPath : "img/services/additional/banners.png"
+		},
+		{
+			desc: "CMS development",
+			imgPath : "img/services/additional/CMS.png"
+		},
+		{
+			desc: "Startup Ideas",
+			imgPath : "img/services/additional/Startup.png"
+		}
 	]
 };
 

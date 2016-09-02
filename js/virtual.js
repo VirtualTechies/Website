@@ -576,6 +576,23 @@ virtual = {
 			service += '<div class="site-pad--sm"></div>';
 		});
 		$("#servicesSection").html(service);
+
+		var additionalTemplate  = '<div class="col s6 m3 l3 center-align">'
+					   			+ '<div class="card-panel transparent no-shadow"><img data-src="imgPath" class="wow fadeIn lazy responsive-img">'
+					   			+ '<p class="white-text bold">desc</p></div></div>';
+
+		this.createHtmlTemplates($("#additional"), additionalTemplate, serviceData.additional);
+		var divs = $("#additional > div.col");
+		for(var i = 0; i < divs.length; i+=4) {
+			divs.slice(i, i+4).wrapAll("<div class='row'></div>");
+		}
+
+		$("#additional .card-panel").css("transition","all .2s ease-in-out").hover(function(){
+			$(this).toggleClass("no-shadow z-depth-3 transparent site-bg").css("transform","scale(1.1)");		
+		},function(){
+			$(this).toggleClass("no-shadow z-depth-3 transparent site-bg").css("transform","scale(1)");	
+		});
+
 		virtual.initializeWow();
 		virtual.initializeLazyLoad();
 	},
