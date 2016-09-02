@@ -468,7 +468,7 @@ virtual = {
 		$('select').material_select();			
 		$('.dropdown-content li:not(.disabled) > span').css({"color":"#00bcd4"}).addClass("bold");
 	
-		$('select#timeframe').prev(".dropdown-content").find("li").each(function(l) {
+		$('select#budget').prev(".dropdown-content").find("li").each(function(l) {
 			var span = $(this).find("span").text().replace(/\./g,"<i class='fa fa-rupee'></i>");
 			$(this).find("span").html(span);
 		});
@@ -529,7 +529,7 @@ virtual = {
 		        	time    : details.time,
 		        	message : details.message,
 		        	finder  : details.finder,
-		        	type 	: details.ProjectType		        	
+		        	type 	: details.ProjectType.join(",")	        	
 	            }, function(data) {
 	                $("#projectEnquirySubmit").val('Submit');
 	                $("#projectform")[0].reset();
