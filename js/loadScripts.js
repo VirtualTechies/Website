@@ -30,23 +30,21 @@ var loadScript = {
                     break;
                 case "culture":
                 case "contact": 
+                case "member":
+                case "team":
+                case "startAProject":                
+                case "terms":
                     scriptsToGetLoaded.push("assets/site.min.js");
                     callbacks[0] = function(){
                         console.log(loadScript.currentPage+" page initialized...");
                     };
                     break;
-                case "member":
-                case "team":
-                    scriptsToGetLoaded.push("assets/site.min.js");
-                    callbacks[0] = function() {
-                        console.log(loadScript.currentPage + " page initialized...");
-                    }
-                    break;
-                case "startAProject":
-                    scriptsToGetLoaded.push("assets/site.min.js");
-                    callbacks[0] = function() {
-                        console.log(loadScript.currentPage + " page initialized...");
-                    }
+                case "service":
+                case "sitemap":
+                    scriptsToGetLoaded.push("assets/service.min.js");
+                    callbacks[0] = function(){
+                        console.log(loadScript.currentPage+" page initialized...");
+                    };
                     break;
                 default: 
                     break; 

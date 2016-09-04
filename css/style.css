@@ -48,6 +48,8 @@ body{
 #site-navbar{
     max-height:65px;
     transition:all 0.3s ease-in;
+    z-index: 100000 !important;
+    position: relative;
 }
 
 #site-navbar.big .navbar-fixed,
@@ -115,16 +117,45 @@ body{
 }
 
 /*footer Css*/
-.page-footer{
-	background-color: #f5f8fa !important;
-}
-footer{
-	padding-top:5rem !important;
-}
 footer.page-footer form{
-	width:85% !important;
-	margin:0 auto !important;
-	padding:3rem !important;
+    width:85% !important;
+    margin:0 auto !important;
+    padding:3rem !important;
+}
+.footer{
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.862745)), url("../img/footer.jpg");
+}
+.footer ul li a{ 
+    color: #fff!important;
+    cursor:pointer;
+}
+.footer ul li a:hover{ 
+    color: #039be5!important;
+    cursor:pointer;
+}
+.padL20{ 
+    padding-left: 20px;
+}
+#subscribe,
+#subscribe:focus,
+#subscribe:active{ 
+    border: 1px solid #fff !important;
+    padding: 0px 12px !important;
+    width: 90% !important;
+    color: #fff !important;
+    height: 34px !important;
+    position: relative!important;
+    top: 10px!important;
+}
+#subscribebtn{ 
+    padding: 0 10px;
+    position:relative;
+    top: 10px;
+    right: 15px;
 }
 /*footer Css*/
 
@@ -297,6 +328,7 @@ footer.page-footer form{
 .site-pad--sm{ padding:4rem 0 1rem; }
 .equal-pad{	padding:4rem 0; }
 .equal-pad--sm{	padding:2rem 0; }
+.equal-pad--xs{ padding:1rem 0; }
 .width100{ width:100%; }
 .width60{ width:60%; }
 .site-bg{background: linear-gradient(60deg,rgb(0, 212, 205),#0277bd)!important;}
@@ -383,4 +415,17 @@ textarea.invalid + label{
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+.transparent-white-btn{
+    background: transparent!important;
+    color: #fff!important;
+    border-radius:2px;
+    border:1px solid #fff;
+}
+.transparent-white-btn + .btn{
+    margin-left:10px;
+}
+.transparent-white-btn:hover{
+    background: linear-gradient(60deg,rgb(0, 212, 205),#0277bd)!important;
+    border:1px solid transparent!important;
 }
