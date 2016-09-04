@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Virtual Techies - Techifying the World</title>
+    <meta name="description" content="Virtual Techies - Techifying the World">
+    <meta name="author" content="Ankit Parekh">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="stylesheet" href="assets/style.home.min.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+    	.first-sec-site.service{
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            max-height: 800px;
+            min-height: 700px;
+        }
+        .first-sec-site.service h3{
+            margin-top:7.5rem;
+        }   
+        .workImage{
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            max-height: 300px;
+            min-height: 250px;
+            overflow:hidden;
+        }
+        #pricingTemplate .card-panel{
+            transition: all .3s ease-in;
+            cursor:pointer;
+        }
+        #pricingTemplate .card-panel a.btn{
+            border-radius:20px;
+        }
+        
+    </style>
+</head>
+<body class="white" data-page="service">
+	<!-- Loader -->
+    <div id="site-loader" class="site-loader">
+        <div class="loader-inner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <p class="flow-text">Virtual <span class="cyan-text">Techies</span></p>
+    </div>
+	<div class="hide" id="site-wrapper" role="main">
+		<header class="z-depth-1"></header>
+		<section class="center-align site-pad service white first-sec-site">
+			<div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 white-text">
+                    	<h3 id="serviceName" class="bold"></h3>
+						<p class="flow-text no-mar">
+							<i class="fa fa-quote-left"></i> <span id="serviceTagLine"></span> <i class="fa fa-quote-right"></i><br><br>
+						</p>
+						<a class="btn transparent-white-btn" id="goToApproach" title="Tribe Members">Instant Quote</a>
+						<a class="btn transparent-white-btn" id="goToApproach" title="Tribe Members">Start A Project</a>
+                    </div>
+                </div>
+            </div>
+		</section>
+
+        <section class="site-pad light-bl-bg" id="serviceIntroduction">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <h4 class="bold cyan-text"></h4>
+                        <p class="black-text"></p>
+                    </div>
+                </div>
+                <div class="equal-pad--sm"></div>
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <p id="introduction_Desc" class="black-text vertical-center"></p>
+                    </div>
+                    <div class="col s12 offset-m1 offset-l1 m5 l5">
+                        <img class="lazy responsive-img vertical-center" id="introductionImg">
+                    </div>                    
+                </div>
+                <div class="equal-pad--sm"></div>
+            </div>
+        </section>
+
+        <section class="site-pad white" id="serviceSections">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <h4 class="bold cyan-text"></h4>
+                        <p class="black-text"></p>
+                    </div>
+                </div>
+                <div id="serviceSectionsTemplate">
+            </div>
+        </section>
+
+        <section class="site-pad cyan" id="platforms">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <h4 class="bold white-text"></h4>
+                    </div>
+                </div>
+                <div class="equal-pad--sm"></div> 
+                <div class="row" id="platformsTemplate">
+            </div>
+        </section>
+
+        <section class="site-pad white" id="worksSection">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <h4 class="bold cyan-text">Featured work</h4>
+                        <p class="black-text">Here is some of the client work we’ve created, and some of the businesses we’ve helped grow</p>
+                    </div>
+                </div>
+                <div id="worksTemplate"></div>
+            </div>
+        </section>
+
+        <section class="site-pad light-bl-bg" id="pricingSection">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <h4 class="bold cyan-text">Let's get started</h4>
+                        <p class="black-text">To get started, you will need to choose a plan for your needs. You can opt in for the monthly of annual options and go with one fo the three listed below.</p>
+                    </div>
+                </div>
+                <div class="equal-pad--sm"></div>
+                <div class="row" id="pricingTemplate"></div>
+                <div class="equal-pad--sm"></div>
+            </div>
+        </section>
+
+        <section class="site-pad white" id="FAQSection">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <h4 class="bold cyan-text">Frequently Asked Questions</h4>
+                    </div>
+                </div>
+                <div class="row" id="FAQTemplate">
+                <div class="equal-pad--sm"></div>
+            </div>
+        </section>
+
+        <footer class="equal-pad--sm footer white"></footer>
+	</div>
+	<script src="assets/loadScripts.min.js" type="text/javascript"></script>
+</body>
+</html>
