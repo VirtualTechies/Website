@@ -567,7 +567,7 @@ var terms = {
         },
         {
             point : "8. Governing Law",
-            termdesc  : "Any claim relating to Virtual Techies, web site shall be governed by the laws of the State of California, in the city of Los Angeles, without regard to its conflict of law provisions. General Terms and Conditions applicable to Use of a Web Site."
+            termdesc  : "Any claim relating to Virtual Techies, web site shall be governed by the laws of the State government of Maharashtra, in the city of Mumbai, without regard to its conflict of law provisions. General Terms and Conditions applicable to Use of a Web Site."
         }
     ],
 
