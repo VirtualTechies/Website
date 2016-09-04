@@ -1,5 +1,6 @@
 /*site-slider Css*/     
-#site-slider .item div.width100{    
+#site-slider .item div.width100,
+#loadOne div.width100{    
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center center;
@@ -10,23 +11,27 @@
 }
 
 @media only screen and (max-width: 600px) {
-	#site-slider .item div.width100{
+	#site-slider .item div.width100,
+	#loadOne div.width100{
 	    max-height: 700px;
     	min-height: 500px;
 	}
 
-	#site-slider .item .slider-title h3 {
+	#site-slider .item .slider-title h3,
+	#loadOne div.width100 h3{
 	    margin-top:50%;
 	    font-weight:500;
 	}
 
-	#site-slider .item .slider-title:after{
+	#site-slider .item .slider-title:after,
+	#loadOne div.width100 .slider-title:after{
 		width:70%;
 		height:70%;
 	}
 }
 
-#site-slider .item .slider-title:after{
+#site-slider .item .slider-title:after,
+#loadOne div.width100 .slider-title:after{
     content: "";
     position: absolute;
     top: 13em;
@@ -36,7 +41,8 @@
     z-index: 100;
     right: 5%;
 }
-#site-slider .item .slider-title h3{
+#site-slider .item .slider-title h3,
+#loadOne div.width100 .slider-title h3{
 	margin-top: 25%;
 	font-weight:500;
 }

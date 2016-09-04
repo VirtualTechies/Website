@@ -10,9 +10,8 @@ virtual = {
 	initialize:function(){
 
 		this.initializeHeader();
-		this.initializeLazyLoad();
 		this.initializePlugins();
-		this.initializeFooter();
+		this.initializeLazyLoad();
 		
 		var currentPage = (typeof this.page != "undefined") ? this.page : "home";
 		switch(currentPage) {
@@ -49,6 +48,7 @@ virtual = {
 			default:
 				break;
 		}
+		this.initializeFooter();
 		this.initializeWow();
 	},
 
@@ -750,21 +750,36 @@ virtual = {
 
 	initializeSlider:function() {
 
-		var virtual   = this;
-		var isMobile  = virtual.detectDevice();
-		var slider    = $('.owl-carousel');
-
+		var virtual   = this,
+			isMobile  = virtual.detectDevice(),
+			slider    = $('.owl-carousel');
+		
+		var checkIsReady = function() {
+			if(virtual.page == "home" || virtual.page == "services"){
+				if($("#loadOne").length && $("#loadTwo").length){
+					setTimeout(function(){ 
+	                    $('#loadTwo .owl-carousel').addClass("owl-loaded");
+	                    $("#loadTwo").removeClass("hide");
+						$("#loadOne").remove();
+	                },2000);
+				}
+			}
+		};
+		
 		if(slider.length) {
 			/*initializing Slider*/
-			$(slider).owlCarousel({
+			$(slider).on('initialized.owl.carousel', function(event) {
+				checkIsReady();
+			}).owlCarousel({
+				callbacks  : true,
 				loop       : true,
 				nav        : false,
 				dots       : false,
-				lazyLoad   : true,
+				lazyLoad   : (virtual.page == "home" ? false : true),
 				items      : 1,
 				pagination : false,
 				autoplay   : true,
-				autoplayHoverPause: true,
+				autoplayHoverPause: true, 
 
 				responsiveClass:true,
 				responsive:{
@@ -777,7 +792,7 @@ virtual = {
 					1000:{
 					    items:1
 					}
-				}
+				}				
 			}).show();
 
 			if(isMobile){
@@ -785,7 +800,6 @@ virtual = {
 				$("#weDoSec").css("top","-45px").css("z-index" ,"1");
 			}
 		}
-		$('.parallax').parallax();
 	},
 
 	initializeContact: function(){
