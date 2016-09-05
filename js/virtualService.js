@@ -16,6 +16,7 @@ virtualService = {
 			}
 			else if(this.page == "sitemap"){
 				this.initializeSitemap();
+				this.initializeServicePageLinks();
 			}
 		}
 		this.initializeLazyLoad();
@@ -111,71 +112,72 @@ virtualService = {
 	},
 
 	initializeFooter:function(){
-		var footer = '';
+		var virtual = this,
+			footer = '';
 			footer += '<div class="container">';
 				
-				footer += '<div class="row"><div class="col s12 m4 l4 left-align white-text">';
-				footer += '<p class="flow-text bold"><em><span class="cyan-text">Virtual</span> Techies</em></p>';
-				footer += '<p>We bring your products or services across in ways that make people feel good as they engage with your business. We firmly believe that making your people happy is not about U or about Us; it"s all about UX.</p>';
-				footer += '<p class="">STAY CONNECTED<br>Top design, tech and startup resources...</p>';
-				footer += '<form class="row"><div class="input-field col s10 no-mar">';
-				footer += '<input placeholder="Your email address" id="subscribe" type="text" class="validate"></div>';
-				footer += '<div class="input-field col s2 no-mar">';
-				footer += '<a id="subscribebtn" class="btn transparent-white-btn"><i class="fa fa-long-arrow-right"></i></a>';
-				footer += '</div></form></div>';
+			footer += '<div class="row"><div class="col s12 m4 l4 left-align white-text">';
+			footer += '<p class="flow-text bold"><em><span class="cyan-text">Virtual</span> Techies</em></p>';
+			footer += '<p>We bring your products or services across in ways that make people feel good as they engage with your business. We firmly believe that making your people happy is not about U or about Us; it"s all about UX.</p>';
+			footer += '<p class="">STAY CONNECTED<br>Top design, tech and startup resources...</p>';
+			footer += '<form class="row"><div class="input-field col s10 no-mar">';
+			footer += '<input placeholder="Your email address" id="subscribe" type="text" class="validate"></div>';
+			footer += '<div class="input-field col s2 no-mar">';
+			footer += '<a id="subscribebtn" class="btn transparent-white-btn"><i class="fa fa-long-arrow-right"></i></a>';
+			footer += '</div></form></div>';
 
-				footer += '<div class="col s12 m3 l3 left-align white-text"><p class="flow-text bold padL20">Services</p>';
-				footer += '<ul class="padL20" style="margin:0;">';
-				footer += '<li><a href="service.html">Website Development</a></li>';
-				footer += '<li><a href="service.html">App Development</a></li>';
-				footer += '<li><a href="service.html">Ecommerce Development</a></li>';
-				footer += '<li><a href="service.html">Web Application Development</a></li>';
-				footer += '<li><a href="service.html">Design And User experience</a></li>';
-				footer += '<li><a href="service.html">Logo Design</a></li>';
-				footer += '<li><a href="service.html">Graphic Design</a></li>';
-				footer += '<li><a href="service.html">Social Media Marketing</a></li>';
-				footer += '<li><a href="service.html">App Ideas</a></li>';
-				footer += '<li><a href="service.html">Virtual reality Apps</a></li>';
-				footer += '<li><a href="service.html">Digital Makerting</a></li>';
-				footer += '</ul></div>';
+			footer += '<div class="col s12 m3 l3 left-align white-text"><p class="flow-text bold padL20">Services</p>';
+			footer += '<ul class="padL20" style="margin:0;">';
+			footer += '<li><a data-serviceClicked="website" href="service.html" class="gotoService" href="service.html">Website Development</a></li>';
+			footer += '<li><a data-serviceClicked="app" href="service.html" class="gotoService" href="service.html">App Development</a></li>';
+			footer += '<li><a data-serviceClicked="ecommerce" href="service.html" class="gotoService" href="service.html">Ecommerce Development</a></li>';
+			footer += '<li><a data-serviceClicked="webApp" href="service.html" class="gotoService" href="service.html">Web Application Development</a></li>';
+			footer += '<li><a data-serviceClicked="design" href="service.html" class="gotoService" href="service.html">Design And User experience</a></li>';
+			footer += '<li><a data-serviceClicked="logoDesign" href="service.html" class="gotoService" href="service.html">Logo Design</a></li>';
+			footer += '<li><a data-serviceClicked="logoDesign" href="service.html" class="gotoService" href="service.html">Graphic Design</a></li>';
+			footer += '<li><a data-serviceClicked="startup" href="service.html" class="gotoService" href="service.html">App Ideas</a></li>';
+			footer += '<li><a data-serviceClicked="virtual" href="service.html" class="gotoService" href="service.html">Virtual reality Apps</a></li>';
+			footer += '<li><a data-serviceClicked="digital" href="service.html" class="gotoService" href="service.html">Digital Makerting</a></li>';
+			footer += '</ul></div>';
 
-				footer += '<div class="col s12 m2 l2 left-align white-text"><p class="flow-text bold padL20">Navigate</p>';
-				footer += '<ul class="padL20" style="margin: 0;">';
-				footer += '<li><a href="index.html">Home</a></li>';
-				footer += '<li><a href="culture.html">Culture</a></li>';
-				footer += '<li><a href="approach.html">Approach</a></li>';
-				footer += '<li><a href="cases.html">Portfolio</a></li>';
-				footer += '<li><a href="services.html">Services</a></li>';
-				footer += '<li><a href="team.html">Team</a></li>';
-				footer += '<li><a href="index.html">Careers</a></li>';
-				footer += '<li><a href="contact.html">Contact Us</a></li>';
-				footer += '</ul></div>';
+			footer += '<div class="col s12 m2 l2 left-align white-text"><p class="flow-text bold padL20">Navigate</p>';
+			footer += '<ul class="padL20" style="margin: 0;">';
+			footer += '<li><a href="index.html">Home</a></li>';
+			footer += '<li><a href="culture.html">Culture</a></li>';
+			footer += '<li><a href="approach.html">Approach</a></li>';
+			footer += '<li><a href="cases.html">Portfolio</a></li>';
+			footer += '<li><a href="services.html">Services</a></li>';
+			footer += '<li><a href="team.html">Team</a></li>';
+			footer += '<li><a href="index.html">Careers</a></li>';
+			footer += '<li><a href="contact.html">Contact Us</a></li>';
+			footer += '</ul></div>';
 
-				footer += '<div class="col s12 m3 l3 left-align white-text"><p class="flow-text bold padL20">Reach Us</p>';
-				footer += '<p class="row valign-wrapper padL20">';
-				footer += '<span class="col s2"><i class="fa fa-mobile fa-3x valign"></i></span>';
-				footer += '<span class="col s10">';
-				footer += '<a href="tel:992035332" class="white-text">+91 992035332</a><br>';
-				footer += '<a href="tel:992035332" class="white-text">+91 992035332</a>';
-				footer += '</span></p>';
-				footer += '<p class="row valign-wrapper padL20">';
-				footer += '<span class="col s2"><i class="fa fa-envelope fa-lg valign"></i> </span>';
-				footer += '<span class="col s10">';
-				footer += '<a class="white-text" href="mailto:info@thevirtualtechies.com"> info@thevirtualtechies.com</a><br>';
-				footer += '<a class="white-text" href="mailto:support@thevirtualtechies.com"> support@thevirtualtechies.com</a></span></p>';
-				footer += '<p class="row valign-wrapper padL20">';
-				footer += '<span class="col s2"><i class="fa fa-map-marker fa-2x valign"></i></span>';
-				footer += '<span class="col s10">Mira-road, Thane<br>Mumbai - 401107<br>India</span></p></div></div>';
-				footer += '<div style="margin:2rem 0" class="divider grey darken-3"></div>';
-				footer += '<div class="row"><div class="col s12 m5 l5 left-align white-text">';
-				footer += '© '+new Date().getFullYear()+' Virtual Techies. All Rights Reserved.</div>';
-				footer += '<div class="col s12 m3 l3 white-text"><a href="terms.html"> Privacy Policy</a> | <a href="sitemap.html">Site Map</a></div>';
-				footer += '<div class="col s12 m4 l4 right-align white-text">';
-				footer += 'Designed &amp; Developed by <a href="http://akkiparekhcv.appspot.com/">Ankit Parekh</a>';
-				footer += '</div></div></div>';
+			footer += '<div class="col s12 m3 l3 left-align white-text"><p class="flow-text bold padL20">Reach Us</p>';
+			footer += '<p class="row valign-wrapper padL20">';
+			footer += '<span class="col s2"><i class="fa fa-mobile fa-3x valign"></i></span>';
+			footer += '<span class="col s10">';
+			footer += '<a href="tel:992035332" class="white-text">+91 992035332</a><br>';
+			footer += '<a href="tel:992035332" class="white-text">+91 992035332</a>';
+			footer += '</span></p>';
+			footer += '<p class="row valign-wrapper padL20">';
+			footer += '<span class="col s2"><i class="fa fa-envelope fa-lg valign"></i> </span>';
+			footer += '<span class="col s10">';
+			footer += '<a class="white-text" href="mailto:info@thevirtualtechies.com"> info@thevirtualtechies.com</a><br>';
+			footer += '<a class="white-text" href="mailto:support@thevirtualtechies.com"> support@thevirtualtechies.com</a></span></p>';
+			footer += '<p class="row valign-wrapper padL20">';
+			footer += '<span class="col s2"><i class="fa fa-map-marker fa-2x valign"></i></span>';
+			footer += '<span class="col s10">Mira-road, Thane<br>Mumbai - 401107<br>India</span></p></div></div>';
+			footer += '<div style="margin:2rem 0" class="divider grey darken-3"></div>';
+			footer += '<div class="row"><div class="col s12 m5 l5 left-align white-text">';
+			footer += '© '+new Date().getFullYear()+' Virtual Techies. All Rights Reserved.</div>';
+			footer += '<div class="col s12 m3 l3 white-text"><a href="terms.html"> Privacy Policy</a> | <a href="sitemap.html">Site Map</a></div>';
+			footer += '<div class="col s12 m4 l4 right-align white-text">';
+			footer += 'Designed &amp; Developed by <a href="http://akkiparekhcv.appspot.com/">Ankit Parekh</a>';
+			footer += '</div></div></div>';
 
 		if($('footer.footer').length){
 			$('footer.footer').html(footer);
+			virtual.initializeServicePageLinks();
 		}
 	},
 
@@ -204,49 +206,33 @@ virtualService = {
 					$("#serviceTagLine").html(servick.serviceTagLine);
 					$(".first-sec-site.service").css("background-image","linear-gradient(rgba(0, 0, 0, 0.49),rgba(0, 0, 0, 0.86)), url('"+servick.mainImagePath+"')");
 					
-					//intro section
-					$("#serviceIntroduction .row:first-child h4").html(servick.serviceIntroduction.heading);
-					$("#serviceIntroduction .row:first-child p").html(servick.serviceIntroduction.tagline);
-					$("#serviceIntroduction img").attr("data-src", servick.serviceIntroduction.introductionImg);
-					$("#serviceIntroduction #introduction_Desc").html(servick.serviceIntroduction.desc);
-					$("#serviceIntroduction .row").last().find(".col:first-child").addClass(isMobile ? "center-align" : "left-align");
-					$("#serviceIntroduction .row").last().find(".col:last-child").addClass(isMobile ? "center-align" : "right-align");
-
 					//sections
 					if(servick.showServiceSection) {
 						$("#serviceSections .row:first-child h4").html(servick.serviceSectionHeading);
 						$("#serviceSections .row:first-child p").html(servick.serviceSectionTagLine);
-						var serviceSectionsTemplate = '<div class="equal-pad--sm"></div>'
-													+ '<div class="row">'
-													+ '<div class="col s12 m6 l6"><p class="flow-text vertical-center">sectionDesc</p></div>'
-													+ '<div class="col s12 offset-m1 offset-l1 m5 l5"><img class="vertical-center lazy responsive-img z-depth-3" data-src="sectionImg"></div>'
-													+ '</div><div class="equal-pad--sm"></div>';
-						virtual.createHtmlTemplates($("#serviceSectionsTemplate"), serviceSectionsTemplate, servick.serviceSections);	
+						var serviceSectionsTemplate = '';
+						var serviceAlignment = "";
+						$(servick.serviceSections).each(function(f){
+							if(isMobile ||  f % 2 == 0){
+								serviceAlignment = isMobile ? "center-align wow slideIn" : "right-align wow slideInRight";
+								serviceSectionsTemplate += '<div class="equal-pad--sm"></div>';
+								serviceSectionsTemplate += '<div class="row">';
+								serviceSectionsTemplate += '<div class="col s12 m6 l6 center-align"><img class="block-center vertical-center lazy responsive-img" data-src="'+servick.serviceSections[f].sectionImg+'"></div>';
+								serviceSectionsTemplate += '<div class="col s12 m6 l6 '+serviceAlignment+'"><p class="vertical-center">'+servick.serviceSections[f].sectionDesc+'</p></div>';								
+								serviceSectionsTemplate += '</div><div class="equal-pad--sm"></div>';
+							}
+							else{
+								serviceSectionsTemplate += '<div class="equal-pad--sm"></div>';
+								serviceSectionsTemplate += '<div class="row">';
+								serviceSectionsTemplate += '<div class="col s12 m6 l6 left-align wow slideInLeft"><p class="vertical-center">'+servick.serviceSections[f].sectionDesc+'</p></div>';								
+								serviceSectionsTemplate += '<div class="col s12 m6 l6 center-align"><img class="block-center vertical-center lazy responsive-img" data-src="'+servick.serviceSections[f].sectionImg+'"></div>';								
+								serviceSectionsTemplate += '</div><div class="equal-pad--sm"></div>';
+							}
+						});
+						$("#serviceSectionsTemplate").html(serviceSectionsTemplate);
 					}
 					else{
 						$("#serviceSections").addClass("hide");
-					}
-					
-		
-					//platforms
-					if(servick.showServiceSection) {
-						$("#platforms .row:first-child h4").html(servick.platformsheading + servick.serviceName);
-						var dynamicColClass = servick.platforms.length;
-						
-						if(dynamicColClass == 1){
-							dynamicColClass = 12;
-						}else if(dynamicColClass == 2){
-							dynamicColClass = 6;
-						}else if(dynamicColClass == 3){
-							dynamicColClass = 4;
-						}else if(dynamicColClass == 4 || dynamicColClass > 4){
-							dynamicColClass = 3;
-						}	
-						var platformsTemplate 	= '<div class="col s12 m'+dynamicColClass+' l'+dynamicColClass+' center-align"><img class="lazy responsive-img" data-src="platformImg"><p class="flow-text white-text bold">platformName</p></div>';											
-						virtual.createHtmlTemplates($("#platformsTemplate"), platformsTemplate, servick.platforms);
-					}
-					else{
-						$("#platforms").addClass("hide");
 					}
 
 					//works
@@ -290,7 +276,7 @@ virtualService = {
 						$("#worksTemplate").html(worksTemplate);
 					}
 					else{
-						$("#worksSection").addClass("hide");
+						$("#worksSection, #otherWorksSection").addClass("hide");
 					}
 
 					if(servick.showPoliciesSection) {
@@ -298,34 +284,37 @@ virtualService = {
 						var isAciveClass = "";
 						$(servick.pricingPolicies).each(function(p){
 							pricingTemplate += '<div class="col s12 m4 l4">';
-							isAciveClass    =  (servick.pricingPolicies[p].active) ? "site-bg z-depth-3" : "transparent no-shadow";
-							pricingTemplate += '<div class="center-align card-panel '+isAciveClass+'">';
-							pricingTemplate += '<p class="grey-text">'+servick.pricingPolicies[p].policyName+'</p>';
+							isAciveClass    =  (servick.pricingPolicies[p].active) ? "site-bg" : "white";
+							pricingTemplate += '<div class="center-align card-panel z-depth-3 '+isAciveClass+'">';
+							pricingTemplate += '<p class="black-text">'+servick.pricingPolicies[p].policyName+'</p>';
 							pricingTemplate += '<div class="valign-wrapper center-align"><h3 class="width100 black-text">'+servick.pricingPolicies[p].policyPrice+'</h3></div>';
 							pricingTemplate += '<ul>';
 							$(servick.pricingPolicies[p].policyText).each(function(pt){
 								pricingTemplate += '<li><div style="width:65%" class="center-block divider"></div><p>'+servick.pricingPolicies[p].policyText[pt]+'</p><li>';
 							});
 							pricingTemplate += '</ul>';
-							pricingTemplate += '<p><a class="btn site-bg white-text">Get Started</a></p>';
+							pricingTemplate += '<p><a href="startAProject.html" class="btn site-bg white-text">Request quote</a></p>';
 							pricingTemplate += '</div></div>';
 						}); 
+
 						$("#pricingTemplate").html(pricingTemplate);
-						$("#pricingTemplate .transparent h3, #pricingTemplate .transparent li p").addClass("grey-text");
+						$("#pricingTemplate .transparent h3, #pricingTemplate .transparent li p").addClass("black-text");
 						$("#pricingTemplate .site-bg h3, #pricingTemplate .site-bg p, #pricingTemplate .site-bg li p").addClass("white-text").removeClass("cyan-text");
 						$("#pricingTemplate .site-bg a.btn").addClass("white cyan-text").removeClass("site-bg white-text");
 						
 						$("#pricingTemplate .card-panel").hover(function(){
-							$(this).addClass("site-bg z-depth-3").removeClass("transparent no-shadow");
-							$(this).find("p, h3, li p").addClass("white-text").removeClass("grey-text");
+							$(this).addClass("site-bg").removeClass("white");
+							$(this).find("p, h3, li p").addClass("white-text").removeClass("black-text");
 							$(this).find("a.btn").addClass("white cyan-text").removeClass("site-bg white-text");
-							$("#pricingTemplate .card-panel").not($(this)).addClass("transparent no-shadow").removeClass("site-bg z-depth-3");
-							$("#pricingTemplate .card-panel").not($(this)).find("p, h3, li p").addClass("grey-text").removeClass("white-text");
+							$("#pricingTemplate .card-panel").not($(this)).addClass("white").removeClass("site-bg");
+							$("#pricingTemplate .card-panel").not($(this)).find("p, h3, li p").addClass("black-text").removeClass("white-text");
 							$("#pricingTemplate .card-panel").not($(this)) .find("a.btn").addClass("site-bg white-text").removeClass("white cyan-text");
 						});
+						$("#pricingQuote").addClass("hide");
 					}
 					else{
 						$("#pricingTemplate").addClass("hide");
+						$("#pricingQuote").removeClass("hide");
 					}
 
 					if(servick.showFAQsection) {
@@ -415,6 +404,17 @@ virtualService = {
 			});	
 			this.deleteAfterUse(pads);		
 		}
+	},
+
+	initializeServicePageLinks: function(){
+		$(".gotoService").on("click", function() {			
+			if(typeof $(this).attr("data-serviceClicked") !== "undefined") {	
+				localStorage.setItem("serviceClicked", $(this).attr("data-serviceClicked"));
+			}
+			else{
+				window.location = window.location.hostname + "/startAProject.html";
+			}			
+		});
 	},
 
 	deleteAfterUse: function(params){

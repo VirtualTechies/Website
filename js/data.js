@@ -294,8 +294,16 @@ var approachData = {
             name:"Javascript"
         },
         {
-            imgPath:"img/approach/technologies/javascript.png",
-            name:"JQuery"
+            imgPath:"img/approach/technologies/html5.png",
+            name:"HTML"
+        },
+        {
+            imgPath:"img/approach/technologies/css.png",
+            name:"CSS"
+        },
+        {
+            imgPath:"img/approach/technologies/jquery.png",
+            name:"Jquery"
         },
         {
             imgPath:"img/approach/technologies/ios.png",
