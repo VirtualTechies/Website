@@ -345,6 +345,200 @@ var serviceData = {
 			pricingPolicies:[],
 			showFAQsection : false,
 			FAQS:[]
+		},
+
+		//webApp
+		{
+			storageServiceName : "webApp",
+			mainImagePath  : "img/service/webApp/webApp.jpg",
+			serviceName    : "Web Application",
+			serviceTagLine : "We work on various popular web development platforms. Systems developed at Innovins are fully responsive and tailored to specific and different business needs and innovation.",
+			showServiceSection : true,
+			serviceSectionHeading : "You have the vision. We have the tools and technology",
+			serviceSectionTagLine : "Automate your business process and take productivity to new heights with our application services.",
+			serviceSections: [
+				{
+					sectionImg  : "img/service/webApp/pic1.png",
+					sectionDesc : "A superior user experience for your applications, which directly results in improved performance and profitability of your software. Our user-centric design is focused on delivering applications that are extremely easy to use, engaging and improves conversions. Our high-fidelity wireframing and quick prototyping can help in faster rollout of your MVP in the market."
+				},
+				{
+					sectionImg  : "img/service/webApp/pic2.png",
+					sectionDesc : "We specialize in both existing and emerging technologies, powering your application to perform optimally. Our expertise includes Open Source LAMP Stack, .Net, Ruby, ColdFusion, Python and more. We also employ several custom and open-source tools for performance optimization and speeding up software deployment."
+				},
+				{
+					sectionImg  : "img/service/webApp/pic3.png",
+					sectionDesc : "We help you organize, preserve and archive all your digital assets in a structured way so that they can be easily located and retrieved using powerful search functionality. From text documents to images, audio and video content, we can help you strategize and implement an asset management solution that works seamlessly..."
+				}
+			],
+			showWorksSection : false,
+			works:[],
+			showPoliciesSection : false,
+			pricingPolicies:[],
+			showFAQsection : false,
+			FAQS:[]
+		},
+
+		//logo
+		{
+			storageServiceName : "logoDesign",
+			mainImagePath  : "img/service/logo/logo.jpg",
+			serviceName    : "LOGO DESIGN",
+			serviceTagLine : "The easiest way to get a logo designed for your business.",
+			showServiceSection : true,
+			serviceSectionHeading : "Logo is Like a Name to individual...",
+			serviceSectionTagLine : "Designed by professional designers, mentored by experienced marketing professionals.",
+			serviceSections: [
+				{
+					sectionImg  : "img/service/logo/pic1.png",
+					sectionDesc : "Share your expectations about the design with us online or over a call with your dedicated account manager by answering a few simple questions."
+				},
+				{
+					sectionImg  : "img/service/logo/pic2.png",
+					sectionDesc : "Based on your brief our designers design logo options for your business and get back to you. If you do not like any of the options, we process your refund (if applicable on you plan)."
+				},
+				{
+					sectionImg  : "img/service/logo/pic3.png",
+					sectionDesc : "Choose your favorite from the design options and get up to 3 free modifications. Download the logo and the original editable files."
+				}
+			],
+			showWorksSection : false,
+			works:[],
+			showPoliciesSection : true,
+			pricingPolicies:[
+				{
+					policyName : "BASIC PLAN",
+					policyType : "Monthly",
+					policyText : [
+						"1 Logo Design",
+						"1 Free Modification", 
+						"1 Free Modification", 
+						"Editable Source Files"
+					],
+					policyPrice: "<span class='valign'><sub><i class='fa fa-rupee fa-2x'></i></sub> 2,000</span>",
+					active     : false
+				},
+				{
+					policyName : "PREMIUM",
+					policyType : "Monthly",
+					policyText : [
+						"2 Logo Designs to choose from",
+						"2 Free Modifications", 
+						"Delivery in 7 Business Days",
+						"Editable Source Files",  
+						"50% Money Back Guarantee"
+					],
+					policyPrice: "<span class='valign'><sub><i class='fa fa-rupee fa-2x'></i></sub> 5,000</span>",
+					active     : true
+				},
+				{
+					policyName : "PLATINUM",
+					policyType : "Monthly",
+					policyText : [
+						"3 Logo Designs to choose from",
+						"3 Free Modifications", 
+						"Delivery in 7 Business Days",
+						"Editable Source Files",  
+						"100% Money Back Guarantee"
+					],
+					policyPrice: "<span class='valign'><sub><i class='fa fa-rupee fa-2x'></i></sub> 10,000</span>",
+					active     : false
+				}
+			],
+			showFAQsection : false,
+			FAQS:[]
+		},
+
+		//graphic
+		{
+			storageServiceName : "graphic",
+			mainImagePath  : "img/service/graphic/graphic.jpg",
+			serviceName    : "GRAPHIC DESIGN",
+			serviceTagLine : "WE EMBRACE AMBIGUITY",
+			showServiceSection : true,
+			serviceSectionHeading : "Are your designs getting lost in the woods? ",
+			serviceSectionTagLine : "To create a beautiful and successful Graphic Design, we follow the below process",
+			serviceSections: [
+				{
+					sectionImg  : "img/service/graphic/pic1.png",
+					sectionDesc : "Your brand should stand out in the marketplace and be instantly identifiable by your audience. Stay away from standard, boring visuals or icons. Using high quality, professional fonts and typography helps your brand look unique, while adding credibility to the design."
+				},
+				{
+					sectionImg  : "img/service/graphic/pic2.png",
+					sectionDesc : "We create logos that leaves an impression with your audiences. Having brand recognition increases the value and trust worthiness of your brand. Using a great design along with marketing will help your brand create significant connections with your business and also make your brand a serious competitor in your industry’s marketplace."
+				},
+				{
+					sectionImg  : "img/service/graphic/pic3.png",
+					sectionDesc : "We believe that logos give an identity to your business and hence believe in creating logos that last for years to come. We avoid creating logos that refer to a particular trend because as the trend fades away so does the logo looks less appealing."
+				}
+			],
+			showWorksSection : false,
+			works:[],
+			showPoliciesSection : false,
+			pricingPolicies:[],
+			showFAQsection : false,
+			FAQS:[]
+		},
+
+		//startup
+		{
+			storageServiceName : "startup",
+			mainImagePath  : "img/service/virtual/virtual.jpg",
+			serviceName    : "Change the way we see the world and the way we do business.",
+			serviceTagLine : "WE EMBRACE AMBIGUITY",
+			showServiceSection : true,
+			serviceSectionHeading : "Your Idea, Tomorrow's Innovation ",
+			serviceSectionTagLine : "Only through collaboration we can bring your idea to life. Tell us your idea, and we'll get to work on it immediately.",
+			serviceSections: [
+				{
+					sectionImg  : "img/service/virtual/pic1.png",
+					sectionDesc : "Enlighten the masses, develop a layer of virtual reality that amplifies the beauty of our world and changes the way business is done. Your Augmented Reality Idea + Our Augmented Reality Developers = Change the way we see the world and the way we do business."
+				},
+				{
+					sectionImg  : "img/service/virtual/pic2.png",
+					sectionDesc : "Deploy Your Augmented Reality Idea on tablets, smartphones & gadgets. Our augmented reality development team has the capacity and resources to custom build your idea, the virtual environment on a wide-range of software platforms."
+				},
+				{
+					sectionImg  : "img/service/virtual/pic3.png",
+					sectionDesc : "Catchy UI, enhancing how we see the world or get the job done at work. Our augmented reality development team has the expertise to develop a UI that offers a breathtaking sensory experience and that pushes the limits of the platform you want to deploy it on."
+				}
+			],
+			showWorksSection : false,
+			works:[],
+			showPoliciesSection : false,
+			pricingPolicies:[],
+			showFAQsection : false,
+			FAQS:[]
+		},
+		
+		//virtual
+		{
+			storageServiceName : "virtual",
+			mainImagePath  : "img/service/virtual/virtual.jpg",
+			serviceName    : "Change the way we see the world and the way we do business.",
+			serviceTagLine : "WE EMBRACE AMBIGUITY",
+			showServiceSection : true,
+			serviceSectionHeading : "Your Idea, Tomorrow's Innovation ",
+			serviceSectionTagLine : "Only through collaboration we can bring your idea to life. Tell us your idea, and we'll get to work on it immediately.",
+			serviceSections: [
+				{
+					sectionImg  : "img/service/virtual/pic1.png",
+					sectionDesc : "Enlighten the masses, develop a layer of virtual reality that amplifies the beauty of our world and changes the way business is done. Your Augmented Reality Idea + Our Augmented Reality Developers = Change the way we see the world and the way we do business."
+				},
+				{
+					sectionImg  : "img/service/virtual/pic2.png",
+					sectionDesc : "Deploy Your Augmented Reality Idea on tablets, smartphones & gadgets. Our augmented reality development team has the capacity and resources to custom build your idea, the virtual environment on a wide-range of software platforms."
+				},
+				{
+					sectionImg  : "img/service/virtual/pic3.png",
+					sectionDesc : "Catchy UI, enhancing how we see the world or get the job done at work. Our augmented reality development team has the expertise to develop a UI that offers a breathtaking sensory experience and that pushes the limits of the platform you want to deploy it on."
+				}
+			],
+			showWorksSection : false,
+			works:[],
+			showPoliciesSection : false,
+			pricingPolicies:[],
+			showFAQsection : false,
+			FAQS:[]
 		}
 	]
 };

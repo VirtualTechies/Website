@@ -161,8 +161,8 @@ virtual = {
 			footer += '<li><a data-serviceClicked="webApp" href="service.html" class="gotoService" href="service.html">Web Application Development</a></li>';
 			footer += '<li><a data-serviceClicked="design" href="service.html" class="gotoService" href="service.html">Design And User experience</a></li>';
 			footer += '<li><a data-serviceClicked="logoDesign" href="service.html" class="gotoService" href="service.html">Logo Design</a></li>';
-			footer += '<li><a data-serviceClicked="logoDesign" href="service.html" class="gotoService" href="service.html">Graphic Design</a></li>';
-			footer += '<li><a data-serviceClicked="startup" href="service.html" class="gotoService" href="service.html">App Ideas</a></li>';
+			footer += '<li><a data-serviceClicked="graphic" href="service.html" class="gotoService" href="service.html">Graphic Design</a></li>';
+			footer += '<li><a data-serviceClicked="startup" href="startAProject.html" class="" href="service.html">App Ideas</a></li>';
 			footer += '<li><a data-serviceClicked="virtual" href="service.html" class="gotoService" href="service.html">Virtual reality Apps</a></li>';
 			footer += '<li><a data-serviceClicked="digital" href="service.html" class="gotoService" href="service.html">Digital Makerting</a></li>';
 			footer += '</ul></div>';

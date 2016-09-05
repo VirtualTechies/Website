@@ -152,7 +152,7 @@ var teamdata = {
         },
         {
             imgPath : "img/members/milinds.png",
-            name    : "Milind Patel",
+            name    : "Milind Gohil",
             role    : "Marketing Director"
         }
     ],
@@ -204,7 +204,7 @@ var teamdata = {
             happyPeople:"I love technology. My main goal is using the power of technology to empower people, making their lives easier and more enjoyable. If I manage to make people smile along the way, that makes me a happier person myself."
         },
         {
-            name:"Milind Patel",
+            name:"Milind Gohil",
             tagline:"Let’s introduce you to our Marketing core.",
             mailId:"ankit77parekh@gmail.com",
             imgPath:"img/members/pics/milind.jpg",
