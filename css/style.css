@@ -109,13 +109,11 @@ body{
     margin-bottom:-120px;
 }
 /*header Css*/
-
 .goTo{
 	position:relative;
 	margin-top:-30px;
 	z-index:100;
 }
-
 /*footer Css*/
 footer.page-footer form{
     width:85% !important;
@@ -127,7 +125,7 @@ footer.page-footer form{
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 400px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.862745)), url("../img/footer.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.71),rgba(0,0,0,.862745)),url(../img/footer.jpg);
 }
 .footer ul li a{ 
     color: #fff!important;

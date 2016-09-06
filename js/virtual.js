@@ -5,7 +5,7 @@ var virtual = new Object() || {};
 
 virtual = {
 	
-	page : $("body").data("page"),
+	page : $("body").attr("data-page"),
 
 	initialize:function(){
 
@@ -50,6 +50,9 @@ virtual = {
 		}
 		this.initializeFooter();
 		this.initializeWow();
+		if(!this.detectDevice()){
+			this.initiailizeBackTop();
+		}		
 	},
 
 	initializeHeader:function(){
@@ -198,7 +201,7 @@ virtual = {
 			footer += '<div class="row"><div class="col s12 m5 l5 left-align white-text">';
 			footer += '© '+new Date().getFullYear()+' Virtual Techies. All Rights Reserved.</div>';
 			footer += '<div class="col s12 m3 l3 white-text"><a href="terms.html"> Privacy Policy</a> | <a href="sitemap.html">Site Map</a></div>';
-			footer += '<div class="col s12 m4 l4 right-align white-text">';
+			footer += '<div class="col s12 m4 l4 white-text '+(virtual.detectDevice() ? "" : "right-align")+'">';
 			footer += 'Designed &amp; Developed by <a href="http://akkiparekhcv.appspot.com/">Ankit Parekh</a>';
 			footer += '</div></div></div>';
 
@@ -313,13 +316,7 @@ virtual = {
 						 +  '<span class="">role</span></p></div></div>';
 		this.createHtmlTemplates($("#teamrow"), teamTemplate, teamdata.culturedata);
 		this.initializeLazyLoad();
-
-		$("#goToTribe").on("click",function(){
-			$('html, body').animate({
-				scrollTop: $("#tribeMembers").offset().top
-			}, 2000);
-		});
-
+		this.initializeAnimateTo($("#goToTribe"), $("#tribeMembers"));
 		$("#teamrow .card-panel").css("cursor","pointer").hover(function(){
 			$(this).addClass("z-depth-3 white-text site-bg");
 			$(this).removeClass("transparent no-shadow black-text");			
@@ -335,13 +332,15 @@ virtual = {
 	},
 
 	initializeApproach: function() {
+		var virtual = this;
+		var isMobile = virtual.detectDevice();
 		var approachLines= '';
 			approachLines += '<ul>';
 		$(approachData.process).each(function(p){
 			approachLines += '<li>';
 			approachLines += '<span class="number">'+(p+1)+'</span>';
 			approachLines += '<div class="step '+(p % 2 == 0 ? "" : "invert")+'">';
-			approachLines += '<div class="card no-shadow white valign-wrapper">';
+			approachLines += '<div class="card no-shadow white '+(isMobile ? "" : "valign-wrapper")+'">';
 			if(p % 2 != 0) {
 				approachLines += '<h3>'+approachData.process[p].name+'</h3>';
 			}
@@ -366,6 +365,13 @@ virtual = {
 						 + '<img id="name" alt="name" data-src="imgPath" class="lazy responsive-img">'
 						 + '<p class="no-mar flow-text">name</p></div></div>';
 		this.createHtmlTemplates($("#technologies #techs"), techTemplate, approachData.technologies);
+		
+		var techCols = $("#technologies #techs .col");
+		var techColsNo = (isMobile) ?  3 : 6;
+		for(var i = 0; i < techCols.length; i+=techColsNo) {
+			techCols.slice(i, i+techColsNo).wrapAll("<div class='row'></div>");
+		}
+		
 		this.initializeLazyLoad();
 		$("#technologies #techs img#CSS, #technologies #techs img#HTML").css("width","50px");
 		$("#technologies #techs img#Jquery").css("width","55px");		
@@ -389,12 +395,7 @@ virtual = {
 		},function(){
 			$(this).toggleClass("transparent no-shadow site-bg cyan-text white-text z-depth-5");	
 		});
-
-		$("#goToApproach").on("click",function(){
-			$('html, body').animate({
-				scrollTop: ($("#timeline").offset().top)
-			}, 2000);
-		});
+		this.initializeAnimateTo($("#goToApproach"), $("#timeline"));
 
 		$(".tags").typed({
             strings: ["Business owners with big dreams.","Bringing ideas to life.","Owners who want to work within a budget.","Cutting edge technology & marketing.","Taking your business to the next level.","Happy customers.","Results!"],
@@ -413,20 +414,25 @@ virtual = {
             resetCallback: function() { newTyped(); }
         });
 
-        $(".pillarstags").typed({
-            strings: ["Collaboration","Iteration","Long-term"],
-            typeSpeed: 150,
-            backSpeed: 0,
-            startDelay: 0,
-            backDelay: 700,
-            randomize: 100,
-            cursorChar: '|',
-            showCursor:true,
-            loop:true,
-            contentType: 'text',
-            loopCount: false,
-            resetCallback: function() { newTyped(); }
-        });
+		if(!isMobile){
+	        $(".pillarstags").typed({
+	            strings: ["Collaboration","Iteration","Long-term"],
+	            typeSpeed: 150,
+	            backSpeed: 0,
+	            startDelay: 0,
+	            backDelay: 700,
+	            randomize: 100,
+	            cursorChar: '|',
+	            showCursor:true,
+	            loop:true,
+	            contentType: 'text',
+	            loopCount: false,
+	            resetCallback: function() { newTyped(); }
+	        });
+	    }
+	    else{
+	    	$(".pillarstags").html("Collaboration | Iteration | Long-term");
+	    }
 		
 		$(window).on('scroll', function(){
 			$(".cd-timeline-block").each(function(){
@@ -498,14 +504,11 @@ virtual = {
 		},function(){
 			$(this).toggleClass("transparent cyan-text site-bg hoverable white-text z-depth-3 z-depth-5");
 		});
+		this.initializeAnimateTo($("#goToCases"), $("#worksSection"));
 	},
 
 	initializeStartAProject: function() {
-		$("#goToStart").on("click",function(){
-			$('html, body').animate({
-				scrollTop: ($("#formSection").offset().top - 200)
-			}, 2000);
-		});
+		this.initializeAnimateTo($("#goToStart"), $("#formSection"));
 		$("#startAProjectBtn").addClass("hide");
 
 		var service = '';
@@ -734,6 +737,7 @@ virtual = {
 			this.createHtmlTemplates($("#teamMembers"), membersTemplate, teamdata.memberdata);
 			virtual.initializeWow();
 			virtual.initializeLazyLoad();
+			virtual.initializeAnimateTo($("#goToMembers"), $("#happyPeople"));
 		}
 	},
 
@@ -843,15 +847,9 @@ virtual = {
 	},
 
 	initializeTerms : function(){
-		$("#goToPolicy").on("click",function(){
-			$('html, body').animate({
-				scrollTop: $("#webSiteTerms").offset().top
-			}, 1000);
-		});
-
+		this.initializeAnimateTo($("#goToPolicy"), $("#webSiteTerms"));
 		var termsTemplate = '<div class="flow-text"><span class="bold cyan-text">point</span><p class="padLeft20">termdesc</p></div>';
 		this.createHtmlTemplates($("#termsTemplate"), termsTemplate, terms.termsData);
-			
 		var policyTemplate = '<li><i class="termsDot fa fa-circle"></i> policydesc</li>';
 		this.createHtmlTemplates($("#policyTemplate"), policyTemplate, terms.policiesData);
 	},
@@ -895,6 +893,57 @@ virtual = {
 		delete htmlcontainer;
 		delete htmltemplate;
 		delete iteratee;
+	},
+
+	initiailizeBackTop:function(){
+	   	
+	   	var virtual = this;
+	   	$(document).find('.fixed-action-btn').remove();
+
+	   	var links = [
+	   		{page :"home", 	   link:"index.html",    icon:"fa-home"},
+	   		{page :"culture",  link:"culture.html",  icon:"fa-chain"},
+	   		{page :"approach", link:"approach.html", icon:"fa-paper-plane"},
+	   		{page :"cases",    link:"cases.html", 	 icon:"fa-briefcase"},
+	   		{page :"services", link:"services.html", icon:"fa-tags"},
+	   		{page :"team",     link:"team.html", 	 icon:"fa-users"},
+	   		{page :"contact",  link:"contact.html",  icon:"fa-phone"}
+	   	];
+	   	
+	   	var backtotopTemplate = '';
+			backtotopTemplate += '<div class="fixed-action-btn hide" style="bottom: 45px; right: 24px;">';
+			backtotopTemplate += '<a id="backToTop" class="btn-floating btn-large cyan"><i class="fa fa-chevron-up"></i></a>';
+			backtotopTemplate += '<ul>';
+			$(links).each(function(l){
+				if(links[l].page != virtual.page){
+					backtotopTemplate += '<li><a href="'+links[l].link+'" data-link="'+links[l].page+'" class="btn-floating cyan"><i class="fa '+links[l].icon+'"></i></a></li>';
+				}
+			});
+			backtotopTemplate += '</ul></div>';
+
+	   	$(document).find('#site-wrapper').after(backtotopTemplate);
+	   	$(window).scroll(function(){
+			($(window).scrollTop() >= 600) ? $(".fixed-action-btn").removeClass("hide") : $(".fixed-action-btn").addClass("hide");
+		});
+		this.initializeAnimateTo($('.fixed-action-btn #backToTop'), 0);
+        $('.fixed-action-btn li').each(function(){
+        	$(this).find("a").attr("data-position","left").attr("data-delay",50).attr("data-tooltip",$(this).find("a").attr('data-link')).tooltip();
+        });
+	},
+
+	initializeAnimateTo: function(element, scrollToElement){
+		$(element).on("click", function(e){
+        	e.preventDefault();
+        	if(scrollToElement == 0){
+        		$('html, body').animate({scrollTop:0}, 2000);
+        	}
+        	else{
+        		$('html, body').animate({
+					scrollTop: $(scrollToElement).offset().top
+				}, 2000);
+        	}			
+			return false;
+        });
 	}
 };
 
