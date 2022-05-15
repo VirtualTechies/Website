@@ -1,14 +1,13 @@
 {
-	"name": "Cool-Framework",
-	"description": "Builds Cool-Framework distribution packages",
+	"name": "Virtual Techies Website",
 	"author": "Ankit Parekh",
-	"url": "http://akkiparekh.github.io/Cool-Framework/",
+	"url": "https://github.com/VirtualTechies/Website",
 	"version": "0.0.1",
 	"main": "bin/cool.js",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/AkkiParekh/Cool-Framework.git"
+		"url": "https://github.com/VirtualTechies/Website"
 	},
 	"dependencies": {
 		"jquery": "^2.1.4",
